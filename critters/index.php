@@ -52,7 +52,7 @@ echo '<div class="col-xs-12 critter-table">';
 
 foreach($result as $row)
 {
-	echo '<div class="critter-row">';
+	echo '<div class="critter-row col-xs-12">';
 	echo '<div class="col-xs-6 col-lg-2 critter-pic">test</div>';
 	echo '<div class="col-xs-6 col-lg-4 critter-name">' . $row['name'] . '</div>';
 	echo '<div class="col-xs-6 col-lg-3 critter-temp">' . $row['temperature'] . '&#8457</div>';
