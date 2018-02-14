@@ -1,5 +1,5 @@
 body {
-    background-color: purple;
+    background: linear-gradient(-90deg, purple, pink);
     color: white;
     font-size: 5rem;
     text-align: center;

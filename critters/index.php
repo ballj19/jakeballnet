@@ -67,7 +67,6 @@ foreach($result as $row)
 		if($i == 6)
 		{
 			mail('9166226745@vtext.com','',$text);
-			echo $text;
 			$text = "";
 			$i=1;
 		}
