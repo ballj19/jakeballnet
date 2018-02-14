@@ -52,10 +52,10 @@ echo '<div class="col-xs-12 critter-table">';
 
 foreach($result as $row)
 {
-	echo '<div class="col-xs-4 col-sm-2 critter-pic">test</div>';
-	echo '<div class="col-xs-8 col-sm-4 critter-name">' . $row['name'] . '</div>';
-	echo '<div class="col-xs-6 col-sm-3 critter-temp">' . $row['temperature'] . '</div>';
-	echo '<div class="col-xs-6 col-sm-3 critter-hum">' . $row['humidity'] . '</div>';
+	echo '<div class="col-xs-4 col-lg-2 critter-pic">test</div>';
+	echo '<div class="col-xs-8 col-lg-4 critter-name">' . $row['name'] . '</div>';
+	echo '<div class="col-xs-6 col-lg-3 critter-temp">' . $row['temperature'] . '</div>';
+	echo '<div class="col-xs-6 col-lg-3 critter-hum">' . $row['humidity'] . '</div>';
 	
 	if(isset($_GET['text'])) // This is to keep the text length short enough for verizon to send
 	{
