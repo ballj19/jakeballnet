@@ -47,16 +47,23 @@ $result = $conn->query($select_sql);
 
 $i = 1; //This is to keep the text length short enough
 
+echo '<div class="col-xs-12 critter-table">';
+
 
 foreach($result as $row)
 {
-	$text = $text . "\n";
-	$text = $text . $row['name'] . "\n";
-	$text = $text . "T: " . $row['temperature'] . "\n";
-	$text = $text . "H: " . $row['humidity'] . "\n";
+	echo '<div class="col-xs-4 col-sm-2 critter-pic">test</div>';
+	echo '<div class="col-xs-8 col-sm-4 critter-name">' . $row['name'] . '</div>';
+	echo '<div class="col-xs-6 col-sm-3 critter-temp">' . $row['temperature'] . '</div>';
+	echo '<div class="col-xs-6 col-sm-3 critter-hum">' . $row['humidity'] . '</div>';
 	
 	if(isset($_GET['text'])) // This is to keep the text length short enough for verizon to send
 	{
+		$text = $text . "\n";
+		$text = $text . $row['name'] . "\n";
+		$text = $text . "T: " . $row['temperature'] . "\n";
+		$text = $text . "H: " . $row['humidity'] . "\n";
+
 		if($i == 6)
 		{
 			mail('9166226745@vtext.com','',$text);
@@ -71,7 +78,7 @@ foreach($result as $row)
 	}
 }
 
-echo $text;
+echo '</div>';
 
 if(isset($_GET['text'])) {		
 	mail('9166226745@vtext.com','',$text);	
