@@ -11,7 +11,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="JavaScript.js"></script>
+<script src="Refresh.js"></script>
+<script src="Critter-Charts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <link rel="stylesheet" href="style.css"> 
 </head>
 
@@ -34,11 +36,18 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+date_default_timezone_set('America/Los_Angeles');
+$time = date("H") . date("i");
+
 if(isset($_GET['id']))
 {
-	$update_sql = "UPDATE `critters` SET `temperature`=" . $temperature . ",`humidity`=" . $humidity . " WHERE `index`=" . $id;
+	$delete_sql = "DELETE FROM `critters` WHERE `index`={$id} AND `time`={$time}";
+
+	$result = $conn->query($delete_sql);
 	
-	$result = $conn->query($update_sql);
+	$insert_sql = "INSERT INTO `critters` VALUES ({$id},{$temperature},{$humidity},{$time})";
+	
+	$result = $conn->query($insert_sql);
 }
 
 $i = 1; //This is to keep the text length short enough
@@ -46,6 +55,10 @@ $i = 1; //This is to keep the text length short enough
 echo '<div id="critter-table">';
 require_once('update-table.php');
 echo '</div>';
+
+echo '<div id="diglettModal" class="modal">';
+echo '</div>';
+
 ?>
 </body>
 </html>

@@ -5,3 +5,9 @@ function refreshTable() {
         $(this).unwrap();
     });
 }
+
+function diglettChart() {
+    $('#critter-table').load('update-table.php', function () {
+        $(this).unwrap();
+    });
+}
