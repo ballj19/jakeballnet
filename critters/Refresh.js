@@ -7,7 +7,7 @@ function refreshTable() {
 }
 
 function diglettChart() {
-    $('#critter-table').load('update-table.php', function () {
+    $('#diglettModal').load('update-diglett.php', function () {
         $(this).unwrap();
     });
 }

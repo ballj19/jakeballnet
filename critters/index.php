@@ -57,6 +57,10 @@ require_once('update-table.php');
 echo '</div>';
 
 echo '<div id="diglettModal" class="modal">';
+echo '<div class="modal-content">';
+echo 	'<span class="close">&times;</span>';
+echo 	'<canvas id="diglettChart"></canvas>';
+echo '</div>';
 echo '</div>';
 
 ?>

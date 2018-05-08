@@ -28,7 +28,7 @@ for($c=0;$c<4;$c++)
 	}
 
 	echo '<div class="critter-row col-xs-12">';
-	echo 	'<div class="col-xs-6 critter-title" onclick="chart()">';
+	echo 	'<div class="col-xs-6 critter-title" onclick="diglettChart()">';
 	echo 		'<div class="col-xs-12 col-lg-6"><img class="critter-pic" src="critter' . $c . '.JPG"></div>';
 	echo 	'</div>';
 	echo 	'<div class="col-xs-6 critter-info">';
