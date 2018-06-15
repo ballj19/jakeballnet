@@ -54,7 +54,7 @@ body {
         font-family: 'Amatic SC', cursive;
 }
 
-.explore-btn {
+#explore-btn {
       color: white;
       background-color: transparent;
       border-color: #ccc;
@@ -67,7 +67,7 @@ body {
       font-size: 20px;
 }
 
-.explore-container {
+#explore-container {
         height: 1080px;
         background-color: rgb(212, 209, 209);
 }
