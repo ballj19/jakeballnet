@@ -71,3 +71,19 @@ body {
         height: 1080px;
         background-color: rgb(212, 209, 209);
 }
+
+.reptile {
+        margin-top: 50px;
+}
+
+.reptile-img1 {
+        height:300px;
+        float: left;
+        margin-right: 10px;
+}
+
+.reptile-title {
+        float: left;
+        font-size: 30px;
+        padding: 4px 10px;
+}
