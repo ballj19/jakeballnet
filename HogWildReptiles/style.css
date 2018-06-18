@@ -68,7 +68,6 @@ body {
 }
 
 #explore-container {
-        height: 1080px;
         background-color: rgb(212, 209, 209);
 }
 
@@ -77,12 +76,6 @@ body {
         border: 2px solid purple;
         border-radius: 20px;
         padding: 30px;
-}
-
-.reptile-img1 {
-        height:300px;
-        float: left;
-        margin-right: 10px;
 }
 
 .reptile-title {
@@ -111,3 +104,25 @@ body {
         padding-bottom: 20px;
 }
 
+.carousel-control {
+        background-image: none !important;
+}
+
+.right {
+        right: 10 !important;
+}
+
+.left {
+        left: 10 !important;
+}
+
+.reptile-img {
+        border-radius: 20px;
+}
+
+.buy-btn {
+        background-color: purple;
+        color: white;
+        padding: 10px;
+        border: 1px solid purple;
+}
