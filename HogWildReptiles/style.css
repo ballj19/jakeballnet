@@ -1,6 +1,6 @@
 body {
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-        font-size: 1rem;
+        font-size: 16px;
 }
 
 .menubar {
@@ -74,6 +74,9 @@ body {
 
 .reptile {
         margin-top: 50px;
+        border: 2px solid purple;
+        border-radius: 20px;
+        padding: 30px;
 }
 
 .reptile-img1 {
@@ -87,3 +90,24 @@ body {
         font-size: 30px;
         padding: 4px 10px;
 }
+
+.reptile-info {
+        display: inline-block;
+}
+
+.breed {
+        font-size: 24px;
+        font-weight: bold;
+        padding-bottom: 10px;
+}
+
+.price {
+        font-size: 20px;
+        padding-bottom: 10px;
+}
+
+.hatch {
+        font-size: 20px;
+        padding-bottom: 20px;
+}
+
