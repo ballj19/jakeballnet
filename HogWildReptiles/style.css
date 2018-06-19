@@ -69,13 +69,15 @@ body {
 
 #explore-container {
         background-color: rgb(212, 209, 209);
+        margin-right: 0;
 }
 
 .reptile {
-        margin-top: 50px;
+        margin-top: 25px;
         border: 2px solid purple;
         border-radius: 20px;
         padding: 30px;
+        margin-bottom: 25px;
 }
 
 .reptile-title {
@@ -120,9 +122,7 @@ body {
         border-radius: 20px;
 }
 
-.buy-btn {
-        background-color: purple;
-        color: white;
-        padding: 10px;
-        border: 1px solid purple;
+.more-info {
+        margin-top: 10px;
+        font-style: italic;
 }

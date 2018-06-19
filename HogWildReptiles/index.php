@@ -90,38 +90,13 @@
                                 <li><a href="#<?php echo $name . '-';?>care" data-toggle="tab">Care</a></li>
                                 <li><a href="#<?php echo $name . '-';?>resources" data-toggle="tab">Resources</a></li>
                         </ul>
-                        <button type="button" data-toggle="modal" data-target="#form-<?php echo $name; ?>" class="btn buy-btn col-md-2">Learn More</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="form-<?php echo $name; ?>" tabindex="-1" role="dialog" aria-labelledby="form-<?php echo $name; ?>" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                                <div class="modal-header">
-                                                        <h5 class="modal-title" id="form-<?php echo $name; ?>">Looking to buy or have any questions?  Email us here and we will get back to you!</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                        <form action="mail.php" method="post">
-                                                                Name:<br>
-                                                                <input type="text" name="name" required><br>
-                                                                E-mail:<br>
-                                                                <input type="text" name="mail" required><br>
-                                                                Comment:<br>
-                                                                <input type="text" name="comment" size="50" required><br><br>
-                                                                <input type="submit" value="Send">
-                                                        </form>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
 
                         <div class="tab-content col-md-12">
                                 <div class="tab-pane active" id="<?php echo $name . '-';?>about"><?php echo file_get_contents('ForSale/' . $name . '/about.txt');?></div>
                                 <div class="tab-pane" id="<?php echo $name . '-';?>care">Test1</div>
                                 <div class="tab-pane" id="<?php echo $name . '-';?>resources">Test2</div>  
                         </div>
+                        <div class="more-info col-md-12">For more information, or if you are looking to buy, please email us at info@hogwildreptiles.com.<br>We know this critter as <b><?php echo $name;?></b> so be sure to include that in your email!</div>
                 </div>  
         <?php        
                         echo '</div>';
