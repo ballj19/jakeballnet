@@ -126,3 +126,7 @@ body {
         margin-top: 10px;
         font-style: italic;
 }
+
+.nav-tabs li a {
+        color: black;
+}

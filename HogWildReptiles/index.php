@@ -85,7 +85,7 @@
                         echo '</div>';
                  ?>       
                 <div class="reptile-info col-md-8"> 
-                        <ul class="nav nav-tabs col-md-10">
+                        <ul class="nav nav-tabs col-md-12">
                                 <li class="active"><a href="#<?php echo $name . '-';?>about" data-toggle="tab">About</a></li>
                                 <li><a href="#<?php echo $name . '-';?>care" data-toggle="tab">Care</a></li>
                                 <li><a href="#<?php echo $name . '-';?>resources" data-toggle="tab">Resources</a></li>
