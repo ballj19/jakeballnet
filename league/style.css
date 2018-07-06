@@ -1,0 +1,75 @@
+body {
+	background-color: #222 !important;
+	color: White !important;
+	font-weight: bold !important;
+}
+
+.page-title {
+	margin-top: 50px;
+	font-size: 50px;
+	text-align: center;
+}
+
+.entry-form{
+	margin-top: 50px;
+}
+
+.entry input {
+	color: black;
+	text-align: center
+}
+
+.entry-label {
+	display: inline-block;
+	text-align: center;
+}
+
+.entry-box {
+	display: inline-block;
+}
+
+.lock-in {
+	margin-top: 50px;
+	text-align: center;
+}
+.info {
+	margin-top: 50px;
+}
+
+.results {
+	margin-top: 50px;
+}
+
+.lock-in-table {
+	text-align: center;
+}
+
+.log-table {
+	margin-top: 50px;
+	text-align: center;
+}
+
+th {
+	float: left !important;
+	text-align: center !important;
+}
+
+td {
+	float: left !important;
+	text-align: center !important;
+}
+
+.lock-in input{
+	color: white;
+	background-color: #375a7f;
+	border-color: #375a7f;
+	border-radius: 7px;
+}
+
+.player-row{
+	margin-top: 15px;
+}
+
+.role-row{
+	margin-top: 15px;
+}

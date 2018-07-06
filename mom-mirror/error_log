@@ -1,0 +1,68 @@
+[16-Feb-2018 09:31:47 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mirror/index.php on line 269
+[16-Feb-2018 09:31:47 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mirror/index.php on line 274
+[16-Feb-2018 09:31:47 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mirror/index.php on line 285
+[16-Feb-2018 12:56:04 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[16-Feb-2018 12:56:04 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[16-Feb-2018 12:56:04 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[16-Feb-2018 16:15:57 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[16-Feb-2018 16:15:57 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[16-Feb-2018 16:15:57 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[18-Feb-2018 14:53:56 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[18-Feb-2018 14:53:56 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[18-Feb-2018 14:53:56 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[18-Feb-2018 14:56:47 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[18-Feb-2018 14:56:47 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[18-Feb-2018 14:56:47 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[20-Feb-2018 13:20:49 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[20-Feb-2018 13:20:49 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[20-Feb-2018 13:20:49 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[23-Feb-2018 21:26:26 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[23-Feb-2018 21:26:26 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[23-Feb-2018 21:26:26 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[25-Feb-2018 06:21:17 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[25-Feb-2018 06:21:17 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[25-Feb-2018 06:21:17 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[28-Mar-2018 09:22:20 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[28-Mar-2018 09:22:20 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[28-Mar-2018 09:22:20 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[15-Apr-2018 21:22:48 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[15-Apr-2018 21:22:48 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[15-Apr-2018 21:22:48 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[23-Apr-2018 06:40:04 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[23-Apr-2018 06:40:04 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[23-Apr-2018 06:40:04 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[02-May-2018 20:03:45 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[02-May-2018 20:03:45 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[02-May-2018 20:03:45 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[05-May-2018 11:04:31 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[05-May-2018 11:04:31 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[05-May-2018 11:04:31 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[06-May-2018 06:35:56 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[06-May-2018 06:35:56 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[06-May-2018 06:35:56 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[06-Jul-2018 08:44:12 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[06-Jul-2018 08:44:12 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[06-Jul-2018 08:44:12 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[06-Jul-2018 08:48:48 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[06-Jul-2018 08:48:48 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[06-Jul-2018 08:48:48 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[06-Jul-2018 08:54:14 America/Los_Angeles] PHP Warning:  file_get_contents(https://...@glumac.com/7ba2e1aabe6a4398bdf23487bfac084212781030871234897136/calendar.ics): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 269
+[06-Jul-2018 08:54:14 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
+[06-Jul-2018 08:54:14 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285

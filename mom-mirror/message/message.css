@@ -1,0 +1,40 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.note-row {
+	margin-top: 30px;
+}
+
+.note-info {
+	text-align: left;
+	font-size: 40px;
+	min-height: 100px;
+	padding-right: 0;
+	border-style: none;
+	border-width: 5px;
+}
+
+.note-button {
+	padding-left: 0;
+}
+
+.note-button > form > input{
+	height: 100px;
+	width: 150px;
+	background: linear-gradient(#ff8080, #800000);
+	font-size: 30px;
+	color: white;
+	border-radius: 12px;
+	border-style: none;
+}
+
+.message-button form input[type=submit] {
+	height: 100px;
+	width: 150px;
+	background: linear-gradient(#ff8080, #800000);
+	font-size: 30px;
+	color: white;
+	border-radius: 12px;
+	border-style: none;
+}
