@@ -12,10 +12,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/message/message.js"></script>
+<script src="message.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="/message/message.css" rel="stylesheet">
+<link href="message.css" rel="stylesheet">
 
 <?php
 	function printNotes($conn){
@@ -28,7 +28,7 @@
 				echo '<div class="col-xs-8 col-xs-offset-1 note-info">' . $current_note . '</div>';
 				echo '<div class="note-button">';
 					echo '<form method="post" action="">';
-						echo '<input type="submit" value="Delete" name="delete_note' . $printrow['number'] . '" />';
+						echo '<input type="submit" style="background:linear-gradient(#ff0000,#c60000);height:100px;width:150px;font-size:30px;border-radius:12px;color:white;border-style:none" value="Delete" name="delete_note' . $printrow['number'] . '" />';
 					echo '</form>';
 				echo '</div>';
 			echo '</div>';					

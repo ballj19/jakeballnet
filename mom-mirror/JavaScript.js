@@ -51,7 +51,7 @@ function refreshList() {
 
 
 function refreshNote() {
-    $('#note').load('phpSnips/note.php', function () {
+    $('#note-list').load('phpSnips/note.php', function () {
         $(this).unwrap();
     });
 }
