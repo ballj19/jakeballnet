@@ -1,22 +1,20 @@
-setInterval("refreshList();", 300 * 1000);
-setInterval("refreshNote();",3 * 1000);
-setInterval("refreshMessage();", 3 * 1000);
-setInterval("refreshTime();", 1 * 1000);
-setInterval("refreshWeather();", 600 * 1000);
-setInterval("refreshForecast();", 6000 * 1000);
-//setInterval("refreshSlideshow();", 16 * 2 * 1000); //Number of pictures * cycle rate of pictures  (Not working, supposed to re-randomize slideshow at completion)
-
 $(document).ready(function () {
-    $("#slideshow > div:gt(0)").hide();
+    setInterval("refreshList();", 300 * 1000);
+    setInterval("refreshNote();",3 * 1000);
+    setInterval("refreshMessage();", 3 * 1000);
+    setInterval("refreshTime();", 1 * 1000);
+    setInterval("refreshWeather();", 600 * 1000);
+    setInterval("refreshForecast();", 6000 * 1000);
+    //setTimeout(function(){
+    //   window.location.reload(1);
+    //}, 1200000);
 
-    setInterval(function () {
-        $('#slideshow > div:first')
-          .fadeOut(2000)
-          .next()
-          .fadeIn(2000)
-          .end()
-          .appendTo('#slideshow');
-    }, 12000);
+    refreshTime();
+    refreshWeather();
+    refreshList();
+    refreshForecast();
+    refreshNote();
+    refreshMessage();
 });
 
 function refreshMessage() {
@@ -48,7 +46,6 @@ function refreshList() {
         $(this).unwrap();
     });
 }
-
 
 function refreshNote() {
     $('#note-list').load('phpSnips/note.php', function () {

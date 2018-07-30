@@ -66,3 +66,5 @@
  in /home2/ballj19/public_html/mom-mirror/index.php on line 269
 [06-Jul-2018 08:54:14 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 274
 [06-Jul-2018 08:54:14 America/Los_Angeles] PHP Warning:  Invalid argument supplied for foreach() in /home2/ballj19/public_html/mom-mirror/index.php on line 285
+[16-Jul-2018 21:15:22 America/Los_Angeles] PHP Warning:  file_get_contents(http://api.wunderground.com/api/fb693fc6ae4b8a40/forecast/q/CA/Roseville.json): failed to open stream: HTTP request failed! HTTP/1.0 500 Internal Server Error
+ in /home2/ballj19/public_html/mom-mirror/index.php on line 45

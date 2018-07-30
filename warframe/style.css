@@ -1,0 +1,53 @@
+body {
+        background-color: darkslategray;
+        color: white;
+        margin-top:20px;
+
+}
+
+td {
+        width: 200px;
+        color: white;
+        text-align: center;
+        height: 30px;
+        border: 1px solid white;
+}
+
+table {
+        border: 1px solid white;
+        margin-top: 20px;
+        margin-bottom: 20px;
+}
+
+input {
+        height: 30px;
+        width: 100px;
+        text-align: center;
+        color: black
+}
+
+.input-label {
+        height: 30px;
+        text-align: right;
+}
+
+.input-label-block {
+      float: left;
+      margin-left: 10px;
+}
+
+form {
+        float: left;
+        margin-left: 10px;
+}
+
+#submit-button {
+        width: 75px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: limegreen;
+        color:white;
+        font-size: 15px;
+        text-align: center;
+        border: 1px solid green;
+}
