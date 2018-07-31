@@ -1,0 +1,74 @@
+body {
+    background-color: slategrey;
+}
+
+.reptile-select-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#reptile-form {
+    margin-top: 50px;
+}
+
+.reptile-dropdown {
+    height: 80px;
+    font-size: 20px;
+    border-radius: 10px;
+    float:left;
+}
+
+.reptile-option {
+    text-align: right;
+}
+
+#select-submit-button {
+    height: 80px;
+    margin-left: 10px;
+    font-size: 20px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border-color: green;
+    float:left;
+}
+
+#update-button {
+    height: 80px;
+    font-size: 20px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border-color: green;
+}
+
+#bio {
+    height: 800px;
+    font-size: 20px;
+}
+
+.input-label {
+    font-size: 20px;
+    color: white;
+}
+
+.input-box {
+    font-size: 20px;
+}
+
+.parameter {
+    margin-bottom: 20px;
+}
+
+#add-button {    height: 80px;
+    font-size: 20px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    border-color: green;
+    margin-left: 10px;
+    float: left;
+}

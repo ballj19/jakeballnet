@@ -130,3 +130,11 @@ body {
 .nav-tabs li a {
         color: black;
 }
+
+.reptile-grid {
+        height: 400px;
+}
+
+.reptile-info-image {
+        height: 800px;
+}

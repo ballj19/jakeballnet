@@ -4,9 +4,9 @@ $type = $_POST['type'];
 $bio = $_POST['bio'];
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "rallyreptiles";
+$username = "ballj19_root";
+$password = "sitkbm19";
+$dbname = "ballj19_reptiles";
 
 if(isset($_POST['name'])) {
             
@@ -21,9 +21,9 @@ if(isset($_POST['name'])) {
         VALUES ('" . $name . "','" . $type . "','" . $bio . "')";
         
         if ($conn->query($insert_sql) === TRUE) {
-            echo $name . " added to databse";
+            echo $name . " added to database";
             echo '<br>';
-            echo '<a href="index.php">Add another reptile</a>';
+            echo '<a href="../manage/index.php">Manage Reptiles</a>';
         } else {
             echo "Error: " . $insert_sql . "<br>" . $conn->error;
         }

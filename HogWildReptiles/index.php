@@ -12,8 +12,8 @@
                 <img src="banner-pic.jpg" alt="Solaire" class="banner-pic">
                 <div class="menubar row">
                 <?php
-                        $menu_paths = array('/HogWildReptiles/','/HogWildReptiles/Animal-Care/','/HogWildReptiles/About-Us/','/HogWildReptiles/Contact-Us/');
-                        $menu_headers = array('Home','Animal Care','About Us','Contact Us');
+                        $menu_paths = array('Animal-Care/','About-Us/','Contact-Us/','My-Collection/');
+                        $menu_headers = array('Animal Care','About Us','Contact Us','My Collection');
 
                         for($i = 0; $i < 4; $i++)
                         {

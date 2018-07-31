@@ -1,20 +1,22 @@
-<html>
-<head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="style.css" rel="stylesheet">
-        <script src="javascript.js"></script>
-</head>
-<body>
-        <form action="add.php" method="post">
-                <input type="text" id="name" name="name" value="">
-                <br>
-                <input type="text" id="type" name="type" value="">
-                <br>
-                <input type="text" id="bio" name="bio" value="">
-                <br><br>
-                <input id="submit-button" type="submit" value="Submit">
-        </form>
-</body>
-</html>
+
+<form class="col-xs-5" id="add-form" action="../add/add.php" method="post">
+        <div class="col-xs-12 parameter">
+            <div class="col-xs-2 input-label">Name</div>
+            <input class="col-xs-6 input-box" type="text" id="name" name="name" value="">
+        </div>
+
+        <div class="col-xs-12 parameter">
+            <div class="col-xs-2 input-label">Type</div>
+            <input class="col-xs-6 input-box" type="text" id="type" name="type" value="">
+        </div>
+
+        <div class="col-xs-6 col-xs-offset-3">
+            <input id="update-button" type="submit" value="Add">
+        </div>
+</form>
+    <div class="col-xs-7">
+        <div class="col-xs-12 parameter"> 
+            <div class="col-xs-2 input-label">Bio</div>
+            <textarea class="col-xs-10" id="bio" name="bio" form="add-form"></textarea>
+        </div>
+    </div>
