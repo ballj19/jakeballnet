@@ -1,18 +1,8 @@
 <?php
 $name = $_POST['name'];
 
-
-$servername = "localhost";
-$username = "ballj19_root";
-$password = "sitkbm19";
-$dbname = "ballj19_reptiles";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include '../functions.php';
+$conn = Database_Connect('reptiles');
 
 $update_sql = "UPDATE reptiles SET ";
 $update_sql .= "type = '" . $_POST['type'] . "'";

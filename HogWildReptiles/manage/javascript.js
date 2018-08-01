@@ -8,7 +8,7 @@ function ReptileForm(_reptile)
 
 function AddForm()
 {
-        $('#reptile-form').load('../add/index.php', function () {
+        $('#reptile-form').load('blank-form', function () {
                 $(this).unwrap();
         });
 }

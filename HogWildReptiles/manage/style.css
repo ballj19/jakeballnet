@@ -2,7 +2,7 @@ body {
     background-color: slategrey;
 }
 
-.reptile-select-form {
+.reptile-selection {
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -20,18 +20,6 @@ body {
 
 .reptile-option {
     text-align: right;
-}
-
-#select-submit-button {
-    height: 80px;
-    margin-left: 10px;
-    font-size: 20px;
-    width: 120px;
-    border-radius: 10px;
-    background-color: green;
-    color: white;
-    border-color: green;
-    float:left;
 }
 
 #update-button {
@@ -71,4 +59,20 @@ body {
     border-color: green;
     margin-left: 10px;
     float: left;
+}
+
+#delete-button {
+    height: 80px;
+    font-size: 20px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    border-color: red;
+    vertical-align: middle;
+    text-align: center;
+    padding: 24px;
+    border-width: 2px;
+    border-style: outset;
+    border-image: initial;
 }

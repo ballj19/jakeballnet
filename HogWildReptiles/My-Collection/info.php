@@ -2,17 +2,8 @@
 $_reptile = $_GET['name'];
 $reptile = str_replace("%"," ",$_reptile);
 
-$servername = "localhost";
-$username = "ballj19_root";
-$password = "sitkbm19";
-$dbname = "ballj19_reptiles";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include '../functions.php';
+$conn = Database_Connect('reptiles');
 
 $select_sql = "SELECT * FROM reptiles WHERE name='" . $reptile . "'";
 $result = $conn->query($select_sql);

@@ -24,4 +24,15 @@
 
                 return $conn;
         }
+
+        function Get_Parameters()
+        {
+                return array(
+                        'name',
+                        'type',
+                        'hatch',
+                        'mom',
+                        'dad'
+                );
+        }
 ?>

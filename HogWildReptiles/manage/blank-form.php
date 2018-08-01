@@ -1,5 +1,5 @@
 
-<form class="col-xs-5" id="add-form" action="../add/add.php" method="post">
+<form class="col-xs-5" id="add-form" action="add.php" method="post">
         <div class="col-xs-12 parameter">
             <div class="col-xs-2 input-label">Name</div>
             <input class="col-xs-6 input-box" type="text" id="name" name="name" value="">

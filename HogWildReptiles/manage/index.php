@@ -8,24 +8,14 @@
 </head>
 <body>
 <?php
-		$servername = "localhost";
-		$username = "ballj19_root";
-		$password = "sitkbm19";
-                $dbname = "ballj19_reptiles";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include '../functions.php';
+$conn = Database_Connect('reptiles');
 
 $select_sql = "SELECT name FROM reptiles";
 $result = $conn->query($select_sql);
 ?>
-        <div class="col-xs-12">
-                <form class="reptile-select-form" action="javascript:ReptileForm(reptile.value)">
-                        <select class="col-xs-2 col-xs-offset-5 reptile-dropdown" name="reptile" id="reptile">
+        <div class="col-xs-12 reptile-selection">
+                        <select class="col-xs-2 col-xs-offset-5 reptile-dropdown" name="reptile" id="reptile" onchange="javascript:ReptileForm(reptile.value)">
                                 <?php
                                         while($row = $result->fetch_assoc())
                                         {
@@ -33,12 +23,13 @@ $result = $conn->query($select_sql);
                                         }
                                 ?>
                         </select>
-                        <input id="select-submit-button" type="submit" value="Manage">
-                </form>
                 <button id="add-button" onclick="AddForm()">+</button>
         </div>
         <div class="col-xs-8 col-xs-offset-2" id="reptile-form">
         
         </div>
+        <script>
+                ReptileForm(reptile.value); //Run once so the first reptile is shown
+        </script>
 </body>
 </html>

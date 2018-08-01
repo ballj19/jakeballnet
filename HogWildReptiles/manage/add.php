@@ -1,22 +1,12 @@
 <?php
+include '../functions.php';
+
 $name = $_POST['name'];
 $type = $_POST['type'];
 $bio = $_POST['bio'];
 
-$servername = "localhost";
-$username = "ballj19_root";
-$password = "sitkbm19";
-$dbname = "ballj19_reptiles";
-
 if(isset($_POST['name'])) {
-            
-        // Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
-
+        $conn = Database_Connect('reptiles');
         $insert_sql = "INSERT INTO reptiles (name,type,bio)
         VALUES ('" . $name . "','" . $type . "','" . $bio . "')";
         
