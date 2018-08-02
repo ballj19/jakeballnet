@@ -30,6 +30,8 @@
                 return array(
                         'name',
                         'type',
+                        'forsale',
+                        'price',
                         'hatch',
                         'mom',
                         'dad'

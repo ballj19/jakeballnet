@@ -1,0 +1,34 @@
+.day {
+        margin-bottom: 10px;
+        border: 1px solid purple;
+}
+
+.blank-day {
+        margin-bottom: 10px;   
+}
+
+.weekday-name {
+        height: 20px;
+        width: 100px;
+        text-align: center;
+        margin-bottom: 10px;
+}
+
+.weekday {
+        margin: 0 auto;
+        text-align: center;
+        float: left;
+        width: 14.28%;
+        padding-left: 5px;
+        padding-right: 5px;
+}
+
+#month {
+        margin-top: 50px;
+        margin-bottom: 50px;
+}
+
+#year {
+        margin-top: 50px;
+        margin-bottom: 50px;
+}

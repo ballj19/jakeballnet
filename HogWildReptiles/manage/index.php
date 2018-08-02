@@ -25,7 +25,7 @@ $result = $conn->query($select_sql);
                         </select>
                 <button id="add-button" onclick="AddForm()">+</button>
         </div>
-        <div class="col-xs-8 col-xs-offset-2" id="reptile-form">
+        <div class="col-xs-12" id="reptile-form">
         
         </div>
         <script>

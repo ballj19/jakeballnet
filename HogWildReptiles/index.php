@@ -1,3 +1,8 @@
+<?php
+include 'functions.php';
+$conn = Database_Connect('reptiles');
+$parameters = Get_Parameters();
+?>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -34,15 +39,18 @@
         </div>
         <div id="explore-container" class="row">
         <?php
-                $for_sale = scandir('ForSale/');
-                for($i = 2; $i < sizeof($for_sale); $i++)
+                $select_sql = "SELECT * FROM reptiles WHERE forsale='1'";
+                $result = $conn->query($select_sql);
+                
+                
+                while($row = $result->fetch_assoc())
                 {
-                        $name = $for_sale[$i];
+                        $name = $row['name'];
                         echo '<div class="reptile col-md-10 col-md-offset-1">';
 
                         echo '<div id="carousel-' . $name . '" class="carousel slide col-md-4" data-ride="carousel" data-interval="false">';
                         echo '<ol class="carousel-indicators">';
-                        $images = scandir('ForSale/' . $name . '/Images/');
+                        $images = scandir('Data/' . $name . '/Images/');
                         for($j = 2; $j < sizeof($images); $j++)
                         {
                                 if($j == 2)
@@ -67,7 +75,7 @@
                                 {
                                         echo '<div class="item">';
                                 }
-                                $image =  'ForSale/' . $name . '/Images/' . $images[$j];  
+                                $image =  'Data/' . $name . '/Images/' . $images[$j];  
                                 echo '<img class="reptile-img" src="' . $image . '">';
                                 echo '</div>';
                         } 
@@ -92,7 +100,20 @@
                         </ul>
 
                         <div class="tab-content col-md-12">
-                                <div class="tab-pane active" id="<?php echo $name . '-';?>about"><?php echo file_get_contents('ForSale/' . $name . '/about.txt');?></div>
+                                <div class="tab-pane active" id="<?php echo $name . '-';?>about"> 
+                                        <div class="breed">
+                                                <?php echo $row['type'];?>
+                                        </div>
+                                        <div class="price">
+                                                <?php echo '$' . $row['price'];?>
+                                        </div>
+                                        <div class="hatch">
+                                                Hatched: <?php echo $row['hatch'];?>
+                                        </div>
+                                        <div class="personality">
+                                                <?php echo $row['bio'];?>
+                                        </div>
+                                </div>
                                 <div class="tab-pane" id="<?php echo $name . '-';?>care">Test1</div>
                                 <div class="tab-pane" id="<?php echo $name . '-';?>resources">Test2</div>  
                         </div>
