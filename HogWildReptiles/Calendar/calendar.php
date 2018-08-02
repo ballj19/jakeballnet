@@ -19,14 +19,14 @@ for($weekday = 0; $weekday <= 6; $weekday++)
                         {
                                 echo '<div class="blank-day"></div>';
                         }
+                        echo '<a href="checklist.php?day=' . $day . '&month=' . $month . '&year=' . $year . '">';
                         echo '<div class="day">' . $day . '</div>';
+                        echo '</a>';
                         $firstdayfound = true;
                 }
         }
         echo '</div>';
 }
-
-
 ?>
 
 <script>

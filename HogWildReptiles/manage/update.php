@@ -7,7 +7,7 @@ $parameters = Get_Parameters();
 $param_count = count($parameters);
 
 $update_sql = "UPDATE reptiles SET ";
-for($i = 1; $i < $param_count;$i++)
+for($i = 0; $i < $param_count;$i++)
 {
     $update_sql .= $parameters[$i] . " = '" . $_POST[$parameters[$i]] . "', ";
 }

@@ -32,3 +32,55 @@
         margin-top: 50px;
         margin-bottom: 50px;
 }
+
+.fed {
+        width: 220px;
+        display: inline-block;
+}
+
+.shed {
+        width: 220px;
+        display: inline-block;
+}
+
+.weight {
+        width: 220px;
+        display: inline-block;
+}
+
+.fed-box {
+        float: left;
+        width: 125px;
+        margin-right: 5px;
+        padding-left: 5px;
+}
+
+.shed-box {
+        float: left;
+        width: 125px;
+        margin-right: 5px;
+        padding-left: 5px;
+}
+
+.weight-box {
+        float: left;
+        width: 125px;
+        margin-right: 5px;
+        padding-left: 5px;
+}
+
+.ate-box {
+        float: left;
+}
+
+.name {
+        float: left;
+        width: 75px;
+        text-align: right;
+        padding-right: 5px;
+}
+
+.checklist-row {
+        margin-bottom: 5px;
+        display: inline-block;
+}
