@@ -20,8 +20,10 @@ $year = $_GET['year'];
 $select_sql = "SELECT name FROM reptiles";
 
 echo $month . '-' . $day . '-' . $year;
+
+$enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&year=' . $year;
 ?>
-<form action="checklist_enter.php" method="post" class="col-xs-12">
+<form action="<?php echo $enter_string;?>" method="post" class="col-xs-12">
 <div class="check-column">
 <div class="checklist-row col-title">Fed</div>
 <?php
@@ -33,6 +35,8 @@ echo $month . '-' . $day . '-' . $year;
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="text" class="check-text" id="' . $fed_id . '" name="' . $fed_id . '">';
+                
+                echo '<input type="hidden" value="0" name="' . $ate_id . '">';
                 echo '<input type="checkbox" class="ate-box" id="' . $ate_id . '" name="' . $ate_id . '">';
                 echo '</div>';
         }
