@@ -5,7 +5,6 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <script src="javascript.js"></script>
 </head>
 <body>
 
@@ -23,7 +22,8 @@ $select_sql = "SELECT name FROM reptiles";
 echo $month . '-' . $day . '-' . $year;
 ?>
 <form action="checklist_enter.php" method="post" class="col-xs-12">
-<div class="fed">
+<div class="check-column">
+<div class="checklist-row col-title">Fed</div>
 <?php
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
@@ -32,13 +32,14 @@ echo $month . '-' . $day . '-' . $year;
                 $ate_id = $row['name'] . '-ate';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
-                echo '<input type="text" class="fed-box" id="' . $fed_id . '" name="' . $fed_id . '">';
+                echo '<input type="text" class="check-text" id="' . $fed_id . '" name="' . $fed_id . '">';
                 echo '<input type="checkbox" class="ate-box" id="' . $ate_id . '" name="' . $ate_id . '">';
                 echo '</div>';
         }
 ?>
 </div>
-<div class="shed">
+<div class="check-column">
+<div class="checklist-row col-title">Shed</div>
 <?php
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
@@ -46,12 +47,13 @@ echo $month . '-' . $day . '-' . $year;
                 $shed_id = $row['name'] . '-shed';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
-                echo '<input type="text" class="shed-box" id="' . $shed_id . '" name="' . $shed_id . '">';
+                echo '<input type="text" class="check-text" id="' . $shed_id . '" name="' . $shed_id . '">';
                 echo '</div>';
         }
 ?>
 </div>
-<div class="weight">
+<div class="check-column">
+<div class="checklist-row col-title">Width</div>
 <?php
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
@@ -59,7 +61,35 @@ echo $month . '-' . $day . '-' . $year;
                 $weight_id = $row['name'] . '-weight';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
-                echo '<input type="text" class="weight-box" id="' . $weight_id . '" name="' . $weight_id . '">';
+                echo '<input type="text" class="check-text" id="' . $weight_id . '" name="' . $weight_id . '">';
+                echo '</div>';
+        }
+?>
+</div>
+<div class="check-column">
+<div class="checklist-row col-title">Length</div>
+<?php
+        $result = $conn->query($select_sql);
+        while($row = $result->fetch_assoc())
+        {
+                $length_id = $row['name'] . '-length';
+                echo '<div class="checklist-row">';
+                echo '<div class="name">' . $row['name'] . '</div>';
+                echo '<input type="text" class="check-text" id="' . $length_id . '" name="' . $length_id . '">';
+                echo '</div>';
+        }
+?>
+</div>
+<div class="notes-column">
+<div class="checklist-row notes-title">Notes</div>
+<?php
+        $result = $conn->query($select_sql);
+        while($row = $result->fetch_assoc())
+        {
+                $notes_id = $row['name'] . '-notes';
+                echo '<div class="checklist-row">';
+                echo '<div class="name">' . $row['name'] . '</div>';
+                echo '<input type="text" class="notes-text" id="' . $notes_id . '" name="' . $notes_id . '">';
                 echo '</div>';
         }
 ?>

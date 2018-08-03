@@ -33,38 +33,40 @@
         margin-bottom: 50px;
 }
 
-.fed {
+.check-column {
         width: 220px;
         display: inline-block;
 }
 
-.shed {
-        width: 220px;
+.notes-column {
+        width: 900px;
         display: inline-block;
 }
 
-.weight {
+.col-title {
+        text-align: center;
         width: 220px;
-        display: inline-block;
+        padding-left: 75px;
+        padding-right: 20px;
 }
 
-.fed-box {
+.notes-title {
+        text-align: center;
+        width: 800px;
+        padding-left: 75px;
+        padding-right: 25px;
+}
+
+.check-text {
         float: left;
         width: 125px;
         margin-right: 5px;
         padding-left: 5px;
 }
 
-.shed-box {
+.notes-text {
         float: left;
-        width: 125px;
-        margin-right: 5px;
-        padding-left: 5px;
-}
-
-.weight-box {
-        float: left;
-        width: 125px;
+        width: 800px;
         margin-right: 5px;
         padding-left: 5px;
 }
