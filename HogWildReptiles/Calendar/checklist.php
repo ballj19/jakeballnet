@@ -57,7 +57,7 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
 ?>
 </div>
 <div class="check-column">
-<div class="checklist-row col-title">Width</div>
+<div class="checklist-row col-title">Weight</div>
 <?php
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())

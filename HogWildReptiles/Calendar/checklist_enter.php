@@ -72,7 +72,19 @@ foreach($names as $name)
                 //Only insert if at least one entry has been filled out
                 if($fed != '' || $shed != '' || $shed != '' || $weight != '' || $length != '' || $notes != '')
                 {
-                        $insert_sql = "INSERT INTO calendar (day,month,year,name,";
+                        $columns = array('day','month','year','name');
+                        for($i = 0; $i < count($parameters) ;$i++)
+                        {
+                                $columns[] = $parameters[$i];
+                        }
+                        $values = array($day, $month, $year, $name);
+                        for($i = 0; $i < count($parameters) ;$i++)
+                        {
+                                $values[] = $_POST[$name . '-' . $parameters[$i]];
+                        }
+                        SQL_INSERT($conn, 'calendar',$columns,$values);
+                        
+                        /*$insert_sql = "INSERT INTO calendar (day,month,year,name,";
                         for($i = 0; $i < $param_size; $i++)
                         {
                             if($i == $param_size - 1)
@@ -101,7 +113,7 @@ foreach($names as $name)
                         if ($conn->query($insert_sql) === TRUE) {
                         } else {
                         echo "Error: " . $insert_sql . "<br><br>" . $conn->error;
-                        }
+                        }*/
                 }
         }
 }

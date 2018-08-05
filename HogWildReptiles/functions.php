@@ -38,9 +38,43 @@
                 );
         }
 
-        function SQL_SELECT($table, $columns)
+        function SQL_SELECT($conn, $table, $columns, $conditions = null, $conditions_values = null)
         {
+                $select_sql = "SELECT ";
+                for($i = 0; $i < count($columns))
+                {
+                        if($i == count($columns) - 1)
+                        {
+                                $select_sql .= $columns[$i];
+                        }
+                        else
+                        {
+                                $select_sql .= $columns[$i] . ", ";
+                        }
+                }
 
+                $select_sql .= " FROM " . $table;
+
+                if($conditions != null)
+                {
+                        $select_sql .= " WHERE ";
+
+                        for($i = 0; $i < count($conditions); $i++)
+                        {
+                                if($i == count($conditions) - 1)
+                                {
+                                        $select_sql .= $conditions . "='" . $conditions[$i] . "'";
+                                }
+                                else
+                                {
+                                        $select_sql .= $conditions . "='" . $conditions[$i] . "', ";
+                                }
+                                
+                                $select_sql .= $conditions . "='" . $conditions[$i] . "', ";
+                        }
+                }
+
+                return $conn->query($select_sql);
         }
 
         function SQL_UPDATE($conn, $table, $columns, $values, $conditions, $conditions_values)
@@ -75,8 +109,37 @@
                 }
         }
 
-        function SQL_INSERT($table, $columns, $values)
+        function SQL_INSERT($conn, $table, $columns, $values)
         {
+                        $insert_sql = "INSERT INTO " . $table . " (";
+                        for($i = 0; $i < count($columns); $i++)
+                        {
+                            if($i == count($columns) - 1)
+                            {
+                                $insert_sql .= $columns[$i];
+                            }
+                            else
+                            {
+                                $insert_sql .= $columns[$i] . ',';
+                            }   
+                        }
+                        $insert_sql .= ") VALUES ('";
+                        for($i = 0; $i < count($columns); $i++)
+                        {
+                            if($i == count($columns) - 1)
+                            {
+                                $insert_sql .= $values[$i] . "'";
+                            }
+                            else
+                            {
+                                $insert_sql .= $values[$i] . "','";
+                            } 
+                        }
+                        $insert_sql .= ")";
 
+                        if ($conn->query($insert_sql) === TRUE) {
+                        } else {
+                        echo "Error: " . $insert_sql . "<br><br>" . $conn->error;
+                        }
         }
 ?>
