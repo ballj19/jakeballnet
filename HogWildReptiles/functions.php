@@ -41,7 +41,7 @@
         function SQL_SELECT($conn, $table, $columns, $conditions = null, $conditions_values = null)
         {
                 $select_sql = "SELECT ";
-                for($i = 0; $i < count($columns))
+                for($i = 0; $i < count($columns); $i++)
                 {
                         if($i == count($columns) - 1)
                         {
@@ -63,18 +63,20 @@
                         {
                                 if($i == count($conditions) - 1)
                                 {
-                                        $select_sql .= $conditions . "='" . $conditions[$i] . "'";
+                                        $select_sql .= $conditions[$i] . " = '" . $conditions_values[$i] . "'";
                                 }
                                 else
                                 {
-                                        $select_sql .= $conditions . "='" . $conditions[$i] . "', ";
+                                        $select_sql .= $conditions[$i] . " = '" . $conditions_values[$i] . "' AND ";
                                 }
-                                
-                                $select_sql .= $conditions . "='" . $conditions[$i] . "', ";
                         }
                 }
 
-                return $conn->query($select_sql);
+                if ($conn->query($select_sql) === false) {
+                        echo "Error: " . $select_sql . "<br><br>" . $conn->error;
+                } else {
+                        return $conn->query($select_sql);
+                }
         }
 
         function SQL_UPDATE($conn, $table, $columns, $values, $conditions, $conditions_values)
@@ -139,7 +141,7 @@
 
                         if ($conn->query($insert_sql) === TRUE) {
                         } else {
-                        echo "Error: " . $insert_sql . "<br><br>" . $conn->error;
+                                echo "Error: " . $insert_sql . "<br><br>" . $conn->error;
                         }
         }
 ?>

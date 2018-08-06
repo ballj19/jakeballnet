@@ -1,6 +1,5 @@
 <?php
 include '../functions.php';
-//$conn = Database_Connect('calendar');
 ?>
 <html>
 <head>
