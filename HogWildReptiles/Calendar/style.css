@@ -1,6 +1,7 @@
 .day {
         margin-bottom: 10px;
         border: 1px solid purple;
+        color: black;
 }
 
 .blank-day {
@@ -33,22 +34,11 @@
         margin-bottom: 50px;
 }
 
-.check-column {
-        width: 220px;
-        display: inline-block;
-}
-
 .notes-column {
         width: 900px;
         display: inline-block;
 }
 
-.col-title {
-        text-align: center;
-        width: 220px;
-        padding-left: 75px;
-        padding-right: 20px;
-}
 
 .notes-title {
         text-align: center;
@@ -58,7 +48,14 @@
 
 .check-text {
         float: left;
-        width: 125px;
+        width: 180px;
+        margin-right: 5px;
+        padding-left: 5px;
+}
+
+.small-check-text {
+        float: left;
+        width: 75px;
         margin-right: 5px;
         padding-left: 5px;
 }
@@ -84,4 +81,77 @@
 .checklist-row {
         margin-bottom: 5px;
         display: inline-block;
+        height: 26px;
+}
+
+.fed-column {
+        width: 300px;
+        display: inline-block;
+}
+
+.cleaned-column {
+        width: 100px;
+        display: inline-block;
+}
+
+.shed-column {
+        width: 100px;
+        display: inline-block;
+}
+
+.weight-column {
+        width: 175px;
+        display: inline-block;
+}
+
+.length-column {
+        width: 175px;
+        display: inline-block;
+}
+
+.fed-title {
+        text-align: center;
+        width: 300px;
+        padding-left: 75px;
+        padding-right: 45px;
+}
+
+.shed-title {
+        text-align: center;
+        width: 100px;
+}
+
+.cleaned-title {
+        text-align: center;
+        width: 100px;
+}
+
+.length-title {
+        text-align: center;
+        width: 175px;
+        padding-left: 75px;
+        padding-right: 25px
+}
+
+.weight-title {
+        text-align: center;
+        width: 175px;
+        padding-left: 75px;
+        padding-right: 25px
+}
+
+.calendar-return {
+        display: block;
+}
+
+.sub-both {
+        background: linear-gradient(to right, #ff5050 , #6699ff);
+}
+
+.sub-fed {
+        background-color: #ff5050;
+}
+
+.sub-cleaned {
+        background-color: #6699ff;
 }

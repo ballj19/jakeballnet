@@ -24,19 +24,22 @@ while($row = $result->fetch_assoc())
         $names[] = $row['name'];
 }
 
-foreach($names as $name)
+foreach($names as $name_original)
 {
-        $parameters = array('fed','ate','shed','weight','length','notes');
+        $parameters = array('fed','ate','cleaned','shed','weight','length','notes');
         $param_size = count($parameters);
+
+        $name = str_replace('.','_',$name_original);
 
         $fed = $_POST[$name . '-fed'];
         $ate = $_POST[$name . '-ate'];
         $shed = $_POST[$name . '-shed'];
+        $cleaned = $_POST[$name . '-cleaned'];
         $weight = $_POST[$name . '-weight'];
         $length = $_POST[$name . '-length'];
         $notes = $_POST[$name . '-notes'];
 
-        if(in_array($name,$today))
+        if(in_array($name_original,$today))
         {
                 $values = array();
                 for($i = 0; $i < count($parameters) ;$i++)
@@ -44,7 +47,7 @@ foreach($names as $name)
                         $values[$i] = $_POST[$name . '-' . $parameters[$i]];
                 }
                 $conditions = array('name','day','month','year');
-                $conditions_values = array($name, $day, $month, $year);
+                $conditions_values = array($name_original, $day, $month, $year);
 
                 SQL_UPDATE($conn, 'calendar',$parameters,$values,$conditions,$conditions_values);
 
@@ -70,14 +73,14 @@ foreach($names as $name)
         else
         {
                 //Only insert if at least one entry has been filled out
-                if($fed != '' || $shed != '' || $shed != '' || $weight != '' || $length != '' || $notes != '')
+                if($fed != '' || $shed != '0' || $cleaned != '0' || $weight != '' || $length != '' || $notes != '')
                 {
                         $columns = array('day','month','year','name');
                         for($i = 0; $i < count($parameters) ;$i++)
                         {
                                 $columns[] = $parameters[$i];
                         }
-                        $values = array($day, $month, $year, $name);
+                        $values = array($day, $month, $year, $name_original);
                         for($i = 0; $i < count($parameters) ;$i++)
                         {
                                 $values[] = $_POST[$name . '-' . $parameters[$i]];
