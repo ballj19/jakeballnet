@@ -117,4 +117,8 @@ foreach($names as $name)
                 }
         }
 }
+
+
+echo "<script>window.location = 'checklist.php?day=" . $day . '&month=' . $month . '&year=' . $year . "'</script>";
+
 ?>
