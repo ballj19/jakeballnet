@@ -144,14 +144,30 @@
         display: block;
 }
 
-.sub-both {
+.sub-1 {
+        background: linear-gradient(to right, #ff5050 , lime, #6699ff);
+}
+
+.sub-2 {
+        background: linear-gradient(to right, lime , #6699ff);
+}
+
+.sub-3 {
         background: linear-gradient(to right, #ff5050 , #6699ff);
 }
 
-.sub-fed {
-        background-color: #ff5050;
+.sub-4 {
+        background: linear-gradient(to right, #ff5050 , lime);
 }
 
-.sub-cleaned {
+.sub-5 {
         background-color: #6699ff;
+}
+
+.sub-6 {
+        background-color: lime;
+}
+
+.sub-7 {
+        background-color: #ff5050;
 }

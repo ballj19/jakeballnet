@@ -40,6 +40,7 @@ body {
 .input-label {
     font-size: 20px;
     color: white;
+    text-align: right;
 }
 
 .input-box {

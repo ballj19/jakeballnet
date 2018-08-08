@@ -34,7 +34,8 @@
                         'price',
                         'hatch',
                         'mom',
-                        'dad'
+                        'dad',
+                        'frequentEater'
                 );
         }
 

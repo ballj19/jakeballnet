@@ -16,14 +16,26 @@ for($weekday = 0; $weekday <= 6; $weekday++)
         echo '<div class="weekday-name">' . $weekdays[$weekday] . '</div>';
         for($day = 1; $day <= $num_of_days; $day++)
         {
-                $fed = false;
                 $cleaned = false;
-                $select_result = SQL_SELECT($conn, 'calendar', array('fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));
+                $frequent_eater = false;
+                $infrequent_eater = false;
+                $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));
                 while($row = $select_result->fetch_assoc())
                 {
                         if($row['fed'] != '')
                         {
-                                $fed = true;
+                                $eater_result = SQL_SELECT($conn, 'reptiles', array('frequentEater'), array('name'), array($row['name']));
+                                $eater_row = $eater_result->fetch_assoc();
+                                $eater = $eater_row['frequentEater'];
+
+                                if($eater != '0' && $eater != '')
+                                {
+                                        $frequent_eater = true;
+                                }
+                                else
+                                {
+                                        $infrequent_eater = true;
+                                }
                         }
                         if($row['cleaned'] != '0' && $row['cleaned'] != '')
                         {
@@ -33,18 +45,35 @@ for($weekday = 0; $weekday <= 6; $weekday++)
 
                 $subclass = 'sub-none';
                 
-                if($fed && $cleaned)
+                if($cleaned && $frequent_eater && $infrequent_eater)
                 {
-                        $subclass = 'sub-both';
+                        $subclass = 'sub-1';
                 }
-                else if($fed)
+                else if($cleaned && $frequent_eater)
                 {
-                        $subclass = 'sub-fed';
+                        $subclass = 'sub-2';
+                }
+                else if($cleaned && $infrequent_eater)
+                {
+                        $subclass = 'sub-3';
+                }
+                else if($frequent_eater && $infrequent_eater)
+                {
+                        $subclass = 'sub-4';
                 }
                 else if($cleaned)
                 {
-                        $subclass = 'sub-cleaned';
+                        $subclass = 'sub-5';
                 }
+                else if($frequent_eater)
+                {
+                        $subclass = 'sub-6';
+                }
+                else if($infrequent_eater)
+                {
+                        $subclass = 'sub-7';
+                }
+
 
                 if($weekday == date('w',mktime(0,0,0,$month,$day,$year)))
                 {

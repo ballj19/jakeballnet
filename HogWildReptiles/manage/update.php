@@ -15,9 +15,7 @@ $update_sql .= "bio = '" . $_POST['bio'] . "'";
 $update_sql .= " WHERE name='" . $name . "'"; 
 
 if ($conn->query($update_sql) === TRUE) {
-    echo $name . " was updated successfully";
-    echo '<br>';
-    echo '<a href="index.php">Go back to managing your reptiles</a>';
+    echo "<script>window.location = 'index.php'</script>";
 } else {
     echo "Error: " . $update_sql . "<br>" . $conn->error;
 }

@@ -9,7 +9,7 @@ $parameters = Get_Parameters();
     foreach($parameters as $parameter)
     {
         echo '<div class="col-xs-12 parameter">';
-        echo    '<div class="col-xs-2 input-label">' . $parameter . '</div>';
+        echo    '<div class="col-xs-3 input-label">' . $parameter . '</div>';
         echo    '<input class="col-xs-6 input-box" type="text" id="' . $parameter . '" name="' . $parameter . '" value="">';
         echo '</div>';
     }
