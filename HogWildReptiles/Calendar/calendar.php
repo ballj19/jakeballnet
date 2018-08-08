@@ -5,6 +5,13 @@ $conn = Database_Connect('reptiles');
 
 $month = $_GET['month'];
 $year = $_GET['year'];
+$name = '';
+
+if(isset($_GET['name']))
+{
+        $_name = $_GET['name'];
+        $name = str_replace("%"," ",$_name);
+}
 
 $num_of_days = date('t',mktime(0,0,0,$month,1,$year));
 $weekdays = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
@@ -19,7 +26,14 @@ for($weekday = 0; $weekday <= 6; $weekday++)
                 $cleaned = false;
                 $frequent_eater = false;
                 $infrequent_eater = false;
-                $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));
+                if($name == '')
+                {
+                        $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));                
+                }
+                else
+                {
+                        $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year','name'), array($day, $month, $year, $name));               
+                }
                 while($row = $select_result->fetch_assoc())
                 {
                         if($row['fed'] != '')
@@ -81,7 +95,7 @@ for($weekday = 0; $weekday <= 6; $weekday++)
                         {
                                 echo '<div class="blank-day"></div>';
                         }
-                        echo '<a href="checklist.php?day=' . $day . '&month=' . $month . '&year=' . $year . '">';
+                        echo '<a href="../Calendar/checklist.php?day=' . $day . '&month=' . $month . '&year=' . $year . '">';
                         echo '<div class="day ' . $subclass . '">' . $day . '</div>';
                         echo '</a>';
                         $firstdayfound = true;

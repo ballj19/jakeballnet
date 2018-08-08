@@ -1,27 +1,34 @@
 $(document).ready(function(){
-
-        GenerateCalendar();
 });
 
-function GenerateCalendar()
+function GenerateCalendar(_reptile = '')
 {
+        var reptile = _reptile.replace(" ","%");
         var month = document.getElementById('month');
         var monthValue = month.options[month.selectedIndex].value;
         var year = document.getElementById('year');
         var yearValue = year.options[year.selectedIndex].value;
-
-        $('#calendar').load('calendar.php?month=' + monthValue + "&year=" + yearValue, function () {
-                $(this).unwrap();
-        });        
+        console.log('GenerateCalendar');
+        if(_reptile = '')
+        {
+                $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue); 
+        }
+        else
+        {
+                $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue + "&name=" + reptile); 
+        }       
 }
 
 function ResizeCalendar()
 {
-        console.log('we tried');
         var height = $(window).height() / 8;
-        console.log(height);
         $('.day').css({ 'height': height + 'px'});
         $('.blank-day').css({ 'height': height + 'px'});
+}
+
+function DropdownDate()
+{
+        $('#dropdown-date').load('../Calendar/dropdown-date.php');
 }
 
 $(window).resize(function(){

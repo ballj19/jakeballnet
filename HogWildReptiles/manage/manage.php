@@ -12,7 +12,6 @@ $row = $result->fetch_assoc();
 $parameters = Get_Parameters();
 
 ?>
-
 <form class="col-xs-5" id="manage-form" action="update.php" method="post">
 <?php
     foreach($parameters as $parameter)

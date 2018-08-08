@@ -3,8 +3,8 @@ body {
 }
 
 .reptile-selection {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: -20px;
 }
 
 #reptile-form {
@@ -76,4 +76,10 @@ body {
     border-width: 2px;
     border-style: outset;
     border-image: initial;
+}
+
+.tab-title>a {
+    color: #555;
+  cursor: default;
+  background-color: gainsboro;
 }

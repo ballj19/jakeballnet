@@ -50,25 +50,6 @@ foreach($names as $name_original)
                 $conditions_values = array($name_original, $day, $month, $year);
 
                 SQL_UPDATE($conn, 'calendar',$parameters,$values,$conditions,$conditions_values);
-
-                /*
-                $update_sql = "UPDATE calendar SET ";
-                for($i = 0; $i < $param_size;$i++)
-                {
-                        if($i == $param_size - 1)
-                        {
-                                $update_sql .= $parameters[$i] . " = '" . $_POST[$name . '-' . $parameters[$i]] . "'";
-                        }
-                        else
-                        {
-                                $update_sql .= $parameters[$i] . " = '" . $_POST[$name . '-' . $parameters[$i]] . "', ";
-                        }
-                }
-                $update_sql .= " WHERE name='" . $name . "' AND day='" . $day . "' AND month='" . $month . "' AND year='" . $year . "'"; 
-                if ($conn->query($update_sql) === TRUE) {
-                } else {
-                        echo "Error: " . $update_sql . "<br><br>" . $conn->error;
-                }*/
         }
         else
         {
@@ -86,37 +67,6 @@ foreach($names as $name_original)
                                 $values[] = $_POST[$name . '-' . $parameters[$i]];
                         }
                         SQL_INSERT($conn, 'calendar',$columns,$values);
-                        
-                        /*$insert_sql = "INSERT INTO calendar (day,month,year,name,";
-                        for($i = 0; $i < $param_size; $i++)
-                        {
-                            if($i == $param_size - 1)
-                            {
-                                $insert_sql .= $parameters[$i];
-                            }
-                            else
-                            {
-                                $insert_sql .= $parameters[$i] . ',';
-                            }   
-                        }
-                        $insert_sql .= ") VALUES ('" . $day . "','" . $month . "','" . $year . "','" . $name . "','";
-                        for($i = 0; $i < $param_size; $i++)
-                        {
-                            if($i == $param_size - 1)
-                            {
-                                $insert_sql .= $_POST[$name . '-' . $parameters[$i]] . "'";
-                            }
-                            else
-                            {
-                                $insert_sql .= $_POST[$name . '-' . $parameters[$i]] . "','";
-                            } 
-                        }
-                        $insert_sql .= ")";
-
-                        if ($conn->query($insert_sql) === TRUE) {
-                        } else {
-                        echo "Error: " . $insert_sql . "<br><br>" . $conn->error;
-                        }*/
                 }
         }
 }
