@@ -40,7 +40,8 @@
         }
 
         function SQL_SELECT($conn, $table, $columns, $conditions = null, $conditions_values = null)
-        {
+        {       
+
                 $select_sql = "SELECT ";
                 for($i = 0; $i < count($columns); $i++)
                 {
@@ -64,11 +65,11 @@
                         {
                                 if($i == count($conditions) - 1)
                                 {
-                                        $select_sql .= $conditions[$i] . " = '" . $conditions_values[$i] . "'";
+                                        $select_sql .= $conditions[$i] . " = '" . $conn->real_escape_string($conditions_values[$i]) . "'";
                                 }
                                 else
                                 {
-                                        $select_sql .= $conditions[$i] . " = '" . $conditions_values[$i] . "' AND ";
+                                        $select_sql .= $conditions[$i] . " = '" . $conn->real_escape_string($conditions_values[$i]) . "' AND ";
                                 }
                         }
                 }
@@ -87,11 +88,11 @@
                 {
                         if($i == count($columns) - 1)
                         {
-                                $update_sql .= $columns[$i] . " = '" . $values[$i] . "'";
+                                $update_sql .= $columns[$i] . " = '" . $conn->real_escape_string($values[$i]) . "'";
                         }
                         else
                         {
-                                $update_sql .= $columns[$i] . " = '" . $values[$i] . "', ";
+                                $update_sql .= $columns[$i] . " = '" . $conn->real_escape_string($values[$i]) . "', ";
                         }
                 }
                 $update_sql .= " WHERE ";
@@ -99,11 +100,11 @@
                 {
                         if($i == count($conditions) - 1)
                         {
-                                $update_sql .= $conditions[$i] . "='" . $conditions_values[$i] . "'";
+                                $update_sql .= $conditions[$i] . "='" . $conn->real_escape_string($conditions_values[$i]) . "'";
                         }
                         else
                         {
-                                $update_sql .= $conditions[$i] . "='" . $conditions_values[$i] . "' AND ";
+                                $update_sql .= $conditions[$i] . "='" . $conn->real_escape_string($conditions_values[$i]) . "' AND ";
                         }                        
                 }
                 if ($conn->query($update_sql) === TRUE) {
@@ -131,11 +132,11 @@
                         {
                             if($i == count($columns) - 1)
                             {
-                                $insert_sql .= $values[$i] . "'";
+                                $insert_sql .= $conn->real_escape_string($values[$i]) . "'";
                             }
                             else
                             {
-                                $insert_sql .= $values[$i] . "','";
+                                $insert_sql .= $conn->real_escape_string($values[$i]) . "','";
                             } 
                         }
                         $insert_sql .= ")";
@@ -144,5 +145,22 @@
                         } else {
                                 echo "Error: " . $insert_sql . "<br><br>" . $conn->error;
                         }
+        }
+
+        function FTP_Upload($local,$remote)
+        {
+                // connect to server
+                $connection = ftp_connect('jakeball.net');
+                
+                // login
+                if (@ftp_login($connection, 'ballj19', 'Flosnipe12')){
+                        // successfully connected
+                }else{
+                        return false;
+                }
+                
+                ftp_put($connection, "/public_html/HogWildReptiles/$remote", $local, FTP_BINARY);
+                ftp_close($connection);
+                return true;
         }
 ?>

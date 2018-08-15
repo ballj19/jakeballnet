@@ -13,6 +13,12 @@
 include '../functions.php';
 $conn = Database_Connect('reptiles');
 
+$name = '';
+if(isset($_GET['name']))
+{
+        $name = $_GET['name'];
+}
+
 $select_sql = "SELECT name FROM reptiles";
 $result = $conn->query($select_sql);
 ?>
@@ -29,14 +35,15 @@ $result = $conn->query($select_sql);
         </div>
         <div class="reptile-info col-xs-12"> 
                 <ul class="nav nav-tabs col-xs-12">
-                        <li class="active tab-title"><a href="#info" data-toggle="tab">Info</a></li>
-                        <li class="tab-title"><a href="#individual-calendar" data-toggle="tab">Calendar</a></li>
+                        <li class="active tab-title" id="info-tab"><a href="#info" data-toggle="tab">Info</a></li>
+                        <li class="tab-title" id="calendar-tab"><a href="#individual-calendar" data-toggle="tab">Calendar</a></li>
+                        <li class="tab-title" id="pictures-tab"><a href="#individual-pics" data-toggle="tab">Pictures</a></li>
                 </ul>
                 <div class="tab-content col-xs-12">
                         <div class="tab-pane active" id="info">
-                                        <div class="col-xs-12" id="reptile-form">
-                                        
-                                        </div>
+                                <div class="col-xs-12" id="reptile-form">
+                                
+                                </div>
                         </div>
                         <div class="tab-pane" id="individual-calendar">
                                 <div id="dropdown-date">
@@ -45,11 +52,26 @@ $result = $conn->query($select_sql);
                                 <div class="col-xs-10 col-xs-offset-1" id="calendar">
 
                                 </div>
-                        </div> 
+                        </div>
+                        <div class="tab-pane" id="individual-pics">
+                                <div class="col-xs-10 col-xs-offset-1" id="individual-pics">
+
+                                </div>
+                        </div>  
                 </div>
         </div> 
-        <script>
-                GenerateInfo(reptile.value); //Run once so the first reptile is shown
-        </script>
+
+<?php
+if(isset($_GET['name']))
+{
+        echo '<script>';
+                echo "document.getElementById('reptile').value = '" . $name . "';";
+        echo '</script>';
+}
+?>
+
+<script>
+        GenerateInfo(reptile.value); //Run once so the first reptile is shown
+</script>
 </body>
 </html>

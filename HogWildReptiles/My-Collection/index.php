@@ -10,8 +10,7 @@
 include '../functions.php';
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT name FROM reptiles";
-$result = $conn->query($select_sql);
+$result = SQL_SELECT($conn,'reptiles',array('name','coverPhoto'));
 ?>
 
 <div class="col-xs-10 col-xs-offset-1">
@@ -20,7 +19,7 @@ $result = $conn->query($select_sql);
 while($row = $result->fetch_assoc())
 {
     $name = $row['name'];
-    $image = '../Reptiles/' . $name . '/Images/img1.jpg';
+    $image = '../Data/' . $name . '/Images/' . $row['coverPhoto'];
 
     echo '<a href="info.php?name=' . $name . '">';
     echo '<div class="col-xs-3 col-xs-offset-1">';
