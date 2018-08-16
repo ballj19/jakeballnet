@@ -40,7 +40,13 @@
 .reptile-title {
     font-family: 'Cinzel Decorative', cursive;
     font-size: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+}
+
+.reptile-subtitle {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 40px;
+    margin-bottom: 20px;
 }
 
 .bio {
@@ -66,10 +72,11 @@
 
 .banner-content {
     position: absolute;
-    top: 20%;
-    transform: translate(0%, -20%);
+    top: 20px;
+    width:100%;
 }
 
-.banner-pictures {
-    margin-top: 50px;
+#banner-pictures {
+    margin-top: 20px;
+    max-width: 1416px;
 }

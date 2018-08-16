@@ -16,6 +16,7 @@ $row = $result->fetch_assoc();
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Condiment|Nixie+One" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
+        <script src="javascript.js"></script>
 </head>
 <body>
     <div class="banner-container">
@@ -25,13 +26,16 @@ $row = $result->fetch_assoc();
     <div class="banner-content">
         <div class="banner-text col-xs-12">
             <div class="reptile-title col-xs-8 col-xs-offset-2">
-                    <?php echo $row['name'] . ' the ' . $row['type'];?>
+                    <?php echo $row['name']?>
+            </div>
+            <div class="reptile-subtitle col-xs-8 col-xs-offset-2">
+                    <?php echo 'the ' . $row['type'];;?>
             </div>
             <div class="bio col-xs-8 col-xs-offset-2">
                 <?php echo $row['bio'];?>
             </div>
         </div>
-        <div class="banner-pictures col-xs-10 col-xs-offset-1">
+        <div id="banner-pictures">
             <?php
 
             $dir = "../Data/$reptile/Images";
@@ -42,7 +46,7 @@ $row = $result->fetch_assoc();
             {
                     $image = $dir . '/' . $files[$i];
                     list($width, $height) = getimagesize($image);
-                    echo '<div class="grid-container col-xs-3">';
+                    echo '<div class="grid-container">';
                     if($width > $height)
                     {
                             echo '<img class="individual-pic reptile-img img-landscape" src="' . $image . '?=' .filemtime($image) . '"/>';
