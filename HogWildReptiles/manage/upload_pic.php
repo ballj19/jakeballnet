@@ -17,6 +17,7 @@ for( $i=0 ; $i < $total ; $i++ )
         $path = $_FILES['files']['tmp_name'][$i];
 
         //FTP_Upload($path,"Data/$name/Images/$file");
+        $file = resize_image("../Data/$name/Images/$file", 800, 800);
         move_uploaded_file($path, "../Data/$name/Images/$file");
 }
 

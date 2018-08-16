@@ -3,6 +3,11 @@ body {
     background-attachment: fixed;
 }
 
+.index-body
+{
+    background-color: #2f0b3a;
+}
+
 .img-landscape {
     width: 324px;
     height: 270px;
@@ -19,13 +24,16 @@ body {
 
 
 .grid-container {
-    width: 324px;
-    height: 324px;
-    float: left;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    position: relative;
+}
+
+.picture-name {
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .reptile-img {
@@ -84,4 +92,44 @@ body {
 #banner-pictures {
     margin-top: 20px;
     max-width: 1416px;
+}
+
+.collection-row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.collection-column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.collection-column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .collection-column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .collection-column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
 }

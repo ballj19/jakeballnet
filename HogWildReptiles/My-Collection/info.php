@@ -58,5 +58,15 @@ $row = $result->fetch_assoc();
             </div>
     </div>
         </div>
+
+        <script>
+                $(window).resize(function(){
+                        ResizeBannerPics();
+                });
+
+                $(document).ready(function(){
+                        ResizeBannerPics();
+                });
+        </script>
 </body>
 </html>

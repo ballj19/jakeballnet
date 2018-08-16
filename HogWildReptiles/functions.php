@@ -185,4 +185,63 @@
                 echo '</select>';
                 echo '</div>';
         }
+
+        function Collection_Column($row, $start)
+        {
+                echo '<div class="collection-column">';
+                for($i = $start; $i < count($row); $i += 4)
+                {
+                        $name = $row[$i]['name'];
+                        echo '<a href="info.php?name=' . $name . '">';
+                        echo '<div onmouseenter="showName(\'' . $name . '\')" onmouseleave="hideName(\'' . $name . '\')" class="grid-container">';
+                        if($row[$i]['coverPhoto'] != '')
+                        {
+                                $image = '../Data/' . $name . '/Images/' .$row[$i]['coverPhoto'];
+                                list($width, $height) = getimagesize($image);
+                                if($width > $height)
+                                {
+                                        echo '<img id="' . $name . '-pic" class="reptile-img " src="' . $image . '?=' .filemtime($image) . '"/>';
+                                }
+                                else
+                                {
+                                        echo '<img id="' . $name . '-pic" class="reptile-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                }
+                                echo '<div class="picture-name" style="display:none" id="' . $name . '">' . $name . '</div>';
+                        }
+                        else
+                        {
+                                echo '<div class="blank-pic">' . $name . '</div>';
+                        }
+                        echo '</div>';    
+                        echo '</a>';
+                }
+                echo '</div>';
+        }
+
+        function resize_image($file, $w, $h, $crop=FALSE) {
+                list($width, $height) = getimagesize($file);
+                $r = $width / $height;
+                if ($crop) {
+                    if ($width > $height) {
+                        $width = ceil($width-($width*abs($r-$w/$h)));
+                    } else {
+                        $height = ceil($height-($height*abs($r-$w/$h)));
+                    }
+                    $newwidth = $w;
+                    $newheight = $h;
+                } else {
+                    if ($w/$h > $r) {
+                        $newwidth = $h*$r;
+                        $newheight = $h;
+                    } else {
+                        $newheight = $w/$r;
+                        $newwidth = $w;
+                    }
+                }
+                $src = imagecreatefromjpeg($file);
+                $dst = imagecreatetruecolor($newwidth, $newheight);
+                imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+            
+                return $dst;
+            }
 ?>
