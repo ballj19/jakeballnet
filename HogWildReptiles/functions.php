@@ -163,4 +163,26 @@
                 ftp_close($connection);
                 return true;
         }
+
+        function Dropdown_Parameter($parameter, $options, $selected)
+        {
+                echo '<div class="col-xs-12 parameter">';
+                echo    '<div class="col-xs-3 input-label">' . $parameter . '</div>';
+                echo '<select class="col-xs-6 input-box" name="' . $parameter . '" id="' . $parameter . '" value="">';
+                $dir = '../My-Collection/backgrounds/';
+                $files = scandir($dir);
+                for($i = 0; $i < count($options); $i++)
+                {
+                        if($options[$i] == $selected)
+                        {
+                                echo '<option class="reptile-option" value="' . $options[$i] . '" selected>' . $options[$i] . '</option>';
+                        }
+                        else
+                        {
+                                echo '<option class="reptile-option" value="' . $options[$i] . '">' . $options[$i] . '</option>';
+                        }
+                }
+                echo '</select>';
+                echo '</div>';
+        }
 ?>

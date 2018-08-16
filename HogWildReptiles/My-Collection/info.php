@@ -18,11 +18,8 @@ $row = $result->fetch_assoc();
         <link href="style.css" rel="stylesheet">
         <script src="javascript.js"></script>
 </head>
-<body>
+<body style="background-image: url(<?php echo 'backgrounds/' . $row['background'];?>)">
     <div class="banner-container">
-    <?php
-        echo '<img src="backgrounds/' . $row['background'] . '" class="banner-pic">';
-    ?>
     <div class="banner-content">
         <div class="banner-text col-xs-12">
             <div class="reptile-title col-xs-8 col-xs-offset-2">

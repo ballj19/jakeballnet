@@ -22,24 +22,16 @@ $parameters = Get_Parameters();
         echo '</div>';
     }
     
-    echo '<div class="col-xs-12 parameter">';
-    echo    '<div class="col-xs-3 input-label">' . 'background' . '</div>';
-    echo '<select class="col-xs-6 input-box" name="background" id="background" value="">';
+    $options = array();
     $dir = '../My-Collection/backgrounds/';
     $files = scandir($dir);
     for($i = 2; $i < count($files); $i++)
     {
-        if($files[$i] == $row['background'])
-        {
-            echo '<option class="reptile-option" value="' . $files[$i] . '" selected>' . $files[$i] . '</option>';
-        }
-        else
-        {
-            echo '<option class="reptile-option" value="' . $files[$i] . '">' . $files[$i] . '</option>';
-        }
+        $options[] = $files[$i];
     }
-    echo '</select>';
-    echo '</div>';
+    Dropdown_Parameter('background', $options, $row['background']);
+    Dropdown_Parameter('sex',array('male','female','unknown'), $row['sex']);
+
 ?>
 
         <div class="col-xs-6">
