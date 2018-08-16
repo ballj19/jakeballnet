@@ -15,7 +15,7 @@ if(isset($_POST['name'])) {
         } 
         else
         {
-            $conn = Database_Connect('reptiles');
+            /*$conn = Database_Connect('reptiles');
             //$insert_sql = "INSERT INTO reptiles (name,type,bio)
             //VALUES ('" . $name . "','" . $type . "','" . $bio . "')";
     
@@ -37,7 +37,25 @@ if(isset($_POST['name'])) {
                 echo '<a href="../manage/index.php">Manage Reptiles</a>';
             } else {
                 echo "Error: " . $insert_sql . "<br>" . $conn->error;
+            }*/
+            $conn = Database_Connect('reptiles');
+            
+            $parameters = Get_Parameters();
+            $parameters[] = 'bio';
+            $parameters[] = 'background';
+
+            $columns = array();
+            $values = array();
+            for($i = 0; $i < count($parameters);$i++)
+            {
+                $columns[] = $parameters[$i];
+                $values[] = $_POST[$parameters[$i]];
             }
+
+            $columns[] = 'coverPhoto';
+            $values[] = '';
+
+            SQL_INSERT($conn,'reptiles',$columns,$values);
         }
 }
 

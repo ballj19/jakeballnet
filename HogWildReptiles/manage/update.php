@@ -5,6 +5,7 @@ include '../functions.php';
 $conn = Database_Connect('reptiles');
 $parameters = Get_Parameters();
 $parameters[] = 'bio';
+$parameters[] = 'background';
 
 $columns = array();
 $values = array();

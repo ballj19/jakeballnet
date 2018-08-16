@@ -14,24 +14,48 @@ $row = $result->fetch_assoc();
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="../style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Condiment|Nixie+One" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<div class="col-xs-12">
-    <div class="col-xs-4">
+    <div class="banner-container">
     <?php
-        $image = '../Reptiles/' . $row['name'] . '/Images/img1.jpg';
-        echo '<img class="reptile-info-image reptile-img" src="' . $image . '">';
+        echo '<img src="backgrounds/' . $row['background'] . '" class="banner-pic">';
     ?>
-    </div>
-    <div class="col-xs-8">
-        <div class="col-xs-12">
-                <?php echo $row['name'] . ' the ' . $row['type'];?>
+    <div class="banner-content">
+        <div class="banner-text col-xs-12">
+            <div class="reptile-title col-xs-8 col-xs-offset-2">
+                    <?php echo $row['name'] . ' the ' . $row['type'];?>
+            </div>
+            <div class="bio col-xs-8 col-xs-offset-2">
+                <?php echo $row['bio'];?>
+            </div>
         </div>
-        <div class="col-xs-12">
-            <?php echo $row['bio'];?>
-        </div>
+        <div class="banner-pictures col-xs-10 col-xs-offset-1">
+            <?php
+
+            $dir = "../Data/$reptile/Images";
+
+            $files = scandir($dir);
+
+            for($i = 2; $i < count($files); $i++)
+            {
+                    $image = $dir . '/' . $files[$i];
+                    list($width, $height) = getimagesize($image);
+                    echo '<div class="grid-container col-xs-3">';
+                    if($width > $height)
+                    {
+                            echo '<img class="individual-pic reptile-img img-landscape" src="' . $image . '?=' .filemtime($image) . '"/>';
+                    }
+                    else
+                    {
+                            echo '<img class="individual-pic reptile-img img-portrait" src="' . $image . '?=' .filemtime($image) . '"/>';
+                    }
+                    echo '</div>';
+            }
+            ?>
+            </div>
     </div>
-</div>
+        </div>
 </body>
 </html>

@@ -1,0 +1,75 @@
+.img-landscape {
+    width: 324px;
+    height: 270px;
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+
+.img-portrait {
+    height: 324px;
+    width: 270px;
+    margin-left: 27px;
+    margin-right: 27px;
+}
+
+
+.grid-container {
+    width: 324px;
+    height: 324px;
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.reptile-img {
+    border-radius: 20px;
+}
+
+.blank-pic {
+    border-radius: 20px;
+    border: 1px solid purple;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 150px;
+    font-size: 20px;
+}
+
+.reptile-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
+.bio {
+    font-size: 25px;
+    font-family: 'Nixie One', cursive;
+}
+
+.banner-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.banner-pic {
+    width: 100%;
+    filter: brightness(40%);       
+}
+
+.banner-text {    
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.banner-content {
+    position: absolute;
+    top: 20%;
+    transform: translate(0%, -20%);
+}
+
+.banner-pictures {
+    margin-top: 50px;
+}

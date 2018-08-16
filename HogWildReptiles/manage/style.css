@@ -90,22 +90,23 @@ body {
 
 .individual-pic-container {
     width: 324px;
-    height: 324px;
+    height: 376px;
     float: left;
     margin-left: 15px;
     margin-right: 15px;
+    margin-bottom: 15px;
 }
 
 .img-landscape {
     width: 324px;
     height: 270px;
-    padding-top: 27px;
-    padding-bottom: 27px;
+    margin-top: 27px;
+    margin-bottom: 27px;
 }
 
 .img-portrait {
     height: 324px;
     width: 270px;
-    padding-left: 27px;
-    padding-right: 27px;
+    margin-left: 27px;
+    margin-right: 27px;
 }
