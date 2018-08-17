@@ -15,10 +15,32 @@ $row = $result->fetch_assoc();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Condiment|Nixie+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
+        <link href="../nav.css" rel="stylesheet">
         <script src="javascript.js"></script>
 </head>
-<body style="background-image: url(<?php echo 'backgrounds/' . $row['background'];?>)">
+<body>
+<div class="nav-bar">
+<?php
+    echo '<a href="../"><img src="../WRReptiles_Logo_White.png" class="logo"></a>';
+    $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/');
+    $menu_headers = array('Available','About Us','Contact Us','My Collection');
+
+    for($i = 3; $i >= 0; $i--)
+    {
+            $path =  $_SERVER['REQUEST_URI'];
+            
+            if($path == $menu_paths[$i])
+            {
+                    echo '<a class="menuitem menuitem-active" href="../' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
+            }
+            else {
+                    echo '<a class="menuitem" href="../' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>'; 
+            }
+    }
+?>
+</div>
     <div class="banner-container">
     <div class="banner-content">
         <div class="banner-text col-xs-12">
@@ -37,13 +59,13 @@ $row = $result->fetch_assoc();
 
             $dir = "../Data/$reptile/Images";
 
-            $files = scandir($dir);
+            $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
-            for($i = 2; $i < count($files); $i++)
+            for($i = 0; $i < count($files); $i++)
             {
-                    $image = $dir . '/' . $files[$i];
+                    $image = $dir . '/md/' . $files[$i];
                     list($width, $height) = getimagesize($image);
-                    echo '<div class="grid-container">';
+                    echo '<div class="info-grid-container">';
                     if($width > $height)
                     {
                             echo '<img class="individual-pic reptile-img img-landscape" src="' . $image . '?=' .filemtime($image) . '"/>';

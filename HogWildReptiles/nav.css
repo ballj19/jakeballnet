@@ -1,0 +1,39 @@
+.nav-bar {
+    height: 100px;
+    font-size: 40px;
+    color: black;
+    background-color: #716082;
+    padding-right: 10px;
+    font-family: 'Amatic SC', cursive;
+    text-shadow: 2px 2px 10px #2f0b3a;
+}
+
+.nav-bar a {
+    color: black;
+}
+
+.menuitem {
+    padding: .5rem 1rem;
+    float: right;
+    margin-top: 15px;
+}
+
+.menuitem:hover
+{
+    text-decoration: black; 
+}
+
+.menuitem-active {
+    padding: .5rem 1rem;
+}
+
+.menuitem-active:hover {
+    text-decoration: black;
+}
+
+.logo {
+    height: 90px;
+    padding-top: 10px;
+    padding-left: 10px;
+    float: left;
+}

@@ -3,36 +3,6 @@ body {
         font-size: 16px;
 }
 
-.menubar {
-        min-height: 4rem;
-        background-color: transparent;
-        color: #ffffff;
-        position: absolute;
-        top: 8px;
-        right: 16px;
-}
-
-.menuitem {
-        padding: .5rem 1rem;
-        color: white;
-}
-
-.menuitem:hover
-{
-        color: white;
-        text-decoration: white; 
-}
-
-.menuitem-active {
-        padding: .5rem 1rem;
-        color: white;
-}
-
-.menuitem-active:hover {
-        color: white;
-        text-decoration: white;
-}
-
 .banner-container {
         position: relative;
         text-align: center;
@@ -46,25 +16,34 @@ body {
 
 .banner-text {
         position: absolute;
-        top: 40%;
+        top: 45%;
         left: 50%;
-        transform: translate(-50%, -40%);
+        transform: translate(-50%, -55%);
         color: white;
         font-size: 100px;
         font-family: 'Amatic SC', cursive;
+        text-shadow: 1px 1px #2f0b3a, 2px 2px #2f0b3a, 3px 3px #2f0b3a, 4px 4px #2f0b3a, 5px 5px #2f0b3a, 6px 6px #2f0b3a;
+}
+
+.big-logo {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        width: 20%;
 }
 
 #explore-btn {
-      color: white;
-      background-color: transparent;
-      border-color: #ccc;
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -60%);
-      height: 50px;
-      width: 150px;
-      font-size: 20px;
+        color: white;
+        background-color: transparent;
+        border-color: #ccc;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        height: 50px;
+        width: 150px;
+        font-size: 20px;
 }
 
 #explore-container {

@@ -10,31 +10,34 @@ $parameters = Get_Parameters();
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="nav.css">
         <script src="javascript.js"></script>
 </head>
 <body>
-        <div class="banner-container">
-                <img src="banner-pic.jpg" alt="Solaire" class="banner-pic">
-                <div class="menubar row">
-                <?php
-                        $menu_paths = array('Animal-Care/','About-Us/','Contact-Us/','My-Collection/');
-                        $menu_headers = array('Animal Care','About Us','Contact Us','My Collection');
+        <div class="nav-bar">
+        <?php
+                        echo '<a href="./"><img src="WRReptiles_Logo_White.png" class="logo"></a>';
+                        $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/');
+                        $menu_headers = array('Available','About Us','Contact Us','My Collection');
 
-                        for($i = 0; $i < 4; $i++)
+                        for($i = 3; $i >= 0; $i--)
                         {
                                 $path =  $_SERVER['REQUEST_URI'];
                                 
                                 if($path == $menu_paths[$i])
                                 {
-                                        echo '<a class="menuitem-active" href="' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
+                                        echo '<a class="menuitem menuitem-active" href="' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
                                 }
                                 else {
                                         echo '<a class="menuitem" href="' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>'; 
                                 }
                         }
                 ?>
-                </div>
-                <div class="banner-text">Hog Wild Reptiles</div>
+        </div>
+        <div class="banner-container">
+                <img src="banner-pic.jpg" alt="Solaire" class="banner-pic">
+                <img src="WRReptiles_Logo_White.png" class="big-logo">
+                <div class="banner-text">Winding Road Reptiles</div>
                 <div id="explore-btn" class="btn">Explore</div>
         </div>
         <div id="explore-container" class="row">

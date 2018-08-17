@@ -70,7 +70,7 @@
                                 else
                                 {
                                         $select_sql .= $conditions[$i] . " = '" . $conn->real_escape_string($conditions_values[$i]) . "' AND ";
-                                }
+                                } 
                         }
                 }
 
@@ -186,62 +186,77 @@
                 echo '</div>';
         }
 
-        function Collection_Column($row, $start)
+        function Collection_Column($col_array, $row, $column)
         {
                 echo '<div class="collection-column">';
-                for($i = $start; $i < count($row); $i += 4)
+                for($i = 0; $i < count($row); $i++)
                 {
-                        $name = $row[$i]['name'];
-                        echo '<a href="info.php?name=' . $name . '">';
-                        echo '<div onmouseenter="showName(\'' . $name . '\')" onmouseleave="hideName(\'' . $name . '\')" class="grid-container">';
-                        if($row[$i]['coverPhoto'] != '')
+                        if($col_array[$i] == $column)
                         {
-                                $image = '../Data/' . $name . '/Images/' .$row[$i]['coverPhoto'];
-                                list($width, $height) = getimagesize($image);
-                                if($width > $height)
+                                $name = $row[$i]['name'];
+                                echo '<a href="info.php?name=' . $name . '">';
+                                echo '<div onmouseenter="showName(\'' . $name . '\')" onmouseleave="hideName(\'' . $name . '\')" class="grid-container">';
+                                if($row[$i]['coverPhoto'] != '')
                                 {
-                                        echo '<img id="' . $name . '-pic" class="reptile-img " src="' . $image . '?=' .filemtime($image) . '"/>';
+                                        $image = '../Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                        list($width, $height) = getimagesize($image);
+                                        if($width > $height)
+                                        {
+                                                echo '<img id="' . $name . '-pic" class="reptile-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                        }
+                                        else
+                                        {
+                                                echo '<img id="' . $name . '-pic" class="reptile-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                        }
+                                        echo '<div class="picture-name" style="display:none" id="' . $name . '">' . $name . '</div>';
                                 }
                                 else
                                 {
-                                        echo '<img id="' . $name . '-pic" class="reptile-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                        echo '<div class="blank-pic">' . $name . '</div>';
                                 }
-                                echo '<div class="picture-name" style="display:none" id="' . $name . '">' . $name . '</div>';
+                                echo '</div>';    
+                                echo '</a>';
                         }
-                        else
-                        {
-                                echo '<div class="blank-pic">' . $name . '</div>';
-                        }
-                        echo '</div>';    
-                        echo '</a>';
                 }
                 echo '</div>';
         }
 
-        function resize_image($file, $w, $h, $crop=FALSE) {
-                list($width, $height) = getimagesize($file);
-                $r = $width / $height;
-                if ($crop) {
-                    if ($width > $height) {
-                        $width = ceil($width-($width*abs($r-$w/$h)));
-                    } else {
-                        $height = ceil($height-($height*abs($r-$w/$h)));
-                    }
-                    $newwidth = $w;
-                    $newheight = $h;
-                } else {
-                    if ($w/$h > $r) {
-                        $newwidth = $h*$r;
-                        $newheight = $h;
-                    } else {
-                        $newheight = $w/$r;
-                        $newwidth = $w;
-                    }
+        function Arrange_Collage($row)
+        {
+        $col_1 = 0;
+        $col_2 = 0;
+        $col_3 = 0;
+        $col_4 = 0;
+
+        $col_array = array();
+
+        foreach($row as $reptile)
+        {
+                $image = '../Data/' . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
+                list($width, $height) = getimagesize($image);
+
+                if($col_1 == min($col_1, $col_2, $col_3, $col_4))
+                {
+                        $col_1 += $height;
+                        $col_array[] = 0;
                 }
-                $src = imagecreatefromjpeg($file);
-                $dst = imagecreatetruecolor($newwidth, $newheight);
-                imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-            
-                return $dst;
-            }
+                else if($col_2 == min($col_1, $col_2, $col_3, $col_4))
+                {
+                        $col_2 += $height;
+                        $col_array[] = 1;
+                }
+                else if($col_3 == min($col_1, $col_2, $col_3, $col_4))
+                {
+                        $col_3 += $height;
+                        $col_array[] = 2;
+                }
+                else if($col_4 == min($col_1, $col_2, $col_3, $col_4))
+                {
+                        $col_4 += $height;
+                        $col_array[] = 3;
+                }
+        }
+
+        return $col_array;
+        }
 ?>

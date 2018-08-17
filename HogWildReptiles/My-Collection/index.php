@@ -3,12 +3,35 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <link href="../style.css" rel="stylesheet">
+        <link href="../nav.css" rel="stylesheet">
         <link href="style.css" rel="stylesheet">
         <script src="javascript.js"></script>
 </head>
-<body class="index-body">
+<body>
+<div class="nav-bar">
 <?php
+    echo '<a href="../"><img src="../WRReptiles_Logo_White.png" class="logo"></a>';
+    $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/');
+    $menu_headers = array('Available','About Us','Contact Us','My Collection');
+
+    for($i = 3; $i >= 0; $i--)
+    {
+            $path =  $_SERVER['REQUEST_URI'];
+            
+            if($path == $menu_paths[$i])
+            {
+                    echo '<a class="menuitem menuitem-active" href="../' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
+            }
+            else {
+                    echo '<a class="menuitem" href="../' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>'; 
+            }
+    }
+?>
+</div>
+<?php
+
 include '../functions.php';
 $conn = Database_Connect('reptiles');
 
@@ -55,11 +78,12 @@ while($rows = $result->fetch_assoc())
 {
     $row[] = $rows;
 }
+$col_array = Arrange_Collage($row);
 echo '<div class="collection-row">';
-Collection_Column($row, 0);
-Collection_Column($row, 1);
-Collection_Column($row, 2);
-Collection_Column($row, 3);
+Collection_Column($col_array, $row, 0);
+Collection_Column($col_array, $row, 1);
+Collection_Column($col_array, $row, 2);
+Collection_Column($col_array, $row, 3);
 echo '</div>';
 
 ?>
