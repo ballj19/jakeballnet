@@ -1,13 +1,6 @@
 <?php
 include '../functions.php';
 
-$name = $_POST['name'];
-$type = $_POST['type'];
-$bio = $_POST['bio'];
-
-$parameters = Get_Parameters();
-$param_size = count($parameters);
-
 if(isset($_POST['name'])) {
         if(strpos($_POST['name'],' ') !== false)
         {
@@ -57,6 +50,7 @@ if(isset($_POST['name'])) {
 
             SQL_INSERT($conn,'reptiles',$columns,$values);
         }
+        echo "<script>window.location = 'index.php?name=" . $_POST['name'] . "'</script>";
 }
 
 ?>

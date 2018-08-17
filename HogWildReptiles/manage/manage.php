@@ -12,7 +12,7 @@ $row = $result->fetch_assoc();
 $parameters = Get_Parameters();
 
 ?>
-<form class="col-xs-5" id="manage-form" action="update.php" method="post">
+<form class="col-xs-5" id="manage-form" action="update.php?name=<?php echo $row['name']?>" method="post">
 <?php
     foreach($parameters as $parameter)
     {
@@ -24,8 +24,8 @@ $parameters = Get_Parameters();
     
     $options = array();
     $dir = '../My-Collection/backgrounds/';
-    $files = scandir($dir);
-    for($i = 2; $i < count($files); $i++)
+    $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
+    for($i = 0; $i < count($files); $i++)
     {
         $options[] = $files[$i];
     }

@@ -19,7 +19,14 @@ function resize_image($file, $w, $h, $crop=FALSE) {
                 $newwidth = $w;
                 }
         }
-        $src = imagecreatefromjpeg($file);
+        if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
+        {
+                $src = imagecreatefrompng($file);
+        }
+        else
+        {
+                $src = imagecreatefromjpeg($file);
+        }
         $dst = imagecreatetruecolor($newwidth, $newheight);
         imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
@@ -42,10 +49,16 @@ for( $i=0 ; $i < $total ; $i++ )
         $file = $_FILES['files']['name'][$i];
         $path = $_FILES['files']['tmp_name'][$i];
 
-        //FTP_Upload($path,"Data/$name/Images/$file");
         move_uploaded_file($path, "../Data/$name/Images/$file");
         $mdfile = resize_image("../Data/$name/Images/$file", 800, 800);
-        imagejpeg($mdfile, "../Data/$name/Images/md/$file");
+        if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
+        {
+                imagepng($mdfile, "../HerpingData/$name/Images/md/$file");
+        }
+        else
+        {
+                imagejpeg($mdfile, "../HerpingData/$name/Images/md/$file");
+        }
 }
 
 

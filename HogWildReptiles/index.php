@@ -14,26 +14,9 @@ $parameters = Get_Parameters();
         <script src="javascript.js"></script>
 </head>
 <body>
-        <div class="nav-bar">
         <?php
-                        echo '<a href="./"><img src="WRReptiles_Logo_White.png" class="logo"></a>';
-                        $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/');
-                        $menu_headers = array('Available','About Us','Contact Us','My Collection');
-
-                        for($i = 3; $i >= 0; $i--)
-                        {
-                                $path =  $_SERVER['REQUEST_URI'];
-                                
-                                if($path == $menu_paths[$i])
-                                {
-                                        echo '<a class="menuitem menuitem-active" href="' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
-                                }
-                                else {
-                                        echo '<a class="menuitem" href="' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>'; 
-                                }
-                        }
-                ?>
-        </div>
+                Nav_Bar('./');
+        ?>
         <div class="banner-container">
                 <img src="banner-pic.jpg" alt="Solaire" class="banner-pic">
                 <img src="WRReptiles_Logo_White.png" class="big-logo">
@@ -53,10 +36,10 @@ $parameters = Get_Parameters();
 
                         echo '<div id="carousel-' . $name . '" class="carousel slide col-md-4" data-ride="carousel" data-interval="false">';
                         echo '<ol class="carousel-indicators">';
-                        $images = scandir('Data/' . $name . '/Images/');
+                        $images = scandir('Data/' . $name . '/Images/md/');
                         for($j = 2; $j < sizeof($images); $j++)
                         {
-                                if($j == 2)
+                                if($images[$j] == $row['coverPhoto'])
                                 {
                                         echo '<li data-target="#carousel-' . $name . '" data-slide-to="' . ($j - 2) . '" class="active"></li>';
                                 }
@@ -70,15 +53,15 @@ $parameters = Get_Parameters();
                         echo '<div class="carousel-inner">';
                         for($j = 2; $j < sizeof($images); $j++)
                         {
-                                if($j == 2)
+                                $image =  'Data/' . $name . '/Images/md/' . $images[$j]; 
+                                if($images[$j] == $row['coverPhoto'])
                                 {
                                         echo '<div class="item active">';
                                 }
                                 else 
                                 {
                                         echo '<div class="item">';
-                                }
-                                $image =  'Data/' . $name . '/Images/' . $images[$j];  
+                                } 
                                 echo '<img class="reptile-img" src="' . $image . '">';
                                 echo '</div>';
                         } 

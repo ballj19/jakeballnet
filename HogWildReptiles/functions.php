@@ -25,18 +25,33 @@
                 return $conn;
         }
 
-        function Get_Parameters()
+        function Get_Parameters($type = 'reptile')
         {
-                return array(
-                        'name',
-                        'type',
-                        'forsale',
-                        'price',
-                        'hatch',
-                        'mom',
-                        'dad',
-                        'frequentEater'
-                );
+                if($type == 'herping')
+                {
+                        return array(
+                                'name',
+                                'location',
+                                'date'
+                        );    
+                }
+                else if($type = 'reptile')
+                {
+                        return array(
+                                'name',
+                                'type',
+                                'forsale',
+                                'price',
+                                'hatch',
+                                'mom',
+                                'dad',
+                                'frequentEater'
+                        );    
+                }
+                else
+                {
+                        return array();
+                }
         }
 
         function SQL_SELECT($conn, $table, $columns, $conditions = null, $conditions_values = null)
@@ -186,7 +201,7 @@
                 echo '</div>';
         }
 
-        function Collection_Column($col_array, $row, $column)
+        function Collection_Column($col_array, $row, $column, $type = 'reptile')
         {
                 echo '<div class="collection-column">';
                 for($i = 0; $i < count($row); $i++)
@@ -198,15 +213,22 @@
                                 echo '<div onmouseenter="showName(\'' . $name . '\')" onmouseleave="hideName(\'' . $name . '\')" class="grid-container">';
                                 if($row[$i]['coverPhoto'] != '')
                                 {
-                                        $image = '../Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                        if($type == 'herping')
+                                        {
+                                                $image = '../HerpingData/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                        }
+                                        else if($type == 'reptile')
+                                        {
+                                                $image = '../Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                        }
                                         list($width, $height) = getimagesize($image);
                                         if($width > $height)
                                         {
-                                                echo '<img id="' . $name . '-pic" class="reptile-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                                echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
                                         }
                                         else
                                         {
-                                                echo '<img id="' . $name . '-pic" class="reptile-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                                echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
                                         }
                                         echo '<div class="picture-name" style="display:none" id="' . $name . '">' . $name . '</div>';
                                 }
@@ -221,42 +243,141 @@
                 echo '</div>';
         }
 
-        function Arrange_Collage($row)
+        function Banner_Column($name, $col_array, $row, $column, $type = 'reptile')
         {
-        $col_1 = 0;
-        $col_2 = 0;
-        $col_3 = 0;
-        $col_4 = 0;
-
-        $col_array = array();
-
-        foreach($row as $reptile)
-        {
-                $image = '../Data/' . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
-                list($width, $height) = getimagesize($image);
-
-                if($col_1 == min($col_1, $col_2, $col_3, $col_4))
+                echo '<div class="collection-column">';
+                for($i = 0; $i < count($row); $i++)
                 {
-                        $col_1 += $height;
-                        $col_array[] = 0;
+                        if($col_array[$i] == $column)
+                        {
+                                echo '<div class="grid-container">';
+                                        if($type == 'herping')
+                                        {
+                                                $image = '../HerpingData/' . $name . '/Images/md/' .$row[$i];
+                                        }
+                                        else if($type == 'reptile')
+                                        {
+                                                $image = '../Data/' . $name . '/Images/md/' .$row[$i];
+                                        }
+                                        echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                echo '</div>';  
+                        }
                 }
-                else if($col_2 == min($col_1, $col_2, $col_3, $col_4))
-                {
-                        $col_2 += $height;
-                        $col_array[] = 1;
-                }
-                else if($col_3 == min($col_1, $col_2, $col_3, $col_4))
-                {
-                        $col_3 += $height;
-                        $col_array[] = 2;
-                }
-                else if($col_4 == min($col_1, $col_2, $col_3, $col_4))
-                {
-                        $col_4 += $height;
-                        $col_array[] = 3;
-                }
+                echo '</div>';
         }
 
-        return $col_array;
+        function Arrange_Collage($row, $type='reptiles')
+        {
+                $col_1 = 0;
+                $col_2 = 0;
+                $col_3 = 0;
+                $col_4 = 0;
+
+                $col_array = array();
+
+                foreach($row as $reptile)
+                {
+                        if($type == 'herping')
+                        {
+                                $image = '../HerpingData/' . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
+                        }
+                        else if($type == 'reptiles')
+                        {
+                                $image = '../Data/' . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
+                        }
+                        list($width, $height) = getimagesize($image);
+
+                        if($col_1 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_1 += $height;
+                                $col_array[] = 0;
+                        }
+                        else if($col_2 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_2 += $height;
+                                $col_array[] = 1;
+                        }
+                        else if($col_3 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_3 += $height;
+                                $col_array[] = 2;
+                        }
+                        else if($col_4 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_4 += $height;
+                                $col_array[] = 3;
+                        }
+                }
+
+                return $col_array;
+        }
+
+        function Arrange_Banner_Pics($name, $row, $type='reptiles')
+        {
+                $col_1 = 0;
+                $col_2 = 0;
+                $col_3 = 0;
+                $col_4 = 0;
+
+                $col_array = array();
+
+                foreach($row as $pic)
+                {
+                        if($type == 'herping')
+                        {
+                                $image = '../HerpingData/' . $name . '/Images/' . $pic;
+                        }
+                        else if($type == 'reptiles')
+                        {
+                                $image = '../Data/' . $name . '/Images/' . $pic;
+                        }
+                        list($width, $height) = getimagesize($image);
+
+                        if($col_1 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_1 += $height;
+                                $col_array[] = 0;
+                        }
+                        else if($col_2 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_2 += $height;
+                                $col_array[] = 1;
+                        }
+                        else if($col_3 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_3 += $height;
+                                $col_array[] = 2;
+                        }
+                        else if($col_4 == min($col_1, $col_2, $col_3, $col_4))
+                        {
+                                $col_4 += $height;
+                                $col_array[] = 3;
+                        }
+                }
+
+                return $col_array;
+        }
+
+        function Nav_Bar($location)
+        {
+                echo '<div class="nav-bar">';
+                echo '<a href="' . $location . '"><img src="' . $location . 'WRReptiles_Logo_White.png" class="logo"></a>';
+                $menu_paths = array('Available/','About-Us/','Contact-Us/','Herping','My-Collection/');
+                $menu_headers = array('Available','About Us','Contact Us','Herping','My Collection');
+
+                for($i = count($menu_paths) - 1; $i >= 0; $i--)
+                {
+                        $path =  $_SERVER['REQUEST_URI'];
+                        
+                        if($path == $menu_paths[$i])
+                        {
+                                echo '<a class="menuitem menuitem-active" href="' . $location . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
+                        }
+                        else {
+                                echo '<a class="menuitem" href="' . $location . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>'; 
+                        }
+                }
+    
+                echo '</div>';
         }
 ?>

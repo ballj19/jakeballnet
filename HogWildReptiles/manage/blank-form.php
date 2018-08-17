@@ -13,17 +13,16 @@ $parameters = Get_Parameters();
         echo    '<input class="col-xs-6 input-box" type="text" id="' . $parameter . '" name="' . $parameter . '" value="">';
         echo '</div>';
     }
-        echo '<div class="col-xs-12 parameter">';
-        echo    '<div class="col-xs-3 input-label">' . 'background' . '</div>';
-        echo '<select class="col-xs-6 input-box" name="background" id="background" value="">';
-        $dir = '../My-Collection/backgrounds/';
-        $files = scandir($dir);
-        for($i = 2; $i < count($files); $i++)
-        {
-                        echo '<option class="reptile-option" value="' . $files[$i] . '">' . $files[$i] . '</option>';				
-        }
-        echo '</select>';
-        echo '</div>';
+
+    $options = array();
+    $dir = '../My-Collection/backgrounds/';
+    $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
+    for($i = 0; $i < count($files); $i++)
+    {
+        $options[] = $files[$i];
+    }
+    Dropdown_Parameter('background', $options, '');
+    Dropdown_Parameter('sex',array('male','female','unknown'), '');
 
 ?>
         <div class="col-xs-6 col-xs-offset-3">

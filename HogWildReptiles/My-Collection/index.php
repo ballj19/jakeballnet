@@ -10,30 +10,14 @@
         <script src="javascript.js"></script>
 </head>
 <body>
-<div class="nav-bar">
-<?php
-    echo '<a href="../"><img src="../WRReptiles_Logo_White.png" class="logo"></a>';
-    $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/');
-    $menu_headers = array('Available','About Us','Contact Us','My Collection');
 
-    for($i = 3; $i >= 0; $i--)
-    {
-            $path =  $_SERVER['REQUEST_URI'];
-            
-            if($path == $menu_paths[$i])
-            {
-                    echo '<a class="menuitem menuitem-active" href="../' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>';
-            }
-            else {
-                    echo '<a class="menuitem" href="../' . $menu_paths[$i] . '">' . $menu_headers[$i] . '</a>'; 
-            }
-    }
-?>
-</div>
+
 <?php
 
 include '../functions.php';
 $conn = Database_Connect('reptiles');
+
+Nav_Bar('../');
 
 $result = SQL_SELECT($conn,'reptiles',array('name','coverPhoto'));
 ?>

@@ -1,12 +1,10 @@
 <?php
+
 $reptile = $_GET['reptile'];
 $file = $_GET['file'];
 $degrees = $_GET['degrees'];
 
 $image = "../Data/$reptile/Images/$file";
-
-
-$image = resize_image($image, 800, 800);
 
 // Set the content type header - in this case image/jpeg
 header('Content-Type: image/jpeg');

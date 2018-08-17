@@ -22,9 +22,9 @@ echo '<input type="submit" name="submit" value="Submit">';
 echo '</form>';
 
 
-$files = scandir($dir);
+$files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
-for($i = 2; $i < count($files); $i++)
+for($i = 0; $i < count($files); $i++)
 {
         $image = $dir . '/' . $files[$i];
         list($width, $height) = getimagesize($image);

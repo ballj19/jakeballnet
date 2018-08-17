@@ -26,9 +26,9 @@ function resize_image($file, $w, $h, $crop=FALSE) {
     return $dst;
 }
         $dir = "../Data";
-        $reptiles = scandir($dir);
+        $reptiles = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
-        for($i = 2; $i < count($reptiles); $i++)
+        for($i = 0; $i < count($reptiles); $i++)
         {
                 $reptile = $reptiles[$i];
                 $pics = scandir("../Data/$reptile/Images");
