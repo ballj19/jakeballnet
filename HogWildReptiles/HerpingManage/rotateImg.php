@@ -21,4 +21,16 @@ imagejpeg($rotate, $image, 100);
 // Free the memory
 imagedestroy($source);
 imagedestroy($rotate);
+
+
+$mdfile = resize_image("../HerpingData/$herping/Images/$file", 800, 800);
+
+if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
+{
+        imagepng($mdfile, "../HerpingData/$name/Images/md/$file");
+}
+else
+{
+        imagejpeg($mdfile, "../HerpingData/$name/Images/md/$file");
+}
 ?>
