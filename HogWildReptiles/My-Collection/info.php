@@ -40,7 +40,7 @@ Nav_Bar('../');
         <div id="banner-pictures">
             <?php
 
-            $dir = "../Data/$reptile/Images";
+            /*$dir = "../Data/$reptile/Images";
 
             $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
@@ -58,7 +58,19 @@ Nav_Bar('../');
                             echo '<img class="individual-pic reptile-img img-portrait" src="' . $image . '?=' .filemtime($image) . '"/>';
                     }
                     echo '</div>';
-            }
+            }*/
+
+            $dir = "../Data/$reptile/Images";
+
+            $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
+
+            $col_array = Arrange_Banner_Pics($reptile, $files);
+            echo '<div class="collection-row">';
+            Banner_Column($reptile, $col_array, $files, 0);
+            Banner_Column($reptile, $col_array, $files, 1);
+            Banner_Column($reptile, $col_array, $files, 2);
+            Banner_Column($reptile, $col_array, $files, 3);
+            echo '</div>';
             ?>
             </div>
     </div>
@@ -66,11 +78,11 @@ Nav_Bar('../');
 
         <script>
                 $(window).resize(function(){
-                        ResizeBannerPics();
+                        //ResizeBannerPics();
                 });
 
                 $(document).ready(function(){
-                        ResizeBannerPics();
+                        //ResizeBannerPics();
                 });
         </script>
 </body>

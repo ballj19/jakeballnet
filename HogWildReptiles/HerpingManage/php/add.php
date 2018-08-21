@@ -28,7 +28,7 @@ if(isset($_POST['name'])) {
         }
 
         
-echo "<script>window.location = 'index.php?name=" . $_POST['name'] . "'</script>";
+echo "<script>window.location = '../index.php?name=" . $_POST['name'] . "'</script>";
 }
 
 ?>

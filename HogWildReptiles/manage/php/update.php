@@ -18,5 +18,5 @@ for($i = 0; $i < count($parameters);$i++)
 
 SQL_UPDATE($conn,'reptiles',$columns,$values,array('name'),array($name));
 
-echo "<script>window.location = 'index.php?name=" . $_POST['name'] . "'</script>";
+echo "<script>window.location = '../index.php?name=" . $_POST['name'] . "'</script>";
 ?>

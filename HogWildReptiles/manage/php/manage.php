@@ -12,7 +12,7 @@ $row = $result->fetch_assoc();
 $parameters = Get_Parameters();
 
 ?>
-<form class="col-xs-5" id="manage-form" action="update.php?name=<?php echo $row['name']?>" method="post">
+<form class="col-xs-5" id="manage-form" action="php/update.php?name=<?php echo $row['name']?>" method="post">
 <?php
     foreach($parameters as $parameter)
     {
@@ -37,7 +37,7 @@ $parameters = Get_Parameters();
         <div class="col-xs-6">
             <input id="update-button" type="submit" value="Update">
         </div>
-        <a class="col-xs-6" href="<?php echo "delete.php?name=" . $_reptile;?>"><div id="delete-button">Delete</div></a>
+        <a class="col-xs-6" href="<?php echo "php/delete.php?name=" . $_reptile;?>"><div id="delete-button">Delete</div></a>
 </form>
     <div class="col-xs-7">
         <div class="col-xs-12 parameter"> 

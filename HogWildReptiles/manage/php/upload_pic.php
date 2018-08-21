@@ -19,7 +19,6 @@ function resize_image($file, $w, $h, $crop=FALSE) {
                 $newwidth = $w;
                 }
         }
-
         if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
         {
                 $src = imagecreatefrompng($file);
@@ -50,9 +49,8 @@ for( $i=0 ; $i < $total ; $i++ )
         $file = $_FILES['files']['name'][$i];
         $path = $_FILES['files']['tmp_name'][$i];
 
-        move_uploaded_file($path, "../HerpingData/$name/Images/$file");
-        $mdfile = resize_image("../HerpingData/$name/Images/$file", 800, 800);
-        
+        move_uploaded_file($path, "../Data/$name/Images/$file");
+        $mdfile = resize_image("../Data/$name/Images/$file", 800, 800);
         if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
         {
                 imagepng($mdfile, "../HerpingData/$name/Images/md/$file");
@@ -64,5 +62,5 @@ for( $i=0 ; $i < $total ; $i++ )
 }
 
 
-echo "<script>window.location = 'index.php?name=" . $name . "'</script>";
+echo "<script>window.location = '../index.php?name=" . $name . "'</script>";
 ?>

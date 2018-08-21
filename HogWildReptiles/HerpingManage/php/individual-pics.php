@@ -4,8 +4,8 @@
 $_name = $_GET['name'];
 $name = str_replace("%"," ",$_name);
 
-$dir = "../Data/$name/Images";
-$mddir = "../Data/$name/Images/md";
+$dir = "../HerpingData/$name/Images";
+$mddir = "../HerpingData/$name/Images/md";
 
 if(!file_exists($dir))
 {
@@ -16,7 +16,7 @@ if(!file_exists($mddir))
         mkdir($mddir, 0777, true);
 }
 
-echo '<form action="upload_pic.php?name=' . $_name . '" method="post" enctype="multipart/form-data">';
+echo '<form action="php/upload_pic.php?name=' . $_name . '" method="post" enctype="multipart/form-data">';
 echo '<input type="file" name="files[]" multiple /><br>';
 echo '<input type="submit" name="submit" value="Submit">';
 echo '</form>';

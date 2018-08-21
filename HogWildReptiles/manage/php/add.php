@@ -27,7 +27,7 @@ if(isset($_POST['name'])) {
             if ($conn->query($insert_sql) === TRUE) {
                 echo $name . " added to database";
                 echo '<br>';
-                echo '<a href="../manage/index.php">Manage Reptiles</a>';
+                echo '<a href="../manage/../index.php">Manage Reptiles</a>';
             } else {
                 echo "Error: " . $insert_sql . "<br>" . $conn->error;
             }*/
@@ -50,7 +50,7 @@ if(isset($_POST['name'])) {
 
             SQL_INSERT($conn,'reptiles',$columns,$values);
         }
-        echo "<script>window.location = 'index.php?name=" . $_POST['name'] . "'</script>";
+        echo "<script>window.location = '../index.php?name=" . $_POST['name'] . "'</script>";
 }
 
 ?>
