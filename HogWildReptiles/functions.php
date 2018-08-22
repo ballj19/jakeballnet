@@ -201,6 +201,7 @@
 
         function Collection_Column($col_array, $row, $column, $type = 'reptile')
         {
+                $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 echo '<div class="collection-column">';
                 for($i = 0; $i < count($row); $i++)
                 {
@@ -214,20 +215,22 @@
                                 {
                                         if($type == 'herping')
                                         {
-                                                $image = '../HerpingData/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                                $imagesrc = '/HerpingData/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                                $image = "$root/HerpingData/" . $name . '/Images/md/' .$row[$i]['coverPhoto'];
                                         }
                                         else if($type == 'reptile')
                                         {
-                                                $image = '../Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                                $imagesrc = '/Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                                $images = "$root/Data/" . $name . '/Images/md/' .$row[$i]['coverPhoto'];
                                         }
                                         list($width, $height) = getimagesize($image);
                                         if($width > $height)
                                         {
-                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
                                         }
                                         else
                                         {
-                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
                                         }
                                         echo '<div class="picture-name" style="display:none" id="' . $id . '">' . $name . '</div>';
                                 }
@@ -244,6 +247,7 @@
 
         function Banner_Column($name, $col_array, $row, $column, $type = 'reptile')
         {
+                $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 echo '<div class="collection-column">';
                 for($i = 0; $i < count($row); $i++)
                 {
@@ -252,13 +256,15 @@
                                 echo '<div class="grid-container">';
                                         if($type == 'herping')
                                         {
-                                                $image = '../HerpingData/' . $name . '/Images/md/' .$row[$i];
+                                                $imagesrc = '/HerpingData/' . $name . '/Images/md/' .$row[$i];
+                                                $image = "$root/HerpingData/" . $name . '/Images/md/' .$row[$i];
                                         }
                                         else if($type == 'reptile')
                                         {
-                                                $image = '../Data/' . $name . '/Images/md/' .$row[$i];
+                                                $imagesrc = '/Data/' . $name . '/Images/md/' .$row[$i];
+                                                $image = "$root/Data/" . $name . '/Images/md/' .$row[$i];
                                         }
-                                        echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                        echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
                                 echo '</div>';  
                         }
                 }
@@ -267,6 +273,7 @@
 
         function Arrange_Collage($row, $type='reptiles')
         {
+                $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 $col_1 = 0;
                 $col_2 = 0;
                 $col_3 = 0;
@@ -278,11 +285,11 @@
                 {
                         if($type == 'herping')
                         {
-                                $image = '../HerpingData/' . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
+                                $image = "$root/HerpingData/" . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
                         }
                         else if($type == 'reptiles')
                         {
-                                $image = '../Data/' . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
+                                $image = "$root/Data/" . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
                         }
                         list($width, $height) = getimagesize($image);
 
@@ -313,6 +320,7 @@
 
         function Arrange_Banner_Pics($name, $row, $type='reptiles')
         {
+                $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 $col_1 = 0;
                 $col_2 = 0;
                 $col_3 = 0;
@@ -324,11 +332,11 @@
                 {
                         if($type == 'herping')
                         {
-                                $image = '../HerpingData/' . $name . '/Images/' . $pic;
+                                $image = "$root/HerpingData/" . $name . '/Images/' . $pic;
                         }
                         else if($type == 'reptiles')
                         {
-                                $image = '../Data/' . $name . '/Images/' . $pic;
+                                $image = "$root/Data/" . $name . '/Images/' . $pic;
                         }
                         list($width, $height) = getimagesize($image);
 
