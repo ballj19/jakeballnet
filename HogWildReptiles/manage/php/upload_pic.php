@@ -33,10 +33,16 @@ function resize_image($file, $w, $h, $crop=FALSE) {
         return $dst;
 }
 
-include '../functions.php';
+$id = $_GET['id'];
 
-$_name = $_GET['name'];
-$name = str_replace("%"," ",$_name);
+
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
+
+$conn = Database_Connect('reptiles');
+$result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+$row = $result->fetch_assoc();
+$name = $row['name'];
 
 $files = array_filter($_FILES['files']['name']); //something like that to be used before processing files.
 
@@ -49,18 +55,18 @@ for( $i=0 ; $i < $total ; $i++ )
         $file = $_FILES['files']['name'][$i];
         $path = $_FILES['files']['tmp_name'][$i];
 
-        move_uploaded_file($path, "../Data/$name/Images/$file");
-        $mdfile = resize_image("../Data/$name/Images/$file", 800, 800);
+        move_uploaded_file($path, "$root/Data/$name/Images/$file");
+        $mdfile = resize_image("$root/Data/$name/Images/$file", 800, 800);
         if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
         {
-                imagepng($mdfile, "../HerpingData/$name/Images/md/$file");
+                imagepng($mdfile, "$root/Data/$name/Images/md/$file");
         }
         else
         {
-                imagejpeg($mdfile, "../HerpingData/$name/Images/md/$file");
+                imagejpeg($mdfile, "$root/Data/$name/Images/md/$file");
         }
 }
 
 
-echo "<script>window.location = '../index.php?name=" . $name . "'</script>";
+echo "<script>window.location = '{$root}/index.php?id=" . $id . "'</script>";
 ?>

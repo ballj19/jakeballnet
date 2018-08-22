@@ -2,16 +2,15 @@
 
 include '../functions.php';
 
-$_herping = $_GET['name'];
-$herping = str_replace("%"," ",$_herping);
+$id = $_GET['id'];
 
 if(!isset($_GET['delete']))
 {
 
 ?>
 
-<div>Would you like to delete <?php echo $herping; ?></div>
-<a href="<?php echo "php/delete.php?name=" . $_herping . "&delete=1";?>">Yes</a>
+<div>Would you like to delete <?php echo $id; ?></div>
+<a href="<?php echo "delete.php?id=" . $id . "&delete=1";?>">Yes</a>
 <a href="../index.php">No</a>
 
 <?php
@@ -20,12 +19,12 @@ if(!isset($_GET['delete']))
 else 
 {
         $conn = Database_Connect('reptiles');
-        $delete_sql = "DELETE FROM herping WHERE name='" . $herping . "'";
+        $delete_sql = "DELETE FROM herping WHERE id='" . $id . "'";
         
         if ($conn->query($delete_sql) === TRUE) {
-                echo $herping . " was deleted successfully";
+                echo $id . " was deleted successfully";
                 echo '<br>';
-                echo '<a href="../index.php">Go back to managing your herpings</a>';
+                echo '<a href="../index.php">Go back to managing your herping</a>';
             } else {
                 echo "Error: " . $delete_sql . "<br>" . $conn->error;
             }

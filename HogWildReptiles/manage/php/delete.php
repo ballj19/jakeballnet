@@ -1,17 +1,17 @@
 <?php
 
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
 
-$_reptile = $_GET['name'];
-$reptile = str_replace("%"," ",$_reptile);
+$id = $_GET['id'];
 
 if(!isset($_GET['delete']))
 {
 
 ?>
 
-<div>Would you like to delete <?php echo $reptile; ?></div>
-<a href="<?php echo "php/delete.php?name=" . $_reptile . "&delete=1";?>">Yes</a>
+<div>Would you like to delete <?php echo $id; ?></div>
+<a href="<?php echo "delete.php?id=" . $id . "&delete=1";?>">Yes</a>
 <a href="../index.php">No</a>
 
 <?php
@@ -20,10 +20,10 @@ if(!isset($_GET['delete']))
 else 
 {
         $conn = Database_Connect('reptiles');
-        $delete_sql = "DELETE FROM reptiles WHERE name='" . $reptile . "'";
+        $delete_sql = "DELETE FROM reptiles WHERE id='" . $id . "'";
         
         if ($conn->query($delete_sql) === TRUE) {
-                echo $reptile . " was deleted successfully";
+                echo $id . " was deleted successfully";
                 echo '<br>';
                 echo '<a href="../index.php">Go back to managing your reptiles</a>';
             } else {

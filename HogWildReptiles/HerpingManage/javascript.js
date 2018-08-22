@@ -1,8 +1,6 @@
-function HerpingForm(_herping)
+function HerpingForm(id)
 {
-        var herping = _herping.replace(" ","%");
-
-        $('#herping-form').load('php/manage.php?name=' + herping);
+                $('#herping-form').load('php/manage.php?id=' + id);
 }
 
 function AddForm()
@@ -10,16 +8,15 @@ function AddForm()
         $('#herping-form').load('php/blank-form.php');
 }
 
-function GenerateInfo(_herping)
+function GenerateInfo(id)
 {
-        HerpingForm(_herping);
-        IndividualPics(_herping);
+        HerpingForm(id);
+        IndividualPics(id);
 }
 
-function IndividualPics(_herping)
+function IndividualPics(id)
 {
-        var herping = _herping.replace(" ","%");
-        $('#individual-pics').load('php/individual-pics.php?name=' + herping);
+        $('#individual-pics').load('php/individual-pics.php?id=' + id);
 }
 
 function DeletePicture(file)
@@ -42,7 +39,7 @@ function DeletePicture(file)
 function MakeCover(file)
 {
         $.ajax({
-                url: 'php/makecover.php?file=' + file + '&herping=' + herping.value,
+                url: 'php/makecover.php?file=' + file + '&id=' + herping.value,
                 success: function() {
                         IndividualPics(herping.value);
                         alert('This Picture is now the Cover Photo.');
@@ -53,7 +50,7 @@ function MakeCover(file)
 function RotatePic(file, degrees)
 {
         $.ajax({
-                url: 'php/rotateImg.php?file=' + file + '&herping=' + herping.value + '&degrees=' + degrees,
+                url: 'php/rotateImg.php?file=' + file + '&id=' + herping.value + '&degrees=' + degrees,
                 success: function() {
                         IndividualPics(herping.value);
                 }

@@ -3,6 +3,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
         <script src="javascript.js"></script>
         <link href="style.css" rel="stylesheet">
         <script src="../Calendar/javascript.js"></script>
@@ -10,13 +11,15 @@
 </head>
 <body>
 <?php
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
+Nav_Bar('../');
 $conn = Database_Connect('reptiles');
 
-$name = '';
-if(isset($_GET['name']))
+$id = '';
+if(isset($_GET['id']))
 {
-        $name = $_GET['name'];
+        $id = $_GET['id'];
 }
 
 $select_sql = "SELECT name FROM herping";
@@ -27,7 +30,7 @@ $result = $conn->query($select_sql);
                                 <?php
                                         while($row = $result->fetch_assoc())
                                         {
-                                                        echo '<option class="herping-option" value="' . $row['name'] . '">' . $row['name'] . '</option>';				
+                                                        echo '<option class="herping-option" value="' . $row['id'] . '">' . $row['name'] . '</option>';				
                                         }
                                 ?>
                         </select>
@@ -53,10 +56,10 @@ $result = $conn->query($select_sql);
         </div> 
 
 <?php
-if(isset($_GET['name']))
+if(isset($_GET['id']))
 {
         echo '<script>';
-                echo "document.getElementById('herping').value = '" . $name . "';";
+                echo "document.getElementById('herping').value = '" . $id . "';";
         echo '</script>';
 }
 ?>

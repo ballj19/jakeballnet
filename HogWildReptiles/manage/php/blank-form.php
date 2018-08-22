@@ -1,5 +1,6 @@
 <?php
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
 $parameters = Get_Parameters();
 ?>
 
@@ -15,7 +16,7 @@ $parameters = Get_Parameters();
     }
 
     $options = array();
-    $dir = '../My-Collection/backgrounds/';
+    $dir = "$root/My-Collection/backgrounds/";
     $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
     for($i = 0; $i < count($files); $i++)
     {

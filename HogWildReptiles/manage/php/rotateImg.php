@@ -34,11 +34,20 @@ function resize_image($file, $w, $h, $crop=FALSE) {
     return $dst;
 }
 
-$reptile = $_GET['reptile'];
+$id = $_GET['id'];
 $file = $_GET['file'];
 $degrees = $_GET['degrees'];
 
-$image = "../Data/$reptile/Images/$file";
+
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
+
+$conn = Database_Connect('reptiles');
+$result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+$row = $result->fetch_assoc();
+$reptile = $row['name'];
+
+$image = "$root/Data/$reptile/Images/$file";
 
 // Set the content type header - in this case image/jpeg
 header('Content-Type: image/jpeg');
@@ -56,14 +65,14 @@ imagejpeg($rotate, $image, 100);
 imagedestroy($source);
 imagedestroy($rotate);
 
-$mdfile = resize_image("../HerpingData/$reptile/Images/$file", 800, 800);
+$mdfile = resize_image("$root/Data/$reptile/Images/$file", 800, 800);
 
 if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
 {
-        imagepng($mdfile, "../HerpingData/$reptile/Images/md/$file");
+        imagepng($mdfile, "$root/Data/$reptile/Images/md/$file");
 }
 else
 {
-        imagejpeg($mdfile, "../HerpingData/$reptile/Images/md/$file");
+        imagejpeg($mdfile, "$root/Data/$reptile/Images/md/$file");
 }
 ?>

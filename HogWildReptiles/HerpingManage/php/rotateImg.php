@@ -34,9 +34,18 @@ function resize_image($file, $w, $h, $crop=FALSE) {
         return $dst;
 }
 
-$herping = $_GET['herping'];
+$id = $_GET['id'];
 $file = $_GET['file'];
 $degrees = $_GET['degrees'];
+
+
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
+
+$conn = Database_Connect('reptiles');
+$result = SQL_SELECT($conn, 'herping', array('name'), array('id'), array($id));
+$row = $result->fetch_assoc();
+$herping = $row['name'];
 
 $image = "../HerpingData/$herping/Images/$file";
 
@@ -56,15 +65,14 @@ imagejpeg($rotate, $image, 100);
 imagedestroy($source);
 imagedestroy($rotate);
 
-
-$mdfile = resize_image("../HerpingData/$herping/Images/$file", 800, 800);
+$mdfile = resize_image("$root/HerpingData/$herping/Images/$file", 800, 800);
 
 if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
 {
-        imagepng($mdfile, "../HerpingData/$herping/Images/md/$file");
+        imagepng($mdfile, "$root/HerpingData/$herping/Images/md/$file");
 }
 else
 {
-        imagejpeg($mdfile, "../HerpingData/$herping/Images/md/$file");
+        imagejpeg($mdfile, "$root/HerpingData/$herping/Images/md/$file");
 }
 ?>

@@ -1,13 +1,13 @@
 <?php
-$_herping = $_GET['name'];
-$herping = str_replace("%"," ",$_herping);
+$id = $_GET['id'];
 
 include '../functions.php';
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT * FROM herping WHERE name='" . $herping . "'";
+$select_sql = "SELECT * FROM herping WHERE id='" . $id . "'";
 $result = $conn->query($select_sql);
 $row = $result->fetch_assoc();
+$herping = $row['name'];
 ?>
 <html>
 <head>
@@ -44,23 +44,6 @@ Nav_Bar('../');
 
             $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
-            /*
-            for($i = 0; $i < count($files); $i++)
-            {
-                    $image = $dir . '/md/' . $files[$i];
-                    list($width, $height) = getimagesize($image);
-                    echo '<div class="info-grid-container">';
-                    if($width > $height)
-                    {
-                            echo '<img class="individual-pic herping-img img-landscape" src="' . $image . '?=' .filemtime($image) . '"/>';
-                    }
-                    else
-                    {
-                            echo '<img class="individual-pic herping-img img-portrait" src="' . $image . '?=' .filemtime($image) . '"/>';
-                    }
-                    echo '</div>';
-            }*/
-
             $col_array = Arrange_Banner_Pics($herping, $files, 'herping');
             echo '<div class="collection-row">';
             Banner_Column($herping, $col_array, $files, 0, 'herping');
@@ -68,7 +51,6 @@ Nav_Bar('../');
             Banner_Column($herping, $col_array, $files, 2, 'herping');
             Banner_Column($herping, $col_array, $files, 3, 'herping');
             echo '</div>';
-
             ?>
             </div>
     </div>

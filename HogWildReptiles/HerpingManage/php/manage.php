@@ -1,18 +1,18 @@
 <?php
-$_herping = $_GET['name'];
-$herping = str_replace("%"," ",$_herping);
+$id = $_GET['id'];
 
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT * FROM herping WHERE name='" . $herping . "'";
+$select_sql = "SELECT * FROM herping WHERE id='" . $id . "'";
 $result = $conn->query($select_sql);
 $row = $result->fetch_assoc();
 
 $parameters = Get_Parameters('herping');
 
 ?>
-<form class="col-xs-5" id="manage-form" action="php/update.php?name=<?php echo $row['name']?>" method="post">
+<form class="col-xs-5" id="manage-form" action="php/update.php?id=<?php echo $row['id']?>" method="post">
 <?php
     foreach($parameters as $parameter)
     {
@@ -27,7 +27,7 @@ $parameters = Get_Parameters('herping');
         <div class="col-xs-6">
             <input id="update-button" type="submit" value="Update">
         </div>
-        <a class="col-xs-6" href="<?php echo "php/delete.php?name=" . $_herping;?>"><div id="delete-button">Delete</div></a>
+        <a class="col-xs-6" href="<?php echo "php/delete.php?id=" . $id;?>"><div id="delete-button">Delete</div></a>
 </form>
     <div class="col-xs-7">
         <div class="col-xs-12 parameter"> 

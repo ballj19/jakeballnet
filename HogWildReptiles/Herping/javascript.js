@@ -22,18 +22,18 @@ function ResizeBannerPics()
     document.getElementById("banner-pictures").style.marginLeft = margin.toString() + "px";
 }
 
-function showName(name)
+function showName(id)
 {
-    var nameBlock = document.getElementById(name);
-    var picBlock = document.getElementById(name + "-pic");
+    var nameBlock = document.getElementById(id);
+    var picBlock = document.getElementById(id + "-pic");
     nameBlock.style.display = "block";
     picBlock.style.filter = "brightness(40%)";
 }
 
-function hideName(name)
+function hideName(id)
 {
-    var nameBlock = document.getElementById(name);
-    var picBlock = document.getElementById(name + "-pic");
+    var nameBlock = document.getElementById(id);
+    var picBlock = document.getElementById(id + "-pic");
     nameBlock.style.display = "none";
     picBlock.style.filter = "brightness(100%)";
 }

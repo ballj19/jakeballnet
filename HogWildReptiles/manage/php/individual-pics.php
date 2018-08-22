@@ -1,11 +1,19 @@
 <?php
 
 
-$_name = $_GET['name'];
-$name = str_replace("%"," ",$_name);
+$id = $_GET['id'];
 
-$dir = "../Data/$name/Images";
-$mddir = "../Data/$name/Images/md";
+
+$root = $_SERVER["DOCUMENT_ROOT"];
+include "$root/functions.php";
+
+$conn = Database_Connect('reptiles');
+$result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+$row = $result->fetch_assoc();
+$name = $row['name'];
+
+$dir = "{$root}Data/$name/Images";
+$mddir = "{$root}Data/$name/Images/md";
 
 if(!file_exists($dir))
 {
@@ -16,7 +24,7 @@ if(!file_exists($mddir))
         mkdir($mddir, 0777, true);
 }
 
-echo '<form action="php/upload_pic.php?name=' . $_name . '" method="post" enctype="multipart/form-data">';
+echo '<form action="php/upload_pic.php?id=' . $id . '" method="post" enctype="multipart/form-data">';
 echo '<input type="file" name="files[]" multiple /><br>';
 echo '<input type="submit" name="submit" value="Submit">';
 echo '</form>';
@@ -26,16 +34,17 @@ $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
 for($i = 0; $i < count($files); $i++)
 {
-        $image = $dir . '/' . $files[$i];
+        $image =  "$root/Data/$name/Images/" . $files[$i];
+        $imagesrc = "/Data/$name/Images/" . $files[$i];
         list($width, $height) = getimagesize($image);
         echo '<div class="individual-pic-container">';
         if($width > $height)
         {
-                echo '<img class="individual-pic img-landscape" src="' . $image . '?=' .filemtime($image) . '"/>';
+                echo '<img class="individual-pic img-landscape" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
         }
         else
         {
-                echo '<img class="individual-pic img-portrait" src="' . $image . '?=' .filemtime($image) . '"/>';
+                echo '<img class="individual-pic img-portrait" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
         }
         echo '<input class="pic-button col-xs-6" type="button" value="Delete" onclick="DeletePicture(\'' . $files[$i] . '\');" />';
         echo '<input class="pic-button col-xs-6" type="button" value="Make Cover" onclick="MakeCover(\'' . $files[$i] . '\');" />';

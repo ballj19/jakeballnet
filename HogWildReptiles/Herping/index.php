@@ -17,9 +17,8 @@ $conn = Database_Connect('reptiles');
 
 Nav_Bar('../');
 
-$result = SQL_SELECT($conn,'herping',array('name','coverPhoto'));
-?>
-<?php
+$result = SQL_SELECT($conn,'herping',array('id','name','coverPhoto'));
+
 $row = array();
 while($rows = $result->fetch_assoc())
 {

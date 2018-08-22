@@ -19,44 +19,9 @@ $conn = Database_Connect('reptiles');
 
 Nav_Bar('../');
 
-$result = SQL_SELECT($conn,'reptiles',array('name','coverPhoto'));
+$result = SQL_SELECT($conn,'reptiles',array('id','name','coverPhoto'));
 ?>
 <?php
-/*
-echo '<div class="col-xs-10 col-xs-offset-1">'
-
-
-while($row = $result->fetch_assoc())
-{
-    $name = $row['name'];
-
-    echo '<a href="info.php?name=' . $name . '">';
-    echo '<div onmouseenter="showName(\'' . $name . '\')" onmouseleave="hideName(\'' . $name . '\')" class="col-xs-3 grid-container">';
-    if($row['coverPhoto'] != '')
-    {
-        $image = '../Data/' . $name . '/Images/' . $row['coverPhoto'];
-        list($width, $height) = getimagesize($image);
-        if($width > $height)
-        {
-                echo '<img id="' . $name . '-pic" class="individual-pic img-responsive reptile-img " src="' . $image . '?=' .filemtime($image) . '"/>';
-        }
-        else
-        {
-                echo '<img id="' . $name . '-pic" class="individual-pic reptile-img img-responsive" src="' . $image . '?=' .filemtime($image) . '"/>';
-        }
-        echo '<div class="picture-name" style="display:none" id="' . $name . '">' . $name . '</div>';
-    }
-    else
-    {
-        echo '<div class="blank-pic">' . $name . '</div>';
-    }
-    echo '</div>';    
-    echo '</a>';
-}
-
-
-
-echo '</div>';*/
 $row = array();
 while($rows = $result->fetch_assoc())
 {

@@ -1,13 +1,13 @@
 <?php
-$_reptile = $_GET['name'];
-$reptile = str_replace("%"," ",$_reptile);
+$id = $_GET['id'];
 
 include '../functions.php';
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT * FROM reptiles WHERE name='" . $reptile . "'";
+$select_sql = "SELECT * FROM reptiles WHERE id='" . $id . "'";
 $result = $conn->query($select_sql);
 $row = $result->fetch_assoc();
+$reptile = $row['name'];
 ?>
 <html>
 <head>
@@ -39,27 +39,7 @@ Nav_Bar('../');
         </div>
         <div id="banner-pictures">
             <?php
-
-            /*$dir = "../Data/$reptile/Images";
-
-            $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
-
-            for($i = 0; $i < count($files); $i++)
-            {
-                    $image = $dir . '/md/' . $files[$i];
-                    list($width, $height) = getimagesize($image);
-                    echo '<div class="info-grid-container">';
-                    if($width > $height)
-                    {
-                            echo '<img class="individual-pic reptile-img img-landscape" src="' . $image . '?=' .filemtime($image) . '"/>';
-                    }
-                    else
-                    {
-                            echo '<img class="individual-pic reptile-img img-portrait" src="' . $image . '?=' .filemtime($image) . '"/>';
-                    }
-                    echo '</div>';
-            }*/
-
+            
             $dir = "../Data/$reptile/Images";
 
             $files = array_values(array_diff(scandir($dir), array('.', '..','md')));

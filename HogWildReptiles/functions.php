@@ -184,8 +184,6 @@
                 echo '<div class="col-xs-12 parameter">';
                 echo    '<div class="col-xs-3 input-label">' . $parameter . '</div>';
                 echo '<select class="col-xs-6 input-box" name="' . $parameter . '" id="' . $parameter . '" value="">';
-                $dir = '../My-Collection/backgrounds/';
-                $files = scandir($dir);
                 for($i = 0; $i < count($options); $i++)
                 {
                         if($options[$i] == $selected)
@@ -209,8 +207,9 @@
                         if($col_array[$i] == $column)
                         {
                                 $name = $row[$i]['name'];
-                                echo '<a href="info.php?name=' . $name . '">';
-                                echo '<div onmouseenter="showName(\'' . $name . '\')" onmouseleave="hideName(\'' . $name . '\')" class="grid-container">';
+                                $id = $row[$i]['id'];
+                                echo '<a href="info.php?id=' . $id . '">';
+                                echo '<div onmouseenter="showName(\'' . $id . '\')" onmouseleave="hideName(\'' . $id . '\')" class="grid-container">';
                                 if($row[$i]['coverPhoto'] != '')
                                 {
                                         if($type == 'herping')
@@ -224,13 +223,13 @@
                                         list($width, $height) = getimagesize($image);
                                         if($width > $height)
                                         {
-                                                echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
                                         }
                                         else
                                         {
-                                                echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
+                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $image . '?=' .filemtime($image) . '"/>';
                                         }
-                                        echo '<div class="picture-name" style="display:none" id="' . $name . '">' . $name . '</div>';
+                                        echo '<div class="picture-name" style="display:none" id="' . $id . '">' . $name . '</div>';
                                 }
                                 else
                                 {

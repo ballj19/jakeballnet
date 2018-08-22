@@ -1,8 +1,6 @@
-function ReptileForm(_reptile)
+function ReptileForm(id)
 {
-        var reptile = _reptile.replace(" ","%");
-
-        $('#reptile-form').load('php/manage.php?name=' + reptile);
+        $('#reptile-form').load('php/manage.php?id=' + id);
 }
 
 function AddForm()
@@ -10,23 +8,21 @@ function AddForm()
         $('#reptile-form').load('php/blank-form.php');
 }
 
-function IndividualCalendar(_reptile)
+function IndividualCalendar(id)
 {
-        var reptile = _reptile.replace(" ","%");
-        $('#dropdown-date').load('../Calendar/dropdown-date.php?name=' + reptile);
+        $('#dropdown-date').load('../Calendar/dropdown-date.php?id=' + id);
 }
 
-function GenerateInfo(_reptile)
+function GenerateInfo(id)
 {
-        ReptileForm(_reptile);
-        IndividualCalendar(_reptile);
-        IndividualPics(_reptile);
+        ReptileForm(id);
+        IndividualCalendar(id);
+        IndividualPics(id);
 }
 
-function IndividualPics(_reptile)
+function IndividualPics(id)
 {
-        var reptile = _reptile.replace(" ","%");
-        $('#individual-pics').load('php/individual-pics.php?name=' + reptile);
+        $('#individual-pics').load('php/individual-pics.php?id=' + id);
 }
 
 function DeletePicture(file)
@@ -34,7 +30,7 @@ function DeletePicture(file)
         if (confirm('Are you sure you want to delete this picture from the database?')) {
        
                 $.ajax({
-                        url: 'php/deletepic.php?file=' + file + '&reptile=' + reptile.value,
+                        url: 'php/deletepic.php?file=' + file + '&id=' + reptile.value,
                         success: function() {
                                 IndividualPics(reptile.value);
                                 alert('File deleted.');
@@ -49,7 +45,7 @@ function DeletePicture(file)
 function MakeCover(file)
 {
         $.ajax({
-                url: 'php/makecover.php?file=' + file + '&reptile=' + reptile.value,
+                url: 'php/makecover.php?file=' + file + '&id=' + reptile.value,
                 success: function() {
                         IndividualPics(reptile.value);
                         alert('This Picture is now the Cover Photo.');
@@ -60,7 +56,7 @@ function MakeCover(file)
 function RotatePic(file, degrees)
 {
         $.ajax({
-                url: 'php/rotateImg.php?file=' + file + '&reptile=' + reptile.value + '&degrees=' + degrees,
+                url: 'php/rotateImg.php?file=' + file + '&id=' + reptile.value + '&degrees=' + degrees,
                 success: function() {
                         IndividualPics(reptile.value);
                 }
