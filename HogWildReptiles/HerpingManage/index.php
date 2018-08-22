@@ -8,6 +8,7 @@
         <link href="style.css" rel="stylesheet">
         <script src="../Calendar/javascript.js"></script>
         <link href="../Calendar/style.css" rel="stylesheet">
+        <link href="../nav.css" rel="stylesheet">
 </head>
 <body>
 <?php
@@ -22,7 +23,7 @@ if(isset($_GET['id']))
         $id = $_GET['id'];
 }
 
-$select_sql = "SELECT name FROM herping";
+$select_sql = "SELECT id, name FROM herping";
 $result = $conn->query($select_sql);
 ?>
         <div class="col-xs-12 herping-selection">

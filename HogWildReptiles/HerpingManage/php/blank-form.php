@@ -1,5 +1,6 @@
 <?php
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
 $parameters = Get_Parameters('herping');
 ?>
 

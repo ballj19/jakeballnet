@@ -47,7 +47,7 @@ $result = SQL_SELECT($conn, 'herping', array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $herping = $row['name'];
 
-$image = "../HerpingData/$herping/Images/$file";
+$image = "$root/HerpingData/$herping/Images/$file";
 
 // Set the content type header - in this case image/jpeg
 header('Content-Type: image/jpeg');

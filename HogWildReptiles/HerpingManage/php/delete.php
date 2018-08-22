@@ -1,6 +1,7 @@
 <?php
 
-include '../functions.php';
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+include "$root/functions.php";
 
 $id = $_GET['id'];
 
