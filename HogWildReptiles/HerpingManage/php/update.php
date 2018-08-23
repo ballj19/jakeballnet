@@ -25,5 +25,5 @@ $row = $result->fetch_assoc();
 $new_name = $row['name'];
 
 rename("$root/HerpingData/$name", "$root/HerpingData/$new_name");
-echo "<script>window.location = '../index.php?id=" . $_GET['id'] . "'</script>";
+echo "<script>window.location = '../index.php?pw=0619&id=" . $_GET['id'] . "'</script>";
 ?>

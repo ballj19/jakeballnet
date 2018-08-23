@@ -1,3 +1,13 @@
+<?php 
+if(!isset($_GET['pw']) || $_GET['pw'] != '0619')
+{
+        echo 'You do not have permission to view this page';
+}
+
+else {
+?>        
+
+
 <html>
 <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -70,3 +80,6 @@ if(isset($_GET['id']))
 </script>
 </body>
 </html>
+<?php
+}       //Ends the if/else at the top of page
+?>

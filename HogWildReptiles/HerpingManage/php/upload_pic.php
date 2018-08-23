@@ -70,5 +70,5 @@ for( $i=0 ; $i < $total ; $i++ )
 }
 
 
-echo "<script>window.location = '../index.php?id=" . $id . "'</script>";
+echo "<script>window.location = '../index.php?pw=0619&id=" . $id . "'</script>";
 ?>

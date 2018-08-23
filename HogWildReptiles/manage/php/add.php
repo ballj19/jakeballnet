@@ -21,7 +21,7 @@ if(isset($_POST['name'])) {
             $values[] = '';
 
             SQL_INSERT($conn,'reptiles',$columns,$values);
-            echo "<script>window.location = '../index.php';</script>";
+            echo "<script>window.location = '../index.php?pw=0619';</script>";
 }
 
 ?>
