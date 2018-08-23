@@ -72,12 +72,28 @@ function RotatePic(file, degrees)
 
 function UploadVideo(video)
 {
-        console.log(video);
         $.ajax({
-                url: 'php/uploadVid.php?video=' + video + '&id=' + reptile.value,
-                success: function() {
-                        console.log('php/upload_vid.php?video=' + video + '&id=' + reptile.value);
+                url: 'php/upload_vid.php?video=' + video + '&id=' + reptile.value,
+                success: function(response) {
+                        console.log(response);
                         IndividualVids(reptile.value);
+                },
+                error: function(response){
+                        alert(response);
+                }
+            });
+}
+
+function DeleteVideo(video)
+{
+        $.ajax({
+                url: 'php/delete_vid.php?video=' + video + '&id=' + reptile.value,
+                success: function(response) {
+                        console.log(response);
+                        IndividualVids(reptile.value);
+                },
+                error: function(response){
+                        alert(response);
                 }
             });
 }

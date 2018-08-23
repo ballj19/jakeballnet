@@ -91,6 +91,7 @@ body {
 .banner-text {    
     color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin-bottom: 50px;
 }
 
 .banner-content {
@@ -144,4 +145,10 @@ body {
         flex: 100%;
         max-width: 100%;
     }
+}
+
+
+.youtube {
+    width: 100%;
+    height: auto;
 }

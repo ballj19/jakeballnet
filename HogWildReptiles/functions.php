@@ -54,6 +54,31 @@
                 }
         }
 
+        function SQL_DELETE($conn,$table, $conditions, $conditions_values)
+        {
+                $delete_sql = "DELETE ";
+
+                $delete_sql .= " FROM " . $table;
+                $delete_sql .= " WHERE ";
+
+                for($i = 0; $i < count($conditions); $i++)
+                {
+                        if($i == count($conditions) - 1)
+                        {
+                                $delete_sql .= $conditions[$i] . " = '" . $conn->real_escape_string($conditions_values[$i]) . "'";
+                        }
+                        else
+                        {
+                                $delete_sql .= $conditions[$i] . " = '" . $conn->real_escape_string($conditions_values[$i]) . "' AND ";
+                        } 
+                }
+                if ($conn->query($delete_sql) === false) {
+                        echo "Error: " . $delete_sql . "<br><br>" . $conn->error;
+                } else {
+                        return $conn->query($delete_sql);
+                }
+        }
+
         function SQL_SELECT($conn, $table, $columns, $conditions = null, $conditions_values = null)
         {       
 
@@ -221,7 +246,7 @@
                                         else if($type == 'reptile')
                                         {
                                                 $imagesrc = '/Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
-                                                $images = "$root/Data/" . $name . '/Images/md/' .$row[$i]['coverPhoto'];
+                                                $image = "$root/Data/" . $name . '/Images/md/' .$row[$i]['coverPhoto'];
                                         }
                                         list($width, $height) = getimagesize($image);
                                         if($width > $height)

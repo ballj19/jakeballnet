@@ -1,7 +1,5 @@
 <?php
 
-echo 'testestseata';
-
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
 
@@ -13,6 +11,6 @@ $result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
 
-SQL_INSERT($conn,'videos',array('name','video','description'), array($name, $video, '')));
+SQL_INSERT($conn,'videos',array('name','video','description'), array($name, $video, ''));
 
 ?>
