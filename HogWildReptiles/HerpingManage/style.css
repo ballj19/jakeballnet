@@ -110,3 +110,13 @@ body {
     margin-left: 27px;
     margin-right: 27px;
 }
+
+.youtube {
+    width: 100%;
+    height: auto;
+}
+
+.add-video {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}

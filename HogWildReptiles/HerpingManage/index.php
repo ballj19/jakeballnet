@@ -51,6 +51,7 @@ $result = $conn->query($select_sql);
                 <ul class="nav nav-tabs col-xs-12">
                         <li class="active tab-title" id="info-tab"><a href="#info" data-toggle="tab">Info</a></li>
                         <li class="tab-title" id="pictures-tab"><a href="#individual-pics" data-toggle="tab">Pictures</a></li>
+                        <li class="tab-title" id="videos-tab"><a href="#individual-vids" data-toggle="tab">Videos</a></li>
                 </ul>
                 <div class="tab-content col-xs-12">
                         <div class="tab-pane active" id="info">
@@ -63,6 +64,11 @@ $result = $conn->query($select_sql);
 
                                 </div>
                         </div>  
+                        <div class="tab-pane" id="individual-vids">
+                                <div class="col-xs-10 col-xs-offset-1" id="individual-vids">
+
+                                </div>
+                        </div> 
                 </div>
         </div> 
 

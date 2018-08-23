@@ -12,6 +12,7 @@ function GenerateInfo(id)
 {
         HerpingForm(id);
         IndividualPics(id);
+        IndividualVids(id);
 }
 
 function IndividualPics(id)
@@ -19,12 +20,17 @@ function IndividualPics(id)
         $('#individual-pics').load('php/individual-pics.php?id=' + id);
 }
 
+function IndividualVids(id)
+{
+        $('#individual-vids').load('php/individual-vids.php?id=' + id);
+}
+
 function DeletePicture(file)
 {
         if (confirm('Are you sure you want to delete this picture from the database?')) {
        
                 $.ajax({
-                        url: 'php/deletepic.php?file=' + file + '&herping=' + herping.value,
+                        url: 'php/deletepic.php?file=' + file + '&id=' + herping.value,
                         success: function() {
                                 IndividualPics(herping.value);
                                 alert('File deleted.');
@@ -56,4 +62,32 @@ function RotatePic(file, degrees)
                 }
             });
 
+}
+
+function UploadVideo(video)
+{
+        $.ajax({
+                url: 'php/upload_vid.php?video=' + video + '&id=' + herping.value,
+                success: function(response) {
+                        console.log(response);
+                        IndividualVids(herping.value);
+                },
+                error: function(response){
+                        alert(response);
+                }
+            });
+}
+
+function DeleteVideo(video)
+{
+        $.ajax({
+                url: 'php/delete_vid.php?video=' + video + '&id=' + herping.value,
+                success: function(response) {
+                        console.log(response);
+                        IndividualVids(herping.value);
+                },
+                error: function(response){
+                        alert(response);
+                }
+            });
 }

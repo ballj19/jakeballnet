@@ -12,7 +12,7 @@ $id = $_GET['id'];
 
 $conn = Database_Connect('reptiles');
 
-$result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+$result = SQL_SELECT($conn, 'herping', array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
 

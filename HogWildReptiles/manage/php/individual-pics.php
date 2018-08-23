@@ -12,8 +12,8 @@ $result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
 
-$dir = "{$root}Data/$name/Images";
-$mddir = "{$root}Data/$name/Images/md";
+$dir = "{$root}/Data/$name/Images";
+$mddir = "{$root}/Data/$name/Images/md";
 
 if(!file_exists($dir))
 {
@@ -34,8 +34,8 @@ $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
 for($i = 0; $i < count($files); $i++)
 {
-        $image =  "$root/Data/$name/Images/" . $files[$i];
-        $imagesrc = "/Data/$name/Images/" . $files[$i];
+        $image =  "$root/Data/$name/Images/md/" . $files[$i];
+        $imagesrc = "/Data/$name/Images/md/" . $files[$i];
         list($width, $height) = getimagesize($image);
         echo '<div class="individual-pic-container">';
         if($width > $height)

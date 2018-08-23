@@ -49,7 +49,7 @@ $result = $conn->query($select_sql);
         <div class="reptile-info col-xs-12"> 
                 <ul class="nav nav-tabs col-xs-12">
                         <li class="active tab-title" id="info-tab"><a href="#info" data-toggle="tab">Info</a></li>
-                        <li class="tab-title" id="calendar-tab"><a href="#individual-calendar" data-toggle="tab">Calendar</a></li>
+                        <li class="tab-title" id="calendar-tab"><a href="#individual-calendar-tab" data-toggle="tab">Calendar</a></li>
                         <li class="tab-title" id="pictures-tab"><a href="#individual-pics" data-toggle="tab">Pictures</a></li>
                         <li class="tab-title" id="videos-tab"><a href="#individual-vids" data-toggle="tab">Videos</a></li>
                 </ul>

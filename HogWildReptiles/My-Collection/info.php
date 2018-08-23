@@ -76,8 +76,7 @@ Nav_Bar('../');
                                 while($row = $result->fetch_assoc())
                                 {
                                         echo '<div class="col-xs-6">';
-                                        echo '<iframe class="youtube" height="600" src="https://www.youtube.com/embed/' . $row['video'] . '"></iframe>';
-                                        echo '<button onclick="DeleteVideo(\'' . $row['video'] . '\')">Delete</button>';
+                                        echo '<iframe class="youtube" src="https://www.youtube.com/embed/' . $row['video'] . '"></iframe>';
                                         echo '</div>';
                                 }
 

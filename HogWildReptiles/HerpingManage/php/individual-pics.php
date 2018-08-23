@@ -12,7 +12,7 @@ $result = SQL_SELECT($conn, 'herping', array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
 
-$dir = "{$root}HerpingData/$name/Images";
+$dir = "{$root}/HerpingData/$name/Images";
 $mddir = "{$root}/HerpingData/$name/Images/md";
 
 if(!file_exists($dir))
@@ -34,8 +34,8 @@ $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
 for($i = 0; $i < count($files); $i++)
 {
-        $image =  "$root/HerpingData/$name/Images/" . $files[$i];
-        $imagesrc = "/HerpingData/$name/Images/" . $files[$i];
+        $image =  "$root/HerpingData/$name/Images/md/" . $files[$i];
+        $imagesrc = "/HerpingData/$name/Images/md/" . $files[$i];
         list($width, $height) = getimagesize($image);
         echo '<div class="individual-pic-container">';
         if($width > $height)
