@@ -18,11 +18,17 @@ function GenerateInfo(id)
         ReptileForm(id);
         IndividualCalendar(id);
         IndividualPics(id);
+        IndividualVids(id);
 }
 
 function IndividualPics(id)
 {
         $('#individual-pics').load('php/individual-pics.php?id=' + id);
+}
+
+function IndividualVids(id)
+{
+        $('#individual-vids').load('php/individual-vids.php?id=' + id);
 }
 
 function DeletePicture(file)
@@ -62,4 +68,16 @@ function RotatePic(file, degrees)
                 }
             });
 
+}
+
+function UploadVideo(video)
+{
+        console.log(video);
+        $.ajax({
+                url: 'php/uploadVid.php?video=' + video + '&id=' + reptile.value,
+                success: function() {
+                        console.log('php/upload_vid.php?video=' + video + '&id=' + reptile.value);
+                        IndividualVids(reptile.value);
+                }
+            });
 }
