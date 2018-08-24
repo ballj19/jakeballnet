@@ -37,3 +37,13 @@ function hideName(id)
     nameBlock.style.display = "none";
     picBlock.style.filter = "brightness(100%)";
 }
+
+function ResizeYoutube()
+{
+    var width = $(window).width() * 5 / 12 - 30;
+    var height = width * 9 / 16 ;
+
+    console.log(width);
+
+    $(".youtube").css('height', height + "px");
+}

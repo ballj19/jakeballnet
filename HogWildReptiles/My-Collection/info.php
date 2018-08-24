@@ -61,7 +61,7 @@ Nav_Bar('../');
                         </div>
                 </div>
                 <div class="tab-pane" id="individual-vids">
-                        <div class="col-xs-10 col-xs-offset-1" id="individual-vids">
+                        <div class="col-xs-10 col-xs-offset-1" id="banner-vids">
                         <?php
                                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
@@ -91,10 +91,12 @@ Nav_Bar('../');
         <script>
                 $(window).resize(function(){
                         //ResizeBannerPics();
+                        ResizeYoutube();
                 });
 
                 $(document).ready(function(){
                         //ResizeBannerPics();
+                        ResizeYoutube();
                 });
         </script>
 </body>
