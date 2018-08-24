@@ -1,18 +1,19 @@
 <?php
 $id = $_GET['id'];
+$table = $_GET['table'];
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT * FROM reptiles WHERE id='" . $id . "'";
+$select_sql = "SELECT * FROM $table WHERE id='" . $id . "'";
 $result = $conn->query($select_sql);
 $row = $result->fetch_assoc();
 
-$parameters = Get_Parameters();
+$parameters = Get_Parameters($table);
 
 ?>
-<form class="col-xs-5" id="manage-form" action="php/update.php?id=<?php echo $row['id']?>" method="post">
+<form class="col-xs-5" id="manage-form" action="php/update.php?id=<?php echo $row['id'];?>&table=<?php echo $table;?>" method="post">
 <?php
     foreach($parameters as $parameter)
     {
@@ -22,22 +23,24 @@ $parameters = Get_Parameters();
         echo '</div>';
     }
     
-    $options = array();
-    $dir = "$root/My-Collection/backgrounds/";
-    $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
-    for($i = 0; $i < count($files); $i++)
+    if($table == 'reptiles')
     {
-        $options[] = $files[$i];
+        $options = array();
+        $dir = "$root/My-Collection/backgrounds/";
+        $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
+        for($i = 0; $i < count($files); $i++)
+        {
+            $options[] = $files[$i];
+        }
+        Dropdown_Parameter('background', $options, $row['background']);
+        Dropdown_Parameter('sex',array('male','female','unknown'), $row['sex']);
     }
-    Dropdown_Parameter('background', $options, $row['background']);
-    Dropdown_Parameter('sex',array('male','female','unknown'), $row['sex']);
-
 ?>
 
         <div class="col-xs-6">
             <input id="update-button" type="submit" value="Update">
         </div>
-        <a class="col-xs-6" href="<?php echo "php/delete.php?id=" . $id;?>"><div id="delete-button">Delete</div></a>
+        <a class="col-xs-6" href="<?php echo "php/delete.php?id=" . $id;?>&table=<?php echo $table;?>"><div id="delete-button">Delete</div></a>
 </form>
     <div class="col-xs-7">
         <div class="col-xs-12 parameter"> 

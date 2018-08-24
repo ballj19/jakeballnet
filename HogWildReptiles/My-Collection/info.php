@@ -1,13 +1,14 @@
 <?php
 $id = $_GET['id'];
+$table = $_GET['table'];
 
 include '../functions.php';
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT * FROM reptiles WHERE id='" . $id . "'";
+$select_sql = "SELECT * FROM $table WHERE id='" . $id . "'";
 $result = $conn->query($select_sql);
 $row = $result->fetch_assoc();
-$reptile = $row['name'];
+$name = $row['name'];
 ?>
 <html>
 <head>
@@ -27,12 +28,23 @@ Nav_Bar('../');
     <div class="banner-container">
     <div class="banner-content">
         <div class="banner-text col-xs-12">
-            <div class="reptile-title col-xs-8 col-xs-offset-2">
+            <div class="info-title col-xs-8 col-xs-offset-2">
                     <?php echo $row['name']?>
             </div>
-            <div class="reptile-subtitle col-xs-8 col-xs-offset-2">
-                    <?php echo 'the ' . $row['type'];;?>
-            </div>
+            <?php
+            if($table == 'reptiles')
+            {
+                echo '<div class="info-subtitle col-xs-8 col-xs-offset-2">';
+                echo 'the ' . $row['type'];
+                echo '</div>';
+            }
+            else if($table == 'herping')
+            {
+                echo '<div class="info-subtitle col-xs-8 col-xs-offset-2">';
+                echo 'the ' . $row['date'];
+                echo '</div>';  
+            }
+            ?>
             <div class="bio col-xs-8 col-xs-offset-2">
                 <?php echo $row['bio'];?>
             </div>
@@ -46,17 +58,25 @@ Nav_Bar('../');
                         <div id="banner-pictures">
                         <?php
                                 
-                                $dir = "../Data/$reptile/Images";
+                                $dir = "../Data/$table/$name/Images";
 
                                 $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
 
-                                $col_array = Arrange_Banner_Pics($reptile, $files);
+                                $col_array = Arrange_Banner_Pics($name, $files, $table);
                                 echo '<div class="collection-row">';
-                                Banner_Column($reptile, $col_array, $files, 0);
-                                Banner_Column($reptile, $col_array, $files, 1);
-                                Banner_Column($reptile, $col_array, $files, 2);
-                                Banner_Column($reptile, $col_array, $files, 3);
+                                Banner_Column($name, $col_array, $files, 0, $table);
+                                Banner_Column($name, $col_array, $files, 1, $table);
+                                Banner_Column($name, $col_array, $files, 2, $table);
+                                Banner_Column($name, $col_array, $files, 3, $table);
                                 echo '</div>';
+                                echo "<div id='modal' class='modal'>
+
+                                <span onclick='CloseModal()' class='close'>&times;</span>
+
+                                <img class='modal-content' id='modal-content'>
+
+                                <div class='caption'></div>
+                                </div>";
                         ?>
                         </div>
                 </div>
@@ -65,9 +85,7 @@ Nav_Bar('../');
                         <?php
                                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-                                $id = $_GET['id'];
-
-                                $result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+                                $result = SQL_SELECT($conn, $table, array('name'), array('id'), array($id));
                                 $row = $result->fetch_assoc();
                                 $name = $row['name'];
 
@@ -90,12 +108,10 @@ Nav_Bar('../');
 
         <script>
                 $(window).resize(function(){
-                        //ResizeBannerPics();
                         ResizeYoutube();
                 });
 
                 $(document).ready(function(){
-                        //ResizeBannerPics();
                         ResizeYoutube();
                 });
         </script>

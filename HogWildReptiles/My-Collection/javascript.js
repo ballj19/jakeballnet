@@ -47,3 +47,21 @@ function ResizeYoutube()
 
     $(".youtube").css('height', height + "px");
 }
+
+function DisplayModal(imagesrc)
+{
+    // Get the modal
+    var modal = document.getElementById('modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var modalImg = document.getElementById("modal-content");
+    modal.style.display = "block";
+    modalImg.src = imagesrc;
+}
+
+function CloseModal()
+{
+    // Get the modal
+    var modal = document.getElementById('modal');
+    modal.style.display = "none";
+}

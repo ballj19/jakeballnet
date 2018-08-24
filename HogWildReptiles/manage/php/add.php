@@ -1,13 +1,27 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
+$table = $_GET['table'];
+
+if($table == 'reptiles')
+{
+    $return = 'index';
+}
+else
+{
+    $return = $table;
+}
 
 if(isset($_POST['name'])) {
             $conn = Database_Connect('reptiles');
             
-            $parameters = Get_Parameters();
+            $parameters = Get_Parameters($table);
+
+            if($table == 'reptiles')
+            {
+                $parameters[] = 'background';
+            }
             $parameters[] = 'bio';
-            $parameters[] = 'background';
 
             $columns = array();
             $values = array();
@@ -20,8 +34,8 @@ if(isset($_POST['name'])) {
             $columns[] = 'coverPhoto';
             $values[] = '';
 
-            SQL_INSERT($conn,'reptiles',$columns,$values);
-            echo "<script>window.location = '../index.php?pw=0619';</script>";
+            SQL_INSERT($conn,$table,$columns,$values);
+            echo "<script>window.location = '../$return.php?pw=0619';</script>";
 }
 
 ?>

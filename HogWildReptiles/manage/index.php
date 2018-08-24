@@ -23,7 +23,8 @@ else {
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
-Nav_Bar('../');
+Nav_Bar('../', true);
+Manage('reptiles',array(1,1,1,1));/*
 $conn = Database_Connect('reptiles');
 
 $id = '';
@@ -34,7 +35,6 @@ if(isset($_GET['id']))
 
 $select_sql = "SELECT id, name FROM reptiles";
 $result = $conn->query($select_sql);
-?>
         <div class="col-xs-12 reptile-selection">
                         <select class="col-xs-2 col-xs-offset-5 reptile-dropdown" name="reptile" id="reptile" onchange="javascript:GenerateInfo(reptile.value)">
                                 <?php
@@ -91,7 +91,8 @@ if(isset($_GET['id']))
 
 <script>
         GenerateInfo(reptile.value); //Run once so the first reptile is shown
-</script>
+</script>*/
+?>
 </body>
 </html>
 <?php

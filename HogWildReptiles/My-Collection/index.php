@@ -15,25 +15,8 @@
 <?php
 
 include '../functions.php';
-$conn = Database_Connect('reptiles');
-
 Nav_Bar('../');
-
-$result = SQL_SELECT($conn,'reptiles',array('id','name','coverPhoto'));
-?>
-<?php
-$row = array();
-while($rows = $result->fetch_assoc())
-{
-    $row[] = $rows;
-}
-$col_array = Arrange_Collage($row);
-echo '<div class="collection-row">';
-Collection_Column($col_array, $row, 0);
-Collection_Column($col_array, $row, 1);
-Collection_Column($col_array, $row, 2);
-Collection_Column($col_array, $row, 3);
-echo '</div>';
+Collection('reptiles');
 
 ?>
 

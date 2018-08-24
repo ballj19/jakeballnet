@@ -2,23 +2,23 @@ body {
     background-color: slategrey;
 }
 
-.reptile-selection {
+.dropdown-selection {
     margin-top: 20px;
     margin-bottom: -20px;
 }
 
-#reptile-form {
+.tab-content {
     margin-top: 50px;
 }
 
-.reptile-dropdown {
+.dropdown {
     height: 80px;
     font-size: 20px;
     border-radius: 10px;
     float:left;
 }
 
-.reptile-option {
+.dropdown-option {
     text-align: right;
 }
 

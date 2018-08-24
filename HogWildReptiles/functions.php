@@ -25,9 +25,9 @@
                 return $conn;
         }
 
-        function Get_Parameters($type = 'reptile')
+        function Get_Parameters($table = 'reptiles')
         {
-                if($type == 'herping')
+                if($table == 'herping')
                 {
                         return array(
                                 'name',
@@ -35,7 +35,7 @@
                                 'date'
                         );    
                 }
-                else if($type = 'reptile')
+                else if($table == 'reptiles')
                 {
                         return array(
                                 'name',
@@ -46,6 +46,15 @@
                                 'mom',
                                 'dad',
                                 'frequentEater'
+                        );    
+                }
+                else if($table == 'news')
+                {
+                        return array(
+                                'name',
+                                'date',
+                                'active',
+                                'front',
                         );    
                 }
                 else
@@ -224,7 +233,7 @@
                 echo '</div>';
         }
 
-        function Collection_Column($col_array, $row, $column, $type = 'reptile')
+        function Collection_Column($col_array, $row, $column, $table)
         {
                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 echo '<div class="collection-column">';
@@ -234,29 +243,13 @@
                         {
                                 $name = $row[$i]['name'];
                                 $id = $row[$i]['id'];
-                                echo '<a href="info.php?id=' . $id . '">';
+                                echo '<a href="info.php?id=' . $id . '&table=' . $table . '">';
                                 echo '<div onmouseenter="showName(\'' . $id . '\')" onmouseleave="hideName(\'' . $id . '\')" class="grid-container">';
                                 if($row[$i]['coverPhoto'] != '')
                                 {
-                                        if($type == 'herping')
-                                        {
-                                                $imagesrc = '/HerpingData/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
-                                                $image = "$root/HerpingData/" . $name . '/Images/md/' .$row[$i]['coverPhoto'];
-                                        }
-                                        else if($type == 'reptile')
-                                        {
-                                                $imagesrc = '/Data/' . $name . '/Images/md/' .$row[$i]['coverPhoto'];
-                                                $image = "$root/Data/" . $name . '/Images/md/' .$row[$i]['coverPhoto'];
-                                        }
-                                        list($width, $height) = getimagesize($image);
-                                        if($width > $height)
-                                        {
-                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
-                                        }
-                                        else
-                                        {
-                                                echo '<img id="' . $id . '-pic" class="' . $type . '-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
-                                        }
+                                        $imagesrc = "/Data/$table/$name/Images/md/" . $row[$i]['coverPhoto'];
+                                        $image = "$root/Data/$table/$name/Images/md/" . $row[$i]['coverPhoto'];
+                                        echo '<img id="' . $id . '-pic" class="collection-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
                                         echo '<div class="picture-name" style="display:none" id="' . $id . '">' . $name . '</div>';
                                 }
                                 else
@@ -270,7 +263,7 @@
                 echo '</div>';
         }
 
-        function Banner_Column($name, $col_array, $row, $column, $type = 'reptile')
+        function Banner_Column($name, $col_array, $row, $column, $table)
         {
                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 echo '<div class="collection-column">';
@@ -278,25 +271,18 @@
                 {
                         if($col_array[$i] == $column)
                         {
+                                $imagesrc = "/Data/$table/$name/Images/md/" . $row[$i];
+                                $largeimgsrc = "/Data/$table/$name/Images/" . $row[$i];
+                                $image = "$root/Data/$table/$name/Images/md/" . $row[$i];
                                 echo '<div class="grid-container">';
-                                        if($type == 'herping')
-                                        {
-                                                $imagesrc = '/HerpingData/' . $name . '/Images/md/' .$row[$i];
-                                                $image = "$root/HerpingData/" . $name . '/Images/md/' .$row[$i];
-                                        }
-                                        else if($type == 'reptile')
-                                        {
-                                                $imagesrc = '/Data/' . $name . '/Images/md/' .$row[$i];
-                                                $image = "$root/Data/" . $name . '/Images/md/' .$row[$i];
-                                        }
-                                        echo '<img id="' . $name . '-pic" class="' . $type . '-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
+                                        echo '<img onclick="DisplayModal(\'' . $largeimgsrc . '\')" id="' . $name . '-pic" class="collection-img" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
                                 echo '</div>';  
                         }
                 }
                 echo '</div>';
         }
 
-        function Arrange_Collage($row, $type='reptiles')
+        function Arrange_Collage($row, $table)
         {
                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 $col_1 = 0;
@@ -308,14 +294,7 @@
 
                 foreach($row as $reptile)
                 {
-                        if($type == 'herping')
-                        {
-                                $image = "$root/HerpingData/" . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
-                        }
-                        else if($type == 'reptiles')
-                        {
-                                $image = "$root/Data/" . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
-                        }
+                        $image = "$root/Data/$table/" . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
                         list($width, $height) = getimagesize($image);
 
                         if($col_1 == min($col_1, $col_2, $col_3, $col_4))
@@ -343,7 +322,7 @@
                 return $col_array;
         }
 
-        function Arrange_Banner_Pics($name, $row, $type='reptiles')
+        function Arrange_Banner_Pics($name, $row, $table)
         {
                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                 $col_1 = 0;
@@ -355,14 +334,7 @@
 
                 foreach($row as $pic)
                 {
-                        if($type == 'herping')
-                        {
-                                $image = "$root/HerpingData/" . $name . '/Images/' . $pic;
-                        }
-                        else if($type == 'reptiles')
-                        {
-                                $image = "$root/Data/" . $name . '/Images/' . $pic;
-                        }
+                        $image = "$root/Data/$table/$name/Images/" . $pic;
                         list($width, $height) = getimagesize($image);
 
                         if($col_1 == min($col_1, $col_2, $col_3, $col_4))
@@ -390,12 +362,23 @@
                 return $col_array;
         }
 
-        function Nav_Bar($location)
+        function Nav_Bar($location, $manage = false)
         {
                 echo '<div class="nav-bar">';
                 echo '<a href="' . $location . '"><img src="' . $location . 'WRReptiles_Logo_White.png" class="logo"></a>';
-                $menu_paths = array('Available/','About-Us/','Contact-Us/','Herping','My-Collection/');
+                $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/herping.php','My-Collection/');
                 $menu_headers = array('Available','About Us','Contact Us','Herping','My Collection');
+
+                if($manage)
+                {
+                        $menu_paths[] = 'manage/?pw=0619';
+                        $menu_paths[] = 'manage/herping?pw=0619';
+                        $menu_paths[] = 'manage/news?pw=0619';
+
+                        $menu_headers[] = 'Manage';
+                        $menu_headers[] = 'HerpingManage';
+                        $menu_headers[] = 'NewsManage';
+                }
 
                 for($i = count($menu_paths) - 1; $i >= 0; $i--)
                 {
@@ -411,5 +394,131 @@
                 }
     
                 echo '</div>';
+        }
+
+        function Manage($table, $modules)
+        {
+                //modules[0] = form
+                //modules[1] = calendar
+                //modules[2] = pictures
+                //modules[3] = videos
+
+                $conn = Database_Connect('reptiles');
+
+                $id = '';
+                if(isset($_GET['id']))
+                {
+                        $id = $_GET['id'];
+                }
+
+                $select_sql = "SELECT id, name FROM $table";
+                $result = $conn->query($select_sql);
+
+                /***********************************************************************************
+                 ****************                 DROPDOWN MENU                         ************
+                 ***********************************************************************************/
+
+                echo "<div class='col-xs-12 dropdown-selection'>";
+                echo    "<select class='col-xs-2 col-xs-offset-5 dropdown' name='dropdownselect' id='dropdownselect' onchange='javascript:GenerateInfo(dropdownselect.value)'>";
+                                while($row = $result->fetch_assoc())
+                                {
+                                        echo '<option class="dropdown-option" value="' . $row['id'] . '">' . $row['name'] . '</option>';				
+                                }
+                echo    "</select>";
+                echo    '<button id="add-button" onclick="AddForm(' . '\'' .  $table . '\')">+</button>';
+                echo "</div>";
+
+                /***********************************************************************************
+                 ****************                 INFO SECTION                          ************
+                 ***********************************************************************************/
+
+                echo "<div class='$table-info col-xs-12'>";
+                echo    "<ul class='nav nav-tabs col-xs-12'>";
+                echo           "<li class='active tab-title' id='info-tab'><a href='#info' data-toggle='tab'>Info</a></li>";
+                if($modules[1])
+                {
+                        echo           "<li class='tab-title' id='calendar-tab'><a href='#individual-calendar-tab' data-toggle='tab'>Calendar</a></li>";  
+                }
+                if($modules[2])
+                {
+                        echo           "<li class='tab-title' id='pictures-tab'><a href='#individual-pics' data-toggle='tab'>Pictures</a></li>";
+                }
+                if($modules[3])
+                {
+                        echo           "<li class='tab-title' id='videos-tab'><a href='#individual-vids' data-toggle='tab'>Videos</a></li>";
+                }
+                echo    "</ul>";
+                echo    "<div class='tab-content col-xs-12'>";
+                echo        "<div class='tab-pane active' id='info'>";
+                echo            "<div class='col-xs-12' id='enter-form'>";
+
+                echo            "</div>";
+                echo        "</div>";
+                if($modules[1])
+                {
+                        echo        "<div class='tab-pane' id='individual-calendar-tab'>";
+                        echo            "<div id='dropdown-date'>";
+        
+                        echo            "</div>";
+                        echo            "<div class='col-xs-10 col-xs-offset-1' id='calendar'>";
+        
+                        echo            "</div>";
+                        echo        "</div>";
+                }
+                if($modules[2])
+                {
+                        echo        "<div class='tab-pane' id='individual-pics'>";
+                        echo            "<div class='col-xs-10 col-xs-offset-1' id='individual-pics'>";
+        
+                        echo            "</div>";
+                        echo        "</div>";
+                }
+                if($modules[3])
+                {
+                        echo        "<div class='tab-pane' id='individual-vids'>";
+                        echo            "<div class='col-xs-10 col-xs-offset-1' id='individual-vids'>";
+        
+                        echo            "</div>";
+                        echo        "</div>";
+                }
+                echo    "</div>";
+                echo "</div>";
+
+                /***********************************************************************************
+                 ****************                JAVASCRIPT SECTION                     ************
+                 ***********************************************************************************/
+                if(isset($_GET['id']))
+                {
+                        echo '<script>';
+                                echo "document.getElementById('dropdownselect').value = '" . $id . "';";
+                        echo '</script>';
+                }
+
+                echo "<script>";
+                echo        "GenerateInfo(dropdownselect.value, '$table');"; //Run once so the first reptile is shown
+                echo "</script>";
+
+        }
+
+        function Collection($table)
+        {
+                $conn = Database_Connect('reptiles');
+
+                $result = SQL_SELECT($conn,$table,array('id','name','coverPhoto'));
+                ?>
+                <?php
+                $row = array();
+                while($rows = $result->fetch_assoc())
+                {
+                        $row[] = $rows;
+                }
+                $col_array = Arrange_Collage($row, $table);
+                echo '<div class="collection-row">';
+                Collection_Column($col_array, $row, 0, $table);
+                Collection_Column($col_array, $row, 1, $table);
+                Collection_Column($col_array, $row, 2, $table);
+                Collection_Column($col_array, $row, 3, $table);
+                echo '</div>';
+
         }
 ?>

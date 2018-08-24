@@ -9,10 +9,11 @@ $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
 
 $id = $_GET['id'];
+$table = $_GET['table'];
 
 $conn = Database_Connect('reptiles');
 
-$result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+$result = SQL_SELECT($conn, $table, array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
 

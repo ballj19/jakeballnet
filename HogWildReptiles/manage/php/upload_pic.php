@@ -34,13 +34,23 @@ function resize_image($file, $w, $h, $crop=FALSE) {
 }
 
 $id = $_GET['id'];
+$table = $_GET['table'];
 
 
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
 
+if($table == 'reptiles')
+{
+    $return = 'index';
+}
+else
+{
+    $return = $table;
+}
+
 $conn = Database_Connect('reptiles');
-$result = SQL_SELECT($conn, 'reptiles', array('name'), array('id'), array($id));
+$result = SQL_SELECT($conn, $table, array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
 
@@ -55,18 +65,18 @@ for( $i=0 ; $i < $total ; $i++ )
         $file = $_FILES['files']['name'][$i];
         $path = $_FILES['files']['tmp_name'][$i];
 
-        move_uploaded_file($path, "$root/Data/$name/Images/$file");
-        $mdfile = resize_image("$root/Data/$name/Images/$file", 800, 800);
+        move_uploaded_file($path, "$root/Data/$table/$name/Images/$file");
+        $mdfile = resize_image("$root/Data/$table/$name/Images/$file", 800, 800);
         if(strpos($file,'.png') !== false  || strpos($file,'.PNG') !== false )
         {
-                imagepng($mdfile, "$root/Data/$name/Images/md/$file");
+                imagepng($mdfile, "$root/Data/$table/$name/Images/md/$file");
         }
         else
         {
-                imagejpeg($mdfile, "$root/Data/$name/Images/md/$file");
+                imagejpeg($mdfile, "$root/Data/$table/$name/Images/md/$file");
         }
 }
 
 
-echo "<script>window.location = '../index.php?pw=0619&id=" . $id . "'</script>";
+echo "<script>window.location = '../$return.php?pw=0619&id=" . $id . "'</script>";
 ?>

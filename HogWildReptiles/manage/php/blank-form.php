@@ -1,10 +1,11 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
-$parameters = Get_Parameters();
+$table = $_GET['table'];
+$parameters = Get_Parameters($table);
 ?>
 
-<form class="col-xs-5" id="add-form" action="php/add.php" method="post">
+<form class="col-xs-5" id="add-form" action="php/add.php?table=<?php echo $table; ?>" method="post">
 
 <?php
     foreach($parameters as $parameter)
@@ -15,15 +16,18 @@ $parameters = Get_Parameters();
         echo '</div>';
     }
 
-    $options = array();
-    $dir = "$root/My-Collection/backgrounds/";
-    $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
-    for($i = 0; $i < count($files); $i++)
+    if($table == 'reptiles')
     {
-        $options[] = $files[$i];
+        $options = array();
+        $dir = "$root/My-Collection/backgrounds/";
+        $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
+        for($i = 0; $i < count($files); $i++)
+        {
+            $options[] = $files[$i];
+        }
+        Dropdown_Parameter('background', $options, '');
+        Dropdown_Parameter('sex',array('male','female','unknown'), '');
     }
-    Dropdown_Parameter('background', $options, '');
-    Dropdown_Parameter('sex',array('male','female','unknown'), '');
 
 ?>
         <div class="col-xs-6 col-xs-offset-3">
