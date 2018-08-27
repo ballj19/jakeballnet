@@ -110,6 +110,27 @@ $parameters = Get_Parameters();
                 }
         ?>
         </div>
+        <div id="news-container" class="row">
+        <div id="news-section">
+        <?php
+                $conn = Database_Connect('reptiles');
+                $result = SQL_SELECT($conn, 'news', array('*'));
+                while($row = $result->fetch_assoc())
+                {
+                        $imagesrc = "Data/news/{$row['name']}/Images/md/{$row['coverPhoto']}";
+                        echo "<div class='news-item'>";
+                        echo "<div class='col-xs-4 news-img'>";
+                        echo "<img src='$imagesrc'>";
+                        echo "</div>";
+                        echo "<div class='news-info'>";
+                        echo "<div class='col-xs-8 news-title'>{$row['name']}</div>";
+                        echo "<div class='news-bio'>{$row['bio']}</div>";
+                        echo "</div>";
+                        echo "</div>";
+                }
+        ?>
+        </div>
+        </div>
 </div>
 </body>
 </html>

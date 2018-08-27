@@ -48,7 +48,6 @@ body {
 
 #explore-container {
         background-color: rgb(212, 209, 209);
-        margin-right: 0;
 }
 
 .reptile {
@@ -112,4 +111,28 @@ body {
 
 .reptile-info-image {
         height: 800px;
+}
+
+#news-container {
+        background-color: #716082;
+        min-height: 500px
+}
+
+#news-section {
+        background-color: rgb(212, 209, 209);
+        min-height: 500px;
+        width: 800px;
+        margin: auto;
+}
+
+.news-img {
+        margin: auto;
+}
+
+.news-img img {
+        width: 100%;
+}
+
+.news-item {
+        height: 250px;
 }

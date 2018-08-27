@@ -1,10 +1,9 @@
 <?php 
-if(!isset($_GET['pw']) || $_GET['pw'] != '0619')
+if((isset($_COOKIE['admin'])&& !isset($_GET['pw'])) || $_GET['pw'] == '0619')
 {
-        echo 'You do not have permission to view this page';
-}
-
-else {
+        $cookie_name = "admin";
+        $cookie_value = "1";
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 ?>  
 
 <html>
@@ -22,10 +21,13 @@ else {
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
 Nav_Bar('../', true);
-Manage('news',array(1,0,1,1));
+Manage('news',array(1,0,1,0));
 ?>
 </body>
 </html>
 <?php
 }       //Ends the if/else at the top of page
+else {
+        echo 'You do not have permission to view this page';
+}    //Ends the if/else at the top of page
 ?>

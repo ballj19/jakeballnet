@@ -25,13 +25,13 @@ for($weekday = 0; $weekday <= 6; $weekday++)
                 $cleaned = false;
                 $frequent_eater = false;
                 $infrequent_eater = false;
-                if($id == '')
+                if($iid == '')
                 {
-                        $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));                
+                        $select_result = SQL_SELECT($conn, 'calendar', array('iid','name', 'fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));                
                 }
                 else
                 {
-                        $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year','iid'), array($day, $month, $year, $iid));               
+                        $select_result = SQL_SELECT($conn, 'calendar', array('iid','name', 'fed', 'cleaned'), array('day', 'month', 'year','iid'), array($day, $month, $year, $iid));               
                 }
                 while($row = $select_result->fetch_assoc())
                 {

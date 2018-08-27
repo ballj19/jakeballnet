@@ -23,6 +23,7 @@ function GenerateInfo(id, table)
 
 function IndividualPics(id, table)
 {
+        console.log("ip" + table);
         $('#individual-pics').load('php/individual-pics.php?id=' + id + '&table=' + table);
 }
 
@@ -38,7 +39,7 @@ function DeletePicture(file, table)
                 $.ajax({
                         url: 'php/deletepic.php?file=' + file + '&id=' + dropdownselect.value + '&table=' + table,
                         success: function() {
-                                IndividualPics(dropdownselect.value);
+                                IndividualPics(dropdownselect.value, table);
                                 alert('File deleted.');
                         }
                     });
@@ -53,18 +54,19 @@ function MakeCover(file, table)
         $.ajax({
                 url: 'php/makecover.php?file=' + file + '&id=' + dropdownselect.value + '&table=' + table,
                 success: function() {
-                        IndividualPics(dropdownselect.value);
+                        IndividualPics(dropdownselect.value, table);
+                        console.log("mc" + table);
                         alert('This Picture is now the Cover Photo.');
                 }
             });
 }
 
-function RotatePic(file, degrees, table)
+function RotatePic(file, table, degrees)
 {
         $.ajax({
                 url: 'php/rotateImg.php?file=' + file + '&id=' + dropdownselect.value + '&degrees=' + degrees + '&table=' + table,
                 success: function() {
-                        IndividualPics(dropdownselect.value);
+                        IndividualPics(dropdownselect.value, table);
                 }
             });
 
@@ -76,7 +78,7 @@ function UploadVideo(video)
                 url: 'php/upload_vid.php?video=' + video + '&id=' + dropdownselect.value + '&table=' + table,
                 success: function(response) {
                         console.log(response);
-                        IndividualVids(dropdownselect.value);
+                        IndividualVids(dropdownselect.value, table);
                 },
                 error: function(response){
                         alert(response);
@@ -90,7 +92,7 @@ function DeleteVideo(video)
                 url: 'php/delete_vid.php?video=' + video + '&id=' + dropdownselect.value + '&table=' + table,
                 success: function(response) {
                         console.log(response);
-                        IndividualVids(dropdownselect.value);
+                        IndividualVids(dropdownselect.value, table);
                 },
                 error: function(response){
                         alert(response);

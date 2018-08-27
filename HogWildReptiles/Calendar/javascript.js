@@ -1,20 +1,21 @@
 $(document).ready(function(){
 });
 
-function GenerateCalendar(id = '')
+function GenerateCalendar(id)
 {
         var month = document.getElementById('month');
         var monthValue = month.options[month.selectedIndex].value;
         var year = document.getElementById('year');
         var yearValue = year.options[year.selectedIndex].value;
         console.log('GenerateCalendar');
-        if(id = '')
+        if(id == '')
         {
                 $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue); 
         }
         else
         {
                 $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue + "&iid=" + id); 
+                console.log(id)
         }       
 }
 
