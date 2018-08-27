@@ -5,6 +5,9 @@ if(!isset($_GET['pw']) || $_GET['pw'] != '0619')
 }
 
 else {
+        $cookie_name = "admin";
+        $cookie_value = "1";
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 ?>  
 
 <html>

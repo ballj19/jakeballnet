@@ -17,7 +17,7 @@ $day = $_GET['day'];
 $month = $_GET['month'];
 $year = $_GET['year'];
 
-$select_sql = "SELECT name FROM reptiles";
+$select_sql = "SELECT name,id FROM reptiles";
 echo '<a class="calendar-return" href="index.php">Return to Calendar</a>';
 echo $month . '-' . $day . '-' . $year;
 
@@ -30,10 +30,10 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
         {
-                $select_result = SQL_SELECT($conn, 'calendar', array('fed', 'ate'), array('day', 'month', 'year', 'name'), array($day, $month, $year, $row['name']));
+                $select_result = SQL_SELECT($conn, 'calendar', array('fed', 'ate'), array('day', 'month', 'year', 'iid'), array($day, $month, $year, $row['id']));
                 $select_row = $select_result->fetch_assoc();
-                $fed_id = $row['name'] . '-fed';
-                $ate_id = $row['name'] . '-ate';
+                $fed_id = $row['id'] . '-fed';
+                $ate_id = $row['id'] . '-ate';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="text" class="check-text" id="' . $fed_id . '" name="' . $fed_id . '" value="' . $select_row['fed'] . '">';
@@ -49,9 +49,9 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
         {
-                $select_result = SQL_SELECT($conn, 'calendar', array('cleaned'), array('day', 'month', 'year', 'name'), array($day, $month, $year, $row['name']));
+                $select_result = SQL_SELECT($conn, 'calendar', array('cleaned'), array('day', 'month', 'year', 'iid'), array($day, $month, $year, $row['id']));
                 $select_row = $select_result->fetch_assoc();
-                $cleaned_id = $row['name'] . '-cleaned';
+                $cleaned_id = $row['id'] . '-cleaned';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="hidden" value="0" name="' . $cleaned_id . '">';
@@ -66,9 +66,9 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
         {
-                $select_result = SQL_SELECT($conn, 'calendar', array('shed'), array('day', 'month', 'year', 'name'), array($day, $month, $year, $row['name']));
+                $select_result = SQL_SELECT($conn, 'calendar', array('shed'), array('day', 'month', 'year', 'iid'), array($day, $month, $year, $row['id']));
                 $select_row = $select_result->fetch_assoc();
-                $shed_id = $row['name'] . '-shed';
+                $shed_id = $row['id'] . '-shed';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="hidden" value="0" name="' . $shed_id . '">';
@@ -83,9 +83,9 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
         { 
-                $select_result = SQL_SELECT($conn, 'calendar', array('weight'), array('day', 'month', 'year', 'name'), array($day, $month, $year, $row['name']));
+                $select_result = SQL_SELECT($conn, 'calendar', array('weight'), array('day', 'month', 'year', 'iid'), array($day, $month, $year, $row['id']));
                 $select_row = $select_result->fetch_assoc();
-                $weight_id = $row['name'] . '-weight';
+                $weight_id = $row['id'] . '-weight';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="text" class="small-check-text" id="' . $weight_id . '" name="' . $weight_id . '" value="' . $select_row['weight'] . '">';
@@ -99,9 +99,9 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
         {
-                $select_result = SQL_SELECT($conn, 'calendar', array('length'), array('day', 'month', 'year', 'name'), array($day, $month, $year, $row['name']));
+                $select_result = SQL_SELECT($conn, 'calendar', array('length'), array('day', 'month', 'year', 'iid'), array($day, $month, $year, $row['id']));
                 $select_row = $select_result->fetch_assoc();
-                $length_id = $row['name'] . '-length';
+                $length_id = $row['id'] . '-length';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="text" class="small-check-text" id="' . $length_id . '" name="' . $length_id . '" value="' . $select_row['length'] . '">';
@@ -115,9 +115,9 @@ $enter_string = 'checklist_enter.php?' . 'day=' . $day . '&month=' . $month . '&
         $result = $conn->query($select_sql);
         while($row = $result->fetch_assoc())
         {
-                $select_result = SQL_SELECT($conn, 'calendar', array('notes'), array('day', 'month', 'year', 'name'), array($day, $month, $year, $row['name']));
+                $select_result = SQL_SELECT($conn, 'calendar', array('notes'), array('day', 'month', 'year', 'iid'), array($day, $month, $year, $row['id']));
                 $select_row = $select_result->fetch_assoc();
-                $notes_id = $row['name'] . '-notes';
+                $notes_id = $row['id'] . '-notes';
                 echo '<div class="checklist-row">';
                 echo '<div class="name">' . $row['name'] . '</div>';
                 echo '<input type="text" class="notes-text" id="' . $notes_id . '" name="' . $notes_id . '" value="' . $select_row['notes'] . '">';

@@ -362,18 +362,23 @@
                 return $col_array;
         }
 
-        function Nav_Bar($location, $manage = false)
+        function Nav_Bar($location, $admin = false)
         {
+                if(isset($_COOKIE['admin']))
+                {
+                        $admin = true;
+                }
+
                 echo '<div class="nav-bar">';
                 echo '<a href="' . $location . '"><img src="' . $location . 'WRReptiles_Logo_White.png" class="logo"></a>';
                 $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/herping.php','My-Collection/');
                 $menu_headers = array('Available','About Us','Contact Us','Herping','My Collection');
 
-                if($manage)
+                if($admin)
                 {
                         $menu_paths[] = 'manage/?pw=0619';
-                        $menu_paths[] = 'manage/herping?pw=0619';
-                        $menu_paths[] = 'manage/news?pw=0619';
+                        $menu_paths[] = 'manage/herping.php?pw=0619';
+                        $menu_paths[] = 'manage/news.php?pw=0619';
 
                         $menu_headers[] = 'Manage';
                         $menu_headers[] = 'HerpingManage';
@@ -419,7 +424,7 @@
                  ***********************************************************************************/
 
                 echo "<div class='col-xs-12 dropdown-selection'>";
-                echo    "<select class='col-xs-2 col-xs-offset-5 dropdown' name='dropdownselect' id='dropdownselect' onchange='javascript:GenerateInfo(dropdownselect.value)'>";
+                echo    '<select class="col-xs-2 col-xs-offset-5 dropdown" name="dropdownselect" id="dropdownselect" onchange="javascript:GenerateInfo(dropdownselect.value,' . '\'' .  $table . '\')">';
                                 while($row = $result->fetch_assoc())
                                 {
                                         echo '<option class="dropdown-option" value="' . $row['id'] . '">' . $row['name'] . '</option>';				

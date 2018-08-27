@@ -1,21 +1,20 @@
 $(document).ready(function(){
 });
 
-function GenerateCalendar(_reptile = '')
+function GenerateCalendar(id = '')
 {
-        var reptile = _reptile.replace(" ","%");
         var month = document.getElementById('month');
         var monthValue = month.options[month.selectedIndex].value;
         var year = document.getElementById('year');
         var yearValue = year.options[year.selectedIndex].value;
         console.log('GenerateCalendar');
-        if(_reptile = '')
+        if(id = '')
         {
                 $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue); 
         }
         else
         {
-                $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue + "&name=" + reptile); 
+                $('#calendar').load('../Calendar/calendar.php?month=' + monthValue + "&year=" + yearValue + "&iid=" + id); 
         }       
 }
 

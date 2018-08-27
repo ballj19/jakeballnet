@@ -1,15 +1,14 @@
 <?php
 
-$name = '';
+$id = '';
 
-if(isset($_GET['name']))
+if(isset($_GET['id']))
 {
-        $_name = $_GET['name'];
-        $name = str_replace("%"," ",$_name);
+        $id = $_GET['id'];
 }
 ?>
 
-<select class="col-xs-1 col-xs-offset-5" name="month" id="month" onchange="javascript:GenerateCalendar('<?php echo $name; ?>')">
+<select class="col-xs-1 col-xs-offset-5" name="month" id="month" onchange="javascript:GenerateCalendar('<?php echo $id; ?>')">
         <?php
                 $month = date('n');
                 for($i = 1;$i <= 12; $i++)
@@ -25,7 +24,7 @@ if(isset($_GET['name']))
                 }
         ?>
 </select>
-<select class="col-xs-1" name="year" id="year" onchange="javascript:GenerateCalendar('<?php echo $name; ?>')">
+<select class="col-xs-1" name="year" id="year" onchange="javascript:GenerateCalendar('<?php echo $id; ?>')">
         <?php
                 $year = date('Y');
                 for($i = 2018; $i <= 2118; $i++)
@@ -43,7 +42,6 @@ if(isset($_GET['name']))
 </select>
 <?php 
 echo '<script>';
-echo 'GenerateCalendar("' . $name . '");';
-echo 'console.log("gc' . $name . '");';
+echo 'GenerateCalendar("' . $id . '");';
 echo '</script>';
 ?>

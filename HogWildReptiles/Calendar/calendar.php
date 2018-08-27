@@ -5,12 +5,11 @@ $conn = Database_Connect('reptiles');
 
 $month = $_GET['month'];
 $year = $_GET['year'];
-$name = '';
+$iid = '';
 
-if(isset($_GET['name']))
+if(isset($_GET['iid']))
 {
-        $_name = $_GET['name'];
-        $name = str_replace("%"," ",$_name);
+        $iid = $_GET['iid'];
 }
 
 $num_of_days = date('t',mktime(0,0,0,$month,1,$year));
@@ -26,19 +25,19 @@ for($weekday = 0; $weekday <= 6; $weekday++)
                 $cleaned = false;
                 $frequent_eater = false;
                 $infrequent_eater = false;
-                if($name == '')
+                if($id == '')
                 {
                         $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year'), array($day, $month, $year));                
                 }
                 else
                 {
-                        $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year','name'), array($day, $month, $year, $name));               
+                        $select_result = SQL_SELECT($conn, 'calendar', array('name', 'fed', 'cleaned'), array('day', 'month', 'year','iid'), array($day, $month, $year, $iid));               
                 }
                 while($row = $select_result->fetch_assoc())
                 {
                         if($row['fed'] != '')
                         {
-                                $eater_result = SQL_SELECT($conn, 'reptiles', array('frequentEater'), array('name'), array($row['name']));
+                                $eater_result = SQL_SELECT($conn, 'reptiles', array('frequentEater'), array('id'), array($row['iid']));
                                 $eater_row = $eater_result->fetch_assoc();
                                 $eater = $eater_row['frequentEater'];
 

@@ -94,7 +94,14 @@ Nav_Bar('../');
                                 while($row = $result->fetch_assoc())
                                 {
                                         echo '<div class="col-xs-6">';
-                                        echo '<iframe class="youtube" src="https://www.youtube.com/embed/' . $row['video'] . '"></iframe>';
+                                        echo    '<iframe   allowfullscreen="allowfullscreen"
+                                                        mozallowfullscreen="mozallowfullscreen" 
+                                                        msallowfullscreen="msallowfullscreen" 
+                                                        oallowfullscreen="oallowfullscreen" 
+                                                        webkitallowfullscreen="webkitallowfullscreen"
+                                                        class="youtube"
+                                                        src="https://www.youtube.com/embed/' . $row['video'] . '">
+                                                </iframe>';
                                         echo '</div>';
                                 }
 

@@ -7,47 +7,49 @@ $year = $_GET['year'];
 
 $conn = Database_Connect('reptiles');
 
-$select_sql = "SELECT name FROM calendar";
+$select_sql = "SELECT name,iid FROM calendar";
 $select_sql .= " WHERE day='" . $day . "' AND month='" . $month . "' AND year='" . $year . "'";
 $result = $conn->query($select_sql);
 $today = array();
 while($row = $result->fetch_assoc())
 {
-        $today[] = $row['name'];
+        $today[] = $row['iid'];
 }
 
-$select_sql = "SELECT name FROM reptiles";
+$select_sql = "SELECT name,id FROM reptiles";
 $result = $conn->query($select_sql);
+$iids = array();
 $names = array();
 while($row = $result->fetch_assoc())
 {
+        $iids[] = $row['id'];
         $names[] = $row['name'];
 }
 
-foreach($names as $name_original)
+for($i = 0; $i < count($iids); $i++)
 {
+        $name = $names[$i];
+        $iid = $iids[$i];
         $parameters = array('fed','ate','cleaned','shed','weight','length','notes');
         $param_size = count($parameters);
 
-        $name = str_replace('.','_',$name_original);
+        $fed = $_POST[$iid . '-fed'];
+        $ate = $_POST[$iid . '-ate'];
+        $shed = $_POST[$iid . '-shed'];
+        $cleaned = $_POST[$iid . '-cleaned'];
+        $weight = $_POST[$iid . '-weight'];
+        $length = $_POST[$iid . '-length'];
+        $notes = $_POST[$iid . '-notes'];
 
-        $fed = $_POST[$name . '-fed'];
-        $ate = $_POST[$name . '-ate'];
-        $shed = $_POST[$name . '-shed'];
-        $cleaned = $_POST[$name . '-cleaned'];
-        $weight = $_POST[$name . '-weight'];
-        $length = $_POST[$name . '-length'];
-        $notes = $_POST[$name . '-notes'];
-
-        if(in_array($name_original,$today))
+        if(in_array($iid,$today))
         {
                 $values = array();
                 for($i = 0; $i < count($parameters) ;$i++)
                 {
-                        $values[$i] = $_POST[$name . '-' . $parameters[$i]];
+                        $values[$i] = $_POST[$iid . '-' . $parameters[$i]];
                 }
-                $conditions = array('name','day','month','year');
-                $conditions_values = array($name_original, $day, $month, $year);
+                $conditions = array('iid','day','month','year');
+                $conditions_values = array($iid, $day, $month, $year);
 
                 SQL_UPDATE($conn, 'calendar',$parameters,$values,$conditions,$conditions_values);
         }
@@ -56,15 +58,15 @@ foreach($names as $name_original)
                 //Only insert if at least one entry has been filled out
                 if($fed != '' || $shed != '0' || $cleaned != '0' || $weight != '' || $length != '' || $notes != '')
                 {
-                        $columns = array('day','month','year','name');
+                        $columns = array('day','month','year','iid','name');
                         for($i = 0; $i < count($parameters) ;$i++)
                         {
                                 $columns[] = $parameters[$i];
                         }
-                        $values = array($day, $month, $year, $name_original);
+                        $values = array($day, $month, $year, $iid, $name);
                         for($i = 0; $i < count($parameters) ;$i++)
                         {
-                                $values[] = $_POST[$name . '-' . $parameters[$i]];
+                                $values[] = $_POST[$iid . '-' . $parameters[$i]];
                         }
                         SQL_INSERT($conn, 'calendar',$columns,$values);
                 }
