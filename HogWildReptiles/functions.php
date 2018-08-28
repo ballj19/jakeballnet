@@ -53,8 +53,7 @@
                         return array(
                                 'name',
                                 'date',
-                                'active',
-                                'front',
+                                'shortDesc',
                         );    
                 }
                 else
@@ -369,7 +368,7 @@
                         $admin = true;
                 }
 
-                echo '<div class="nav-bar">';
+                echo '<div class="nav-bar row">';
                 echo '<a href="' . $location . '"><img src="' . $location . 'WRReptiles_Logo_White.png" class="logo"></a>';
                 $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/herping.php','My-Collection/');
                 $menu_headers = array('Available','About Us','Contact Us','Herping','My Collection');
