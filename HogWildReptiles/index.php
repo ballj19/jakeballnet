@@ -5,6 +5,9 @@ $parameters = Get_Parameters();
 ?>
 <html>
 <head>
+  <title>Winding Road Reptiles</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Sacramento local reptile breeding business. Snake and gecko breeding for sale throughout the United States.">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
@@ -17,11 +20,38 @@ $parameters = Get_Parameters();
         <?php
                 Nav_Bar('./');
         ?>
-        <div class="banner-container">
+        <div class="banner-container row">
                 <img src="banner-pic.jpg" alt="Solaire" class="banner-pic">
                 <img src="WRReptiles_Logo_White.png" class="big-logo">
                 <div class="banner-text">Winding Road Reptiles</div>
                 <div id="explore-btn" class="btn">Explore</div>
+        </div>
+        <div id="news-container" class="row">
+        <div id="news-section">
+        <?php
+                $conn = Database_Connect('reptiles');
+                $result = SQL_SELECT($conn, 'news', array('*'));
+                while($row = $result->fetch_assoc())
+                {
+                        $imagesrc = "Data/news/{$row['name']}/Images/md/{$row['coverPhoto']}";
+                        echo "<div class='news-item'>";
+                        echo "<div class='news-info'>";
+                        echo "<div class='news-img'>";
+                        echo "<img src='$imagesrc'>";
+                        echo "</div>";
+                        echo "<div class='news-title'>{$row['name']}</div>";
+                        echo "<div class='news-date'>{$row['date']}</div>";
+                        echo "<div class='news-desc'>{$row['shortDesc']}</div>";
+                        echo "</div>";
+                        echo "<div class='read-more'>";
+                        echo "<div class='read-more-text'>Read More</div>";
+                        echo "<img class='read-more-arrow' src='svg/si-glyph-arrow-thick-right.svg'/>";
+                        echo "</div>";
+                        echo "</div>";
+
+                }
+        ?>
+        </div>
         </div>
         <div id="explore-container" class="row">
         <?php
@@ -32,11 +62,11 @@ $parameters = Get_Parameters();
                 while($row = $result->fetch_assoc())
                 {
                         $name = $row['name'];
-                        echo '<div class="reptile col-md-10 col-md-offset-1">';
+                        echo '<div class="reptile">';
 
                         echo '<div id="carousel-' . $name . '" class="carousel slide col-md-4" data-ride="carousel" data-interval="false">';
                         echo '<ol class="carousel-indicators">';
-                        $images = scandir('Data/' . $name . '/Images/md/');
+                        $images = scandir('Data/reptiles/' . $name . '/Images/md/');
                         for($j = 2; $j < sizeof($images); $j++)
                         {
                                 if($images[$j] == $row['coverPhoto'])
@@ -53,7 +83,7 @@ $parameters = Get_Parameters();
                         echo '<div class="carousel-inner">';
                         for($j = 2; $j < sizeof($images); $j++)
                         {
-                                $image =  'Data/' . $name . '/Images/md/' . $images[$j]; 
+                                $image =  'Data/reptiles/' . $name . '/Images/md/' . $images[$j]; 
                                 if($images[$j] == $row['coverPhoto'])
                                 {
                                         echo '<div class="item active">';

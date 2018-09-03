@@ -44,9 +44,9 @@ for($i = 0; $i < count($iids); $i++)
         if(in_array($iid,$today))
         {
                 $values = array();
-                for($i = 0; $i < count($parameters) ;$i++)
+                for($j = 0; $j < count($parameters) ;$j++)
                 {
-                        $values[$i] = $_POST[$iid . '-' . $parameters[$i]];
+                        $values[$j] = $_POST[$iid . '-' . $parameters[$j]];
                 }
                 $conditions = array('iid','day','month','year');
                 $conditions_values = array($iid, $day, $month, $year);
@@ -59,14 +59,14 @@ for($i = 0; $i < count($iids); $i++)
                 if($fed != '' || $shed != '0' || $cleaned != '0' || $weight != '' || $length != '' || $notes != '')
                 {
                         $columns = array('day','month','year','iid','name');
-                        for($i = 0; $i < count($parameters) ;$i++)
+                        for($j = 0; $j < count($parameters) ;$j++)
                         {
-                                $columns[] = $parameters[$i];
+                                $columns[] = $parameters[$j];
                         }
                         $values = array($day, $month, $year, $iid, $name);
-                        for($i = 0; $i < count($parameters) ;$i++)
+                        for($j = 0; $j < count($parameters) ;$j++)
                         {
-                                $values[] = $_POST[$iid . '-' . $parameters[$i]];
+                                $values[] = $_POST[$iid . '-' . $parameters[$j]];
                         }
                         SQL_INSERT($conn, 'calendar',$columns,$values);
                 }

@@ -17,7 +17,7 @@ $conn = Database_Connect('reptiles');
 $result = SQL_SELECT($conn, $table, array('name'), array('id'), array($id));
 $row = $result->fetch_assoc();
 $name = $row['name'];
-$parameters = Get_Parameters();
+$parameters = Get_Parameters($table);
 $parameters[] = 'bio';
 if($table == 'reptiles')
 {
