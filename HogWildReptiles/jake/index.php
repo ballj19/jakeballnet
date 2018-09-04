@@ -21,7 +21,7 @@ Nav_Bar('./');
                         A powerful elevator custom software tool.  View, compare, and edit custom software configurations with this simple, easy-to-use interface.
                 </div>
                 <div class="btn-wrapper col-xs-12">
-                        <div class="btn section-btn">Learn More</div>
+                        <a href="modhub"><div class="btn section-btn">Learn More</div></a>
                 </div>
                 <div class="col-xs-12 section-pic">
                         <img src="modhub/ModHub.png" class="section-pic"/>

@@ -20,10 +20,8 @@ Nav_Bar('../');
                 <div class="section-subtitle col-xs-4 col-xs-offset-4">
                         A powerful elevator custom software tool.  View, compare, and edit custom software configurations with this simple, easy-to-use interface.
                 </div>
-                <div class="btn-wrapper col-xs-12">
-                        <div class="btn section-btn">Learn More</div>
-                </div>
                 <div id="compare-gif" class="col-xs-12 section-pic">
+                        <img src="compare.gif<?php echo '?=' . rand();?>" class="section-pic"/>
                 </div>
         </div>
 </body>

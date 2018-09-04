@@ -23,7 +23,7 @@ function Nav_Bar($location, $admin = false)
                     <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdwn-content" id="NavDropdown">
-                    <a href="#">ModHub</a>
+                    <a href="modhub">ModHub</a>
                     <a href="http://www.windingroadreptiles.com">Winding Road Reptiles</a>
                     <a href="#">Magic Mirror</a>
                     </div>
