@@ -235,7 +235,9 @@
         function Collection_Column($col_array, $row, $column, $table)
         {
                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-                echo '<div class="collection-column">';
+                $width = Get_Column_Width($col_array, $row, $column, $table);
+                echo "<div class='collection-column' style='max-width: {$width}%; flex: {$width}%;'>";
+                //echo "<div class='collection-column'>";
                 for($i = 0; $i < count($row); $i++)
                 {
                         if($col_array[$i] == $column)
@@ -265,7 +267,8 @@
         function Banner_Column($name, $col_array, $row, $column, $table)
         {
                 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-                echo '<div class="collection-column">';
+                $width = Get_Column_Width($col_array, $row, $column, $table, $name);
+                echo "<div class='collection-column' style='max-width: {$width}%; flex: {$width}%;'>";
                 for($i = 0; $i < count($row); $i++)
                 {
                         if($col_array[$i] == $column)
@@ -287,13 +290,20 @@
                 $col_1 = 0;
                 $col_2 = 0;
                 $col_3 = 0;
-                $col_4 = 0;
+                if(count($row) < 8)
+                {
+                        $col_4 = 100000;
+                }
+                else
+                {
+                        $col_4 = 0;
+                }
 
                 $col_array = array();
 
                 foreach($row as $reptile)
                 {
-                        $image = "$root/Data/$table/" . $reptile['name'] . '/Images/' .$reptile['coverPhoto'];
+                        $image = "$root/Data/$table/" . $reptile['name'] . '/Images/md/' .$reptile['coverPhoto'];
                         list($width, $height) = getimagesize($image);
 
                         if($col_1 == min($col_1, $col_2, $col_3, $col_4))
@@ -327,13 +337,20 @@
                 $col_1 = 0;
                 $col_2 = 0;
                 $col_3 = 0;
-                $col_4 = 0;
+                if(count($row) < 8)
+                {
+                        $col_4 = 100000;
+                }
+                else
+                {
+                        $col_4 = 0;
+                }
 
                 $col_array = array();
 
                 foreach($row as $pic)
                 {
-                        $image = "$root/Data/$table/$name/Images/" . $pic;
+                        $image = "$root/Data/$table/$name/Images/md/" . $pic;
                         list($width, $height) = getimagesize($image);
 
                         if($col_1 == min($col_1, $col_2, $col_3, $col_4))
@@ -359,6 +376,133 @@
                 }
 
                 return $col_array;
+        }
+
+        function Get_Column_Width($col_array, $row, $column, $table, $indiv_name = '')
+        {
+                $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+
+                $col_1 = 0;
+                $col_2 = 0;
+                $col_3 = 0;
+                $col_4 = 0;
+
+                $aspect_ratio_1 = 0;
+                $aspect_ratio_2 = 0;
+                $aspect_ratio_3 = 0;
+                $aspect_ratio_4 = 0;
+
+                $this_column_height = 0;
+                $this_aspect_ratio_sum = 0;
+
+
+                for($i = 0; $i < count($row); $i++)
+                {
+                        if($indiv_name == '')
+                        {
+                                $name = $row[$i]['name'];
+                                $image = "$root/Data/$table/$name/Images/md/" . $row[$i]['coverPhoto'];
+                        }
+                        else
+                        {
+                                $name = $indiv_name;
+                                $image = "$root/Data/$table/$name/Images/md/" . $row[$i];
+                        }
+                        list($width, $height) = getimagesize($image);
+                        $aspect_ratio = $height / $width;
+
+
+                        if($col_array[$i] == $column)
+                        {
+                                $this_column_height += $height;
+                                $this_aspect_ratio_sum += $aspect_ratio;
+                        }
+
+                        if($col_array[$i] == 0)
+                        {
+                                $col_1 += $height;
+                                $aspect_ratio_1 += $aspect_ratio;
+                        }
+                        if($col_array[$i] == 1)
+                        {
+                                $col_2 += $height;
+                                $aspect_ratio_2 += $aspect_ratio;
+                        }
+                        if($col_array[$i] == 2)
+                        {
+                                $col_3 += $height;
+                                $aspect_ratio_3 += $aspect_ratio;
+                        }
+                        if($col_array[$i] == 3)
+                        {
+                                $col_4 += $height;
+                                $aspect_ratio_4 += $aspect_ratio;
+                        }
+                }
+                
+                if(count($row) < 8)
+                {
+                        $average = ($col_1 + $col_2 + $col_3) / 3;
+                }
+                else
+                {
+                        $average = ($col_1 + $col_2 + $col_3 + $col_4) / 4;
+                }
+                if($aspect_ratio_1 != 0)
+                {
+                        $width1 = $average / $aspect_ratio_1;
+                }
+                else
+                {
+                        $width1 = 0;
+                }
+                if($aspect_ratio_2 != 0)
+                {
+                        $width2 = $average / $aspect_ratio_2;
+                }
+                else 
+                {
+                        $width2 = 0;
+                        
+                }
+                if($aspect_ratio_3 != 0)
+                {
+                        $width3 = $average / $aspect_ratio_3;
+                }
+                else
+                {
+                        $width3 = 0;
+                        
+                }
+                if($aspect_ratio_4 != 0)
+                {
+                        $width4 = $average / $aspect_ratio_4;
+                }
+                else 
+                {
+                        $width4 = 0;
+                }
+
+                if($this_aspect_ratio_sum != 0)
+                {
+                        $width = $average / $this_aspect_ratio_sum;
+
+                        if(count($row) < 8)
+                        {
+                                $percent_width = $width / ($width1 + $width2 + $width3) * 100;
+                        }
+                        else
+                        {
+                                $percent_width = $width / ($width1 + $width2 + $width3 + $width4) * 100;
+                        }
+                }
+                else
+                {
+                        $percent_width = 25;
+                }
+
+
+                return round($percent_width, 2) - 0.01;
         }
 
         function Nav_Bar($location, $admin = false)
@@ -516,12 +660,16 @@
                 {
                         $row[] = $rows;
                 }
+                shuffle($row);
                 $col_array = Arrange_Collage($row, $table);
                 echo '<div class="collection-row">';
                 Collection_Column($col_array, $row, 0, $table);
                 Collection_Column($col_array, $row, 1, $table);
                 Collection_Column($col_array, $row, 2, $table);
-                Collection_Column($col_array, $row, 3, $table);
+                if(count($row) >= 8)
+                {
+                        Collection_Column($col_array, $row, 3, $table);
+                }
                 echo '</div>';
 
         }

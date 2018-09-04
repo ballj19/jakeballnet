@@ -24,7 +24,7 @@ function Nav_Bar($location, $admin = false)
                     </button>
                     <div class="dropdwn-content" id="NavDropdown">
                     <a href="#">ModHub</a>
-                    <a href="#">Winding Road Reptiles</a>
+                    <a href="http://www.windingroadreptiles.com">Winding Road Reptiles</a>
                     <a href="#">Magic Mirror</a>
                     </div>
                 </div>';

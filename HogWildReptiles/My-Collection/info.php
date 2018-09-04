@@ -61,13 +61,16 @@ Nav_Bar('../');
                                 $dir = "../Data/$table/$name/Images";
 
                                 $files = array_values(array_diff(scandir($dir), array('.', '..','md')));
-
+                                shuffle($files);
                                 $col_array = Arrange_Banner_Pics($name, $files, $table);
                                 echo '<div class="collection-row">';
                                 Banner_Column($name, $col_array, $files, 0, $table);
                                 Banner_Column($name, $col_array, $files, 1, $table);
                                 Banner_Column($name, $col_array, $files, 2, $table);
-                                Banner_Column($name, $col_array, $files, 3, $table);
+                                if(count($files) >= 8)
+                                {
+                                        Banner_Column($name, $col_array, $files, 3, $table);
+                                }
                                 echo '</div>';
                                 echo "<div id='modal' class='modal'>
 

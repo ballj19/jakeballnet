@@ -1,0 +1,1 @@
+<img src="compare.gif<?php echo '?=' . rand();?>" class="section-pic"/>

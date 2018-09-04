@@ -1,3 +1,8 @@
+$(document).ready(function () {
+  //setInterval("RefreshGif();", 6.75 * 1000);
+  RefreshGif();
+});
+
 function ToggleDropdown()
 {
     document.getElementById("NavDropdown").classList.toggle("show-dropdown");
@@ -12,3 +17,9 @@ window.onclick = function(e) {
         }
     }
   }
+
+function RefreshGif()
+{
+  $('#compare-gif').load('compare.php');
+}
+

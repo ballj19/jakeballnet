@@ -2,13 +2,12 @@
 .nav-bar {
     overflow: hidden;
     background-color: #333;
-    font-family: 'Kosugi Maru', sans-serif;
     font-size: 20px;
 }
 
 .nav-bar a {
     float: right;
-    color: #009900;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -23,7 +22,7 @@
     cursor: pointer;   
     border: none;
     outline: none;
-    color: #009900;
+    color: white;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
@@ -31,7 +30,7 @@
 }
 
 .nav-bar a:hover, .dropdwn:hover .dropbtn, .dropbtn:focus {
-    background-color: #009900;
+    background-color: white;
     color: #333;
 }
 
