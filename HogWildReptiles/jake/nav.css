@@ -9,8 +9,26 @@
     float: right;
     color: white;
     text-align: center;
+    padding: 21x 16px;
+    text-decoration: none;
+}
+
+.home-btn a {
+    float: right;
+    color: white;
+    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+.menuitem {
+    padding: 21px 16px;
+    height: 70px;
+}
+
+.home-btn {
+    float: left;
+    font-size: 30px;
 }
 
 .dropdwn {
@@ -23,10 +41,11 @@
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 20px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
+    height: 70px;
 }
 
 .nav-bar a:hover, .dropdwn:hover .dropbtn, .dropbtn:focus {

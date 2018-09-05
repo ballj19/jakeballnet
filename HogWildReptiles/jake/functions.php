@@ -1,8 +1,12 @@
 <?php
 function Nav_Bar($location, $admin = false)
 {
+
         echo '<div class="nav-bar">';
-        //echo '<a href="' . $location . '"><img src="' . $location . 'WRReptiles_Logo_White.png" class="logo"></a>';
+
+        echo '<div class="home-btn">';
+        echo '<a href="' . $location . '"><i class="fa fa-home"></i></a>';
+        echo '</div>';
         $menu_paths = array('About-Me/');
         $menu_headers = array('About Me');
         
