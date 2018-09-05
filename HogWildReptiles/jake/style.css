@@ -16,6 +16,23 @@ html {
         margin-bottom: 20px;
 }
 
+#visit-btn {
+        color: white;
+        background-color: transparent;
+        border-color: #ccc;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        height: 50px;
+        width: 150px;
+        font-size: 20px;
+}
+
+.banner-pic {
+        width: 100%;     
+}
+
 .section-title {
         margin-top: 50px;
         font-size: 28px;
