@@ -17,8 +17,9 @@ Nav_Bar('./');
 ?>
         <div class="col-xs-12 section">
                 <div class="section-title col-xs-12">ModHub</div>
-                <div class="section-subtitle col-xs-4 col-xs-offset-4">
-                        A powerful elevator custom software tool.  View, compare, and edit custom software configurations with this simple, easy-to-use interface.
+                <div class="section-subtitle col-xs-6 col-xs-offset-3 col-xxl-4 col-xxl-offset-4">
+                        A powerful elevator custom software tool. ModHub does the hard work for you.  It will read in an assembly
+                        configuration file, and translate it into a human-readable experience. View, compare, and edit custom software configurations with this simple, easy-to-use interface.
                 </div>
                 <div class="btn-wrapper col-xs-12">
                         <a href="modhub"><div class="btn section-btn">Learn More</div></a>

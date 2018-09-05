@@ -1,0 +1,19 @@
+@media (min-width: 1550px)
+{
+        #view-section .section-title, #compare-section .section-title {
+                text-align: left;
+                margin-top: 305px;
+        }
+
+        #view-section .section-subtitle, #compare-section .section-subtitle {
+                text-align: left;
+        }
+
+        #compare-section .section-text {
+                float: right;
+        }
+
+        .section {
+                margin-bottom: 100px;
+        }
+}
