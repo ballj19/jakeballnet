@@ -18,19 +18,19 @@ html {
 
 #visit-btn {
         color: white;
-        background-color: transparent;
+        background-color: #716082;
         border-color: #ccc;
         position: absolute;
-        top: 75%;
+        top: 77%;
         left: 50%;
-        transform: translate(-50%, -25%);
+        transform: translate(-50%, -23%);
         height: 50px;
         width: 150px;
         font-size: 20px;
 }
 
 .banner-pic {
-        width: 100%;     
+        width: 100%;  
 }
 
 .section-title {

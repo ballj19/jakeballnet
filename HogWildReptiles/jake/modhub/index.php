@@ -49,5 +49,16 @@ Nav_Bar('../');
                         <img src="compare.gif" class="section-pic"/>
                 </div>
         </div>
+        <div id="edit-section" class="col-xs-12 section">
+                <div class="col-xs-12 col-xxl-4 section-text">
+                        <div class="section-title col-xs-10 col-xs-offset-1">Edit</div>
+                        <div class="section-subtitle col-xxl-10 col-xxl-offset-1 col-xs-6 col-xs-offset-3">
+                                Upgrade file version, search, enable, and disable options, and manage features such as security and fire codes.
+                        </div>
+                </div>
+                <div id="edit-gif" class="section-pic">
+                        <img src="edit.gif" class="section-pic"/>
+                </div>
+        </div>
 </body>
 </html>

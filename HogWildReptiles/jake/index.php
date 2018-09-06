@@ -28,8 +28,8 @@ Nav_Bar('./');
                         <img src="modhub/ModHub.png" class="section-pic"/>
                 </div>
         </div>
-        <div class="section">
-                <img src="wrr.png" alt="WindingRoadReptiles" class="banner-pic">
+        <div class="col-xs-12 section">
+                <img id="wwr-pic" src="wrr.png" alt="WindingRoadReptiles" class="banner-pic">
                 <a href="http://www.windingroadreptiles.com"><div id="visit-btn" class="btn">Visit</div></a>
         </div>
 </body>

@@ -1,11 +1,11 @@
 @media (min-width: 1550px)
 {
-        #view-section .section-title, #compare-section .section-title {
+        #view-section .section-title, #compare-section .section-title, #edit-section .section-title {
                 text-align: left;
                 margin-top: 305px;
         }
 
-        #view-section .section-subtitle, #compare-section .section-subtitle {
+        #view-section .section-subtitle, #compare-section .section-subtitle, #edit-section .section-subtitle {
                 text-align: left;
         }
 
