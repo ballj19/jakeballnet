@@ -72,7 +72,7 @@ function RotatePic(file, table, degrees)
 
 }
 
-function UploadVideo(video)
+function UploadVideo(video, table)
 {
         $.ajax({
                 url: 'php/upload_vid.php?video=' + video + '&id=' + dropdownselect.value + '&table=' + table,
@@ -86,7 +86,7 @@ function UploadVideo(video)
             });
 }
 
-function DeleteVideo(video)
+function DeleteVideo(video, table)
 {
         $.ajax({
                 url: 'php/delete_vid.php?video=' + video + '&id=' + dropdownselect.value + '&table=' + table,

@@ -41,7 +41,7 @@ Nav_Bar('../');
             else if($table == 'herping')
             {
                 echo '<div class="info-subtitle col-xs-8 col-xs-offset-2">';
-                echo 'the ' . $row['date'];
+                echo $row['date'];
                 echo '</div>';  
             }
             ?>
