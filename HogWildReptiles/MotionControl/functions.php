@@ -28,7 +28,6 @@ function Database_Connect($database)
 
 function Nav_Bar($location, $admin = false)
 {
-
         echo '<div class="nav-bar">';
 
         echo '<div class="home-btn">';

@@ -1,0 +1,18 @@
+.section-title {
+        margin-top: 0;
+}
+
+.section-subtitle {
+        margin-bottom: 0;
+}
+
+@media (min-width: 1550px)
+{
+        .section-title {
+                text-align: left;
+        }
+
+        .section-subtitle {
+                text-align: left;
+        }
+}

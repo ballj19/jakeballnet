@@ -1,0 +1,25 @@
+.LCD {
+        text-align: left;
+        height: 50px;
+        width: 400px;
+        margin: auto;
+        background-color: yellow;
+}
+
+.canbtn {
+        height: 30px;
+        width: 30px;
+        font-size: 20px;
+}
+
+.button-wrapper {
+        float: left;
+}
+
+.switch-wrapper {
+        float: left;
+}
+
+.user-wrapper {
+        margin: auto;
+}

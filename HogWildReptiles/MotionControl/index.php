@@ -4,16 +4,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="nav.css">
         <script src="buttons.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="style.css" rel="stylesheet">
 </head>
 <body>
-        <button onmousedown="ButtonPress('N')" onmouseup="ButtonRelease('N')">N</button>
-        <button onmousedown="ButtonPress('S')" onmouseup="ButtonRelease('S')">S</button>
-        <button onmousedown="ButtonPress('+')" onmouseup="ButtonRelease('+')">+</button>
-        <button onmousedown="ButtonPress('-')" onmouseup="ButtonRelease('-')">-</button>
+        <div class="LCD" id="LCD"></div>
+        <div class="user-wrapper">
+                <div class="button-wrapper">
+                        <button class="canbtn" id="N" onmousedown="ButtonPress('N')" onmouseup="ButtonRelease('N')">N</button>
+                        <button class="canbtn" id="S" onmousedown="ButtonPress('S')" onmouseup="ButtonRelease('S')">S</button>
+                </div>
+                <div class="switch-wrapper">
+                        <input type="checkbox" name="F1">
+                        <input type="checkbox" name="F2">
+                        <input type="checkbox" name="F3">
+                        <input type="checkbox" name="F4">
+                        <input type="checkbox" name="F5">
+                        <input type="checkbox" name="F6">
+                        <input type="checkbox" name="F7">
+                        <input type="checkbox" name="F8">
+                </div>
+                <div class="button-wrapper">
+                        <button class="canbtn" id="Plus" onmousedown="ButtonPress('+')" onmouseup="ButtonRelease('+')">+</button>
+                        <button class="canbtn" id="Minus" onmousedown="ButtonPress('-')" onmouseup="ButtonRelease('-')">-</button>
+                </div>
+        </div>
+        <div class="outputs-wrapper" id="outputs-wrapper"></div>
 </body>
 </html>
