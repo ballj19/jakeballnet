@@ -514,8 +514,10 @@
 
                 echo '<div class="nav-bar row">';
                 echo '<a href="' . $location . '"><img src="' . $location . 'WRReptiles_Logo_White.png" class="logo"></a>';
-                $menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/herping.php','My-Collection/');
-                $menu_headers = array('Available','About Us','Contact Us','Herping','My Collection');
+                //$menu_paths = array('Available/','About-Us/','Contact-Us/','My-Collection/herping.php','My-Collection/');
+                //$menu_headers = array('Available','About Us','Contact Us','Herping','My Collection');
+                $menu_paths = array('My-Collection/herping.php','My-Collection/');
+                $menu_headers = array('Herping','My Collection');
 
                 if($admin)
                 {
