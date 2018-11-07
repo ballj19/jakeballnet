@@ -1,7 +1,7 @@
 
 
 setInterval(refreshLCD,200);
-setInterval(refreshOutputs,200);
+//setInterval(refreshOutputs,200);
 
 $(document).ready(function () {
   $('#N').on('touchstart', function(){
@@ -18,7 +18,7 @@ $(document).ready(function () {
   });
 
   refreshLCD();
-  refreshOutputs();
+  //refreshOutputs();
 });
 
 function ButtonPress(button)

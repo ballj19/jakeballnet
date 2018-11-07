@@ -67,13 +67,13 @@ Nav_Bar('../');
                 </div>
         </div>
         <div id="boating-section" class="col-xs-12 section">
-                <div id="boating-text" class="col-xs-5 col-xxl-4 section-text">
-                        <div class="section-title col-xs-10 col-xs-offset-1">Boating</div>
-                        <div class="section-subtitle col-xs-12 col-xxl-10 col-xxl-offset-1">
+                <div id="boating-text" class="col-xs-6 col-xxl-7 section-text">
+                        <div class="section-title col-xs-10 col-xs-offset-1 col-xxl-6 col-xxl-offset-3">Boating</div>
+                        <div class="section-subtitle col-xs-10 col-xs-offset-1 col-xxl-6 col-xxl-offset-3">
                                 Boating is my family's longest standing activity. We spend most summer weekends on Folsom lake enjoying wakeboarding and tubing with family and friends.
                         </div>
                 </div>
-                <div id="boating-pic" class="section-pic col-xs-7 col-xxl-8">
+                <div id="boating-pic" class="section-pic col-xs-6 col-xxl-5">
                         <img src="boating.jpg" class="section-pic"/>
                 </div>
         </div>
