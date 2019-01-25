@@ -120,3 +120,71 @@ body {
     margin-top: 20px;
     margin-bottom: 50px;
 }
+
+.individual-table{
+    color: white;
+    border: 1px solid white;
+    margin-bottom: 50px;
+}
+
+.date-cell {
+    width: 100px;
+    height: 30px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.value-cell {
+    height: 30px;
+    border: 1px solid white;
+}
+
+.date-header{
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.value-header {
+    height: 50px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.Weight-table .value-header{
+    width: 100px;
+}
+
+.Weight-table .value-cell{
+    width: 100px;
+    text-align: center;
+}
+
+.Length-table .value-header{
+    width: 100px;
+}
+
+.Length-table .value-cell{
+    width: 100px;
+    text-align: center;
+}
+
+.Shed-table .value-header{
+    width: 100px;
+}
+
+.Shed-table .value-cell{
+    width: 100px;
+    text-align: center;
+}
+
+.Notes-table .value-header
+{
+    width: 100px;
+}
+
+.Notes-table .value-cell {
+    padding-left: 20px;
+    padding-right: 20px;
+}

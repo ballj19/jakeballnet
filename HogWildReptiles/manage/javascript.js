@@ -19,6 +19,7 @@ function GenerateInfo(id, table)
         IndividualCalendar(id, table);
         IndividualPics(id, table);
         IndividualVids(id, table);
+        IndividualTables(id);
 }
 
 function IndividualPics(id, table)
@@ -30,6 +31,11 @@ function IndividualPics(id, table)
 function IndividualVids(id, table)
 {
         $('#individual-vids').load('php/individual-vids.php?id=' + id + '&table=' + table);
+}
+
+function IndividualTables(id)
+{
+        $('#individual-tables').load('php/individual-tables.php?id=' + id);
 }
 
 function DeletePicture(file, table)

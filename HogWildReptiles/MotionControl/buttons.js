@@ -1,6 +1,6 @@
 
 
-setInterval(refreshLCD,200);
+//setInterval(refreshLCD,200);
 //setInterval(refreshOutputs,200);
 
 $(document).ready(function () {
@@ -18,7 +18,7 @@ $(document).ready(function () {
   });
 
   refreshLCD();
-  //refreshOutputs();
+  refreshOutputs();
 });
 
 function ButtonPress(button)
@@ -41,10 +41,10 @@ function ButtonRelease(button)
 
 function refreshLCD()
 {
-  $('#LCD').load('RefreshLCD.php');
+  $('#LCD').load('RefreshLCD.php', setTimeout(refreshLCD,200));
 }
 
 function refreshOutputs()
 {
-  $('#outputs-wrapper').load('RefreshOutputs.php');
+  $('#outputs-wrapper').load('RefreshOutputs.php', setTimeout(refreshOutputs, 200));
 }

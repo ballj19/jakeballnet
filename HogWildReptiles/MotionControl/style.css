@@ -1,15 +1,53 @@
 .LCD {
-        text-align: left;
-        height: 50px;
-        width: 400px;
-        margin: auto;
+        height: 75px;
+        width: 245px;
+        margin: 50px auto 0 auto;
         background-color: yellow;
+        border: 3px solid black;
+        font-size: 25px;
+        font-family: 'VT323', monospace;
+        padding: 0 5px 0 5px;
+        text-align: center;
 }
+
 
 .canbtn {
         height: 30px;
         width: 30px;
         font-size: 20px;
+        border-radius: 25px;
+        border: 2px 0 2px 0 solid black;
+        box-shadow: 2px 2px;
+        background-color: orange;
+        border: none;
+}
+
+.canbtn:active {
+        height: 30px;
+        width: 30px;
+        font-size: 20px;
+        border-radius: 25px;
+        border: 2px 0 2px 0 solid black;
+        box-shadow: 0 0;
+        background-color: orange;
+        border: none;
+        margin-left: 2px;
+        margin-top: 2px;
+}
+
+.canbtnborder {
+        height: 34px;
+        width: 34px;
+        padding: 1px 1px 0 0;
+        background-color: lightgray;
+        float: left;
+        margin-right: 10px;
+        box-shadow: 2px 2px;
+}
+
+.canbtn:focus
+{
+        outline: 0;
 }
 
 .button-wrapper {
@@ -21,5 +59,12 @@
 }
 
 .user-wrapper {
-        margin: auto;
+        margin: 20px auto 0 auto;
+        width: 180px;
+}
+
+
+.outputs-wrapper {
+        margin: 60px auto 0 auto;
+        width: 180px;
 }

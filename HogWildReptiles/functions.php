@@ -552,6 +552,7 @@
                 //modules[1] = calendar
                 //modules[2] = pictures
                 //modules[3] = videos
+                //modules[4] = tables
 
                 $conn = Database_Connect('reptiles');
 
@@ -597,6 +598,10 @@
                 {
                         echo           "<li class='tab-title' id='videos-tab'><a href='#individual-vids' data-toggle='tab'>Videos</a></li>";
                 }
+                if($modules[3])
+                {
+                        echo           "<li class='tab-title' id='tables-tab'><a href='#individual-tables' data-toggle='tab'>Tables</a></li>";
+                }
                 echo    "</ul>";
                 echo    "<div class='tab-content col-xs-12'>";
                 echo        "<div class='tab-pane active' id='info'>";
@@ -627,6 +632,14 @@
                 {
                         echo        "<div class='tab-pane' id='individual-vids'>";
                         echo            "<div class='col-xs-10 col-xs-offset-1' id='individual-vids'>";
+        
+                        echo            "</div>";
+                        echo        "</div>";
+                }
+                if($modules[4])
+                {
+                        echo        "<div class='tab-pane' id='individual-tables'>";
+                        echo            "<div class='col-xs-10 col-xs-offset-1' id='individual-tables'>";
         
                         echo            "</div>";
                         echo        "</div>";
@@ -674,5 +687,24 @@
                 }
                 echo '</div>';
 
+        }
+
+        function Display_Table($table_name, $DateValuePairs)
+        {
+                echo '<table class="individual-table ' . $table_name . '-table">';
+                echo    '<tr>';
+                echo            '<th class="date-header">Date</th>';
+                echo            '<th class="value-header">' . $table_name . '</th>';
+                echo    '</tr>';
+
+                foreach($DateValuePairs as $pair)
+                {
+                        echo '<tr>';
+                        echo    '<td class="date-cell">' . $pair->date . '</td>';
+                        echo    '<td class="value-cell">' . $pair->value . '</td>';
+                        echo '</tr>';
+                }
+
+                echo '</table>';
         }
 ?>

@@ -23,7 +23,7 @@ if((isset($_COOKIE['admin'])&& !isset($_GET['pw'])) || $_GET['pw'] == '0619')
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 include "$root/functions.php";
 Nav_Bar('../', true);
-Manage('reptiles',array(1,1,1,1));
+Manage('reptiles',array(1,1,1,1,1));
 ?>
 </body>
 </html>
