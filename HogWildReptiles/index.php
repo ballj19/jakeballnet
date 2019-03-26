@@ -35,20 +35,21 @@ $parameters = Get_Parameters();
                 {
                         $imagesrc = "Data/news/{$row['name']}/Images/md/{$row['coverPhoto']}";
                         echo "<div class='news-item'>";
-                        echo "<div class='news-info'>";
-                        echo "<div class='news-img'>";
-                        echo "<img src='$imagesrc'>";
+                                echo "<div class='news-info'>";
+                                        echo "<div class='news-img'>";
+                                                echo "<img src='$imagesrc'>";
+                                        echo "</div>";
+                                        echo "<div class='news-title'>{$row['name']}</div>";
+                                        echo "<div class='news-date'>{$row['date']}</div>";
+                                        echo "<div class='news-desc'>{$row['shortDesc']}</div>";
+                                echo "</div>";
+                                echo "<a href='/News/index.php?id=" . $row['id'] . "'>";
+                                        echo "<div class='read-more'>";
+                                                echo "<div class='read-more-text'>Read More</div>";
+                                                echo "<img class='read-more-arrow' src='svg/si-glyph-arrow-thick-right.svg'/>";
+                                        echo "</div>";
+                                echo "</a>";
                         echo "</div>";
-                        echo "<div class='news-title'>{$row['name']}</div>";
-                        echo "<div class='news-date'>{$row['date']}</div>";
-                        echo "<div class='news-desc'>{$row['shortDesc']}</div>";
-                        echo "</div>";
-                        echo "<div class='read-more'>";
-                        echo "<div class='read-more-text'>Read More</div>";
-                        echo "<img class='read-more-arrow' src='svg/si-glyph-arrow-thick-right.svg'/>";
-                        echo "</div>";
-                        echo "</div>";
-
                 }
         ?>
         </div>

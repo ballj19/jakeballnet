@@ -24,7 +24,7 @@ function GenerateInfo(id, table)
 
 function IndividualPics(id, table)
 {
-        console.log("ip" + table);
+        console.log("id" + table);
         $('#individual-pics').load('php/individual-pics.php?id=' + id + '&table=' + table);
 }
 

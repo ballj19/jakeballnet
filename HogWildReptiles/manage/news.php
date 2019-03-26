@@ -15,6 +15,7 @@ if((isset($_COOKIE['admin'])&& !isset($_GET['pw'])) || $_GET['pw'] == '0619')
         <script src="javascript.js"></script>
         <link href="style.css" rel="stylesheet">
         <link href="../nav.css" rel="stylesheet">
+        <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
 </head>
 <body>
 <?php

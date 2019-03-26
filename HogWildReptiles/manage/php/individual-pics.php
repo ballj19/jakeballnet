@@ -47,6 +47,7 @@ for($i = 0; $i < count($files); $i++)
         {
                 echo '<img class="individual-pic img-portrait" src="' . $imagesrc . '?=' .filemtime($image) . '"/>';
         }
+        echo '<div class="col-xs-12 pic-url">' . $imagesrc . '</div>';
         echo '<input class="pic-button col-xs-6" type="button" value="Delete" onclick="DeletePicture(\'' . $files[$i] . '\',\'' . $table . '\');" />';
         echo '<input class="pic-button col-xs-6" type="button" value="Make Cover" onclick="MakeCover(\'' . $files[$i] . '\',\'' . $table . '\');" />';
         echo '<input class="pic-button col-xs-6" type="button" value="Rotate Left" onclick="RotatePic(\'' . $files[$i] . '\',\'' . $table . '\', 90);" />';
