@@ -30,7 +30,7 @@ body {
         text-shadow: 1px 1px #2f0b3a, 2px 2px #2f0b3a, 3px 3px #2f0b3a, 4px 4px #2f0b3a, 5px 5px #2f0b3a, 6px 6px #2f0b3a;
 }
 
-.big-logo {
+#big-logo {
         position: absolute;
         top: 45%;
         left: 50%;
@@ -38,23 +38,53 @@ body {
         width: 20%;
 }
 
-#explore-btn {
-        color: white;
-        background-color: transparent;
-        border-color: #ccc;
+#play-icon {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        width: 20%;
+        z-index: 5;
+        display: none;
+}
+
+.button-block{
         position: absolute;
         top: 75%;
         left: 50%;
         transform: translate(-50%, -25%);
+}
+
+#forsale-btn {
+        color: white;
+        background-color: transparent;
+        border-color: #ccc;
         height: 50px;
         width: 150px;
         font-size: 20px;
 }
 
-#explore-container {
+#tour-btn {
+        color: white;
+        background-color: transparent;
+        border-color: #ccc;
+        height: 50px;
+        width: 150px;
+        font-size: 20px;
+}
+
+#forsale-container {
         background-color: #716082;
         width: 1065px;
         margin: auto;
+}
+
+#tour-container {
+        background-color: #716082;
+        width: 1065px;
+        margin: auto;
+        height: 610px;
+        margin-top: 50px;
 }
 
 .reptile {
@@ -124,7 +154,6 @@ body {
 
 #news-container {
         background-color: #716082;
-        min-height: 390px
 }
 
 #news-section {

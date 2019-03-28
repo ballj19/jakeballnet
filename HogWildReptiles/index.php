@@ -20,11 +20,14 @@ $parameters = Get_Parameters();
         <?php
                 Nav_Bar('./');
         ?>
-        <div class="banner-container row">
+        <div id="banner" class="banner-container row">
                 <img src="banner-pic.jpg" alt="Solaire" class="banner-pic">
-                <img src="WRReptiles_Logo_White.png" class="big-logo">
+                <img src="WRReptiles_Logo_White.png" id="big-logo">
                 <div class="banner-text">Winding Road Reptiles</div>
-                <div id="explore-btn" class="btn">Explore</div>
+                <div class="button-block">
+                        <div id="forsale-btn" class="btn">For Sale</div>
+                        <div id="tour-btn" class="btn">Tour</div>
+                </div>
         </div>
         <div id="news-container" class="row">
         <div id="news-section">
@@ -54,7 +57,7 @@ $parameters = Get_Parameters();
         ?>
         </div>
         </div>
-        <div id="explore-container" class="row">
+        <div id="forsale-container" class="row">
         <?php
                 $select_sql = "SELECT * FROM reptiles WHERE forsale='1'";
                 $result = $conn->query($select_sql);
@@ -141,6 +144,21 @@ $parameters = Get_Parameters();
                         echo '</div>';
                 }
         ?>
+        </div>
+        <div id="tour-container" class="row">
+        <div id="tour-section">
+                <iframe 
+                        width="100%"
+                        height="600px"
+                        allowfullscreen="allowfullscreen"
+                        mozallowfullscreen="mozallowfullscreen" 
+                        msallowfullscreen="msallowfullscreen" 
+                        oallowfullscreen="oallowfullscreen" 
+                        webkitallowfullscreen="webkitallowfullscreen"
+                        class="youtube"
+                        src="https://www.youtube.com/embed/Q2GgqpdOrns">
+                </iframe>
+        </div>
         </div>
 </div>
 </body>
