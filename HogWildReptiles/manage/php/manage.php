@@ -42,9 +42,20 @@ $parameters = Get_Parameters($table);
         </div>
         <a class="col-xs-6" href="<?php echo "php/delete.php?id=" . $id;?>&table=<?php echo $table;?>"><div id="delete-button">Delete</div></a>
 </form>
-    <div class="col-xs-7">
+    <div class="col-xs-12">
         <div class="col-xs-12 parameter"> 
             <div class="col-xs-2 input-label">Bio</div>
             <textarea class="col-xs-10" id="bio" name="bio" form="manage-form"><?php echo $row['bio'];?></textarea>
         </div>
     </div>
+
+
+<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+
+<script> tinymce.init({
+        selector: "textarea",  // change this value according to your HTML
+        plugins: 'fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern help',
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
+        image_advtab: true,
+      });
+      </script>
